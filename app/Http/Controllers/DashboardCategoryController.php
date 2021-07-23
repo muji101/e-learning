@@ -16,8 +16,19 @@ class DashboardCategoryController extends Controller
     {
         return view('pages.dashboard.category.dashboard-category-create');
     }
-    public function store()
-    {
-        return view('pages.dashboard.category.dashboard-category-create');
+    public function store(Request $request)
+    {   
+        Category::create($request->all());
+        return redirect('/dashboard/category');
+    }
+    public function edit($id)
+    {   
+        $category = Category::findOrFail($id);
+        return view('pages.dashboard.category.dashboard-category-create', ['category' => $category]);
+    }
+    public function update(Request $request, $id)
+    {   
+        Category::find($id)->update($request->all());
+        return redirect('/dashboard/category');
     }
 }

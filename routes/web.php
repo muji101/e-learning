@@ -39,13 +39,15 @@ Route::prefix('/dashboard')->middleware(['auth'])->group(function () {
 
     Route::get('/settings', [DashboardSettingController::class, 'store'])->name('profile-setting');
 
-    Route::get('/class', [DashboardClassController::class, 'index'])->name('dashboard-class');
-    Route::get('/class/create', [DashboardClassController::class, 'create'])->name('dashboard-class-create');
-    Route::get('/class/{id}', [DashboardClassController::class, 'detail'])->name('dashboard-class-detail');
+    Route::get('/class', [DashboardClassController::class, 'index'])->name('class');
+    Route::get('/class/create', [DashboardClassController::class, 'create'])->name('class-create');
+    Route::get('/class/{id}', [DashboardClassController::class, 'detail'])->name('class-detail');
 
-    Route::get('/category', [DashboardCategoryController::class, 'index'])->name('dashboard-category');
-    Route::get('/category/create', [DashboardCategoryController::class, 'create'])->name('dashboard-category-create');
-    Route::get('/category/store', [DashboardCategoryController::class, 'store']);
+    Route::get('/category', [DashboardCategoryController::class, 'index'])->name('category');
+    Route::get('/category/create', [DashboardCategoryController::class, 'create'])->name('category-create');
+    Route::post('/category/store', [DashboardCategoryController::class, 'store'])->name('category-store');
+    Route::get('/category/edit/{id}', [DashboardCategoryController::class, 'edit'])->name('category-edit');
+    Route::post('/category/update/{id}', [DashboardCategoryController::class, 'update'])->name('category-update');
 });
 
 

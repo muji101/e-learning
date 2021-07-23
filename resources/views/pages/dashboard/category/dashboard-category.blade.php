@@ -37,11 +37,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            @foreach ($categories as $category)
-                                <td>Code</td>
-                                <td>ini gambar</td>
-                                <td>Belajar tentang Coding</td>
+                        @foreach ($categories as $category)
+                            <tr>
+                                <td>{{ $category->name }}</td>
+                                <td>{{ $category->photo }}</td>
+                                <td>{{ $category->description }}</td>
                                 <td>12</td>
                                 <td>
                                     <div class="dropdown">
@@ -51,13 +51,13 @@
                                             Info
                                         </button>
                                         <div class="dropdown-menu bg-transparent border-0" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item badge bg-primary" href="#">Edit</a>
+                                            <a class="dropdown-item badge bg-primary" href="{{ route('category-edit', $category->id) }}">Edit</a>
                                             <a class="dropdown-item badge bg-danger" href="#">Delete</a>
                                         </div>
                                     </div>
                                 </td>
-                            @endforeach
-                        </tr>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

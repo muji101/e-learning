@@ -29,11 +29,11 @@
                         <ul class="submenu ">
 
                             <li>
-                                <a href="{{ route('dashboard-class') }}">List Class</a>
+                                <a href="{{ route('class') }}">List Class</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('dashboard-class-create') }}">Crate Class</a>
+                                <a href="{{ route('class-create') }}">Crate Class</a>
                             </li>
                         </ul>
                     </li>
@@ -46,11 +46,11 @@
                         <ul class="submenu ">
 
                             <li>
-                                <a href="{{ route('dashboard-category') }}">List Cateogry</a>
+                                <a href="{{ route('category') }}">List Cateogry</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('dashboard-category-create') }}">Create Category</a>
+                                <a href="{{ route('category-create') }}">Create Category</a>
                             </li>
                         </ul>
                     </li>
