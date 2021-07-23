@@ -8,6 +8,6 @@ class DashboardSettingController extends Controller
 {
     public function store()
     {
-        return view('pages.dashboard-setting');
+        return view('pages.dashboard.setting.dashboard-setting');
     }
 }

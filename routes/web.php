@@ -33,18 +33,19 @@ Route::get('/search', [ClassController::class, 'search'])->name('search');
 //     return view('dashboard');
 // })->name('dashboard');
 
-Route::middleware(['auth'])->group(function () {
-    // profile
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('profile');
+Route::prefix('/dashboard')->middleware(['auth'])->group(function () {
+    
+    Route::get('/', [DashboardController::class, 'index'])->name('profile');
 
-    Route::get('/dashboard/settings', [DashboardSettingController::class, 'store'])->name('profile-setting');
+    Route::get('/settings', [DashboardSettingController::class, 'store'])->name('profile-setting');
 
-    Route::get('/dashboard/class', [DashboardClassController::class, 'index'])->name('dashboard-class');
-    Route::get('/dashboard/class/create', [DashboardClassController::class, 'create'])->name('dashboard-class-create');
-    Route::get('/dashboard/class/{id}', [DashboardClassController::class, 'detail'])->name('dashboard-class-detail');
+    Route::get('/class', [DashboardClassController::class, 'index'])->name('dashboard-class');
+    Route::get('/class/create', [DashboardClassController::class, 'create'])->name('dashboard-class-create');
+    Route::get('/class/{id}', [DashboardClassController::class, 'detail'])->name('dashboard-class-detail');
 
-    Route::get('/dashboard/category', [DashboardCategoryController::class, 'index'])->name('dashboard-category');
-    Route::get('/dashboard/category/create', [DashboardCategoryController::class, 'create'])->name('dashboard-category-create');
+    Route::get('/category', [DashboardCategoryController::class, 'index'])->name('dashboard-category');
+    Route::get('/category/create', [DashboardCategoryController::class, 'create'])->name('dashboard-category-create');
+    Route::get('/category/store', [DashboardCategoryController::class, 'store']);
 });
 
 

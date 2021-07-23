@@ -1,3 +1,14 @@
+{{-- @php
+    //isset buat ngecek data kalau ada true kalau tidak false
+    $isEdit = isset($player);
+    
+    $title = $isEdit ? 'Edit Player' : 'Create Player';
+
+    $route = $isEdit ? route('update', $player->id) : '/players/store';
+
+    $button = $isEdit ? 'Update' : 'Create';
+@endphp --}}
+
 @extends('layouts.dashboard')
 
 @section('title', 'Dashboard | Go-Sinau')
