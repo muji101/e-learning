@@ -40,9 +40,9 @@
                         @foreach ($categories as $category)
                             <tr>
                                 <td>{{ $category->name }}</td>
-                                <td>{{ $category->photo }}</td>
+                                <td><img style="width: 60px" src="{{ Storage::url($category->photo) }}" alt=""></td>
                                 <td>{{ $category->description }}</td>
-                                <td>12</td>
+                                <td>{{ $category->course->count() }}</td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle me-1" type="button"
@@ -52,7 +52,11 @@
                                         </button>
                                         <div class="dropdown-menu bg-transparent border-0" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item badge bg-primary" href="{{ route('category-edit', $category->id) }}">Edit</a>
-                                            <a class="dropdown-item badge bg-danger" href="#">Delete</a>
+                                            <form action="{{ route('category-delete', $category->id) }}" method="POST">
+                                                @csrf
+                                                @method('DElETE')
+                                                <button class="dropdown-item badge bg-danger">Delete</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </td>

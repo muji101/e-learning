@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Http\Requests\CategoryRequest;
 
 class DashboardCategoryController extends Controller
 {
@@ -16,9 +17,13 @@ class DashboardCategoryController extends Controller
     {
         return view('pages.dashboard.category.dashboard-category-create');
     }
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {   
-        Category::create($request->all());
+        $data = $request->all();
+
+        $data['photo'] = $request->file('photo')->store('assets/category','public');
+        
+        Category::create($data);
         return redirect('/dashboard/category');
     }
     public function edit($id)
@@ -26,9 +31,20 @@ class DashboardCategoryController extends Controller
         $category = Category::findOrFail($id);
         return view('pages.dashboard.category.dashboard-category-create', ['category' => $category]);
     }
-    public function update(Request $request, $id)
+    public function update(CategoryRequest $request, $id)
     {   
-        Category::find($id)->update($request->all());
+        $data = $request->all();
+
+        $data['photo'] = $request->file('photo')->store('assets/category','public');
+
+        Category::find($id)->update($data);
         return redirect('/dashboard/category');
+    }
+
+    public function destroy($id)
+    {
+        $data = Category::find($id);
+        $data->delete();
+        return back();
     }
 }

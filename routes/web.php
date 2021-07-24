@@ -48,6 +48,7 @@ Route::prefix('/dashboard')->middleware(['auth'])->group(function () {
     Route::post('/category/store', [DashboardCategoryController::class, 'store'])->name('category-store');
     Route::get('/category/edit/{id}', [DashboardCategoryController::class, 'edit'])->name('category-edit');
     Route::post('/category/update/{id}', [DashboardCategoryController::class, 'update'])->name('category-update');
+    Route::delete('/category/delete/{id}', [DashboardCategoryController::class, 'destroy'])->name('category-delete');
 });
 
 
