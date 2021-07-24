@@ -22,7 +22,7 @@
             @endforeach
         </ul>
     </div>
-    @endif
+@endif
 <div class="main-content container-fluid">
     <div class="page-title">
         <div class="row">

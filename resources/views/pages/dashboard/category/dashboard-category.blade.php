@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
                 <h3>Category</h3>
-                <p class="text-subtitle text-muted">Daftar Kategori anda silahkan click detail untuk info selanjutnya!.</p>
+                <p class="text-subtitle text-muted">Daftar Kategori anda silahkan click info untuk info selanjutnya!.</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class='breadcrumb-header'>

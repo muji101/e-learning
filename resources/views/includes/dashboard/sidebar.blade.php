@@ -56,7 +56,7 @@
                     </li>
                 @else
                     <li class="sidebar-item ">
-                        <a href="{{ route('profile') }}" class='sidebar-link'>
+                        <a href="{{ route('myclass') }}" class='sidebar-link'>
                             <i data-feather="book-open" width="20"></i>
                             <span>My Class</span>
                         </a>

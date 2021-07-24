@@ -39,11 +39,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($classes as $class)
                         <tr>
-                            <td>Graiden</td>
-                            <td>ini gambar</td>
-                            <td>10</td>
-                            <td>code</td>
+                            <td>{{ $class->name }}</td>
+                            <td><img src="{{ Storage::url($class->photo) }}" alt="" style="width: 60px"></td>
+                            <td>ini review</td>
+                            <td>{{ $class->category->name }}</td>
                             <td>9</td>
                             <td>21</td>
                             <td>
@@ -54,57 +55,18 @@
                                         Info
                                     </button>
                                     <div class="dropdown-menu bg-transparent border-0" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item badge bg-success" href="#">Detail</a>
-                                        <a class="dropdown-item badge bg-primary" href="#">Edit</a>
-                                        <a class="dropdown-item badge bg-danger" href="#">Delete</a>
+                                        <a class="dropdown-item badge bg-success" href="{{ route('class-detail', $class->id) }}">Detail</a>
+                                        <a class="dropdown-item badge bg-primary" href="{{ route('class-edit', $class->id) }}">Edit</a>
+                                        <form action="{{ route('class-delete', $class->id) }}" method="POST">
+                                            @csrf
+                                            @method('DElETE')
+                                            <button class="dropdown-item badge bg-danger">Delete</button>
+                                        </form>
                                     </div>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>Graiden</td>
-                            <td>ini gambar</td>
-                            <td>10</td>
-                            <td>code</td>
-                            <td>9</td>
-                            <td>21</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle me-1" type="button"
-                                        id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        Info
-                                    </button>
-                                    <div class="dropdown-menu bg-transparent border-0" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item badge bg-success" href="#">Detail</a>
-                                        <a class="dropdown-item badge bg-primary" href="#">Edit</a>
-                                        <a class="dropdown-item badge bg-danger" href="#">Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Graiden</td>
-                            <td>ini gambar</td>
-                            <td>10</td>
-                            <td>code</td>
-                            <td>9</td>
-                            <td>21</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle me-1" type="button"
-                                        id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        Info
-                                    </button>
-                                    <div class="dropdown-menu bg-transparent border-0" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item badge bg-success" href="#">Detail</a>
-                                        <a class="dropdown-item badge bg-primary" href="#">Edit</a>
-                                        <a class="dropdown-item badge bg-danger" href="#">Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

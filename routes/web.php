@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\DashboardClassController;
+use App\Http\Controllers\DashboardClassUserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardSettingController;
@@ -42,6 +43,12 @@ Route::prefix('/dashboard')->middleware(['auth'])->group(function () {
     Route::get('/class', [DashboardClassController::class, 'index'])->name('class');
     Route::get('/class/create', [DashboardClassController::class, 'create'])->name('class-create');
     Route::get('/class/{id}', [DashboardClassController::class, 'detail'])->name('class-detail');
+    Route::post('/class/store', [DashboardClassController::class, 'store'])->name('class-store');
+    Route::get('/class/edit/{id}', [DashboardClassController::class, 'edit'])->name('class-edit');
+    Route::post('/class/update/{id}', [DashboardClassController::class, 'update'])->name('class-update');
+    Route::delete('/class/delete/{id}', [DashboardClassController::class, 'destroy'])->name('class-delete');
+
+    Route::get('/myclass', [DashboardClassUserController::class, 'index'])->name('myclass');
 
     Route::get('/category', [DashboardCategoryController::class, 'index'])->name('category');
     Route::get('/category/create', [DashboardCategoryController::class, 'create'])->name('category-create');

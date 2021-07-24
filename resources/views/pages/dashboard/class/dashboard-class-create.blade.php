@@ -1,31 +1,41 @@
-{{-- @php
+@php
     //isset buat ngecek data kalau ada true kalau tidak false
-    $isEdit = isset($player);
+    $isEdit = isset($classes);
     
-    $title = $isEdit ? 'Edit Player' : 'Create Player';
+    $title = $isEdit ? 'Edit Class' : 'Create Class';
+    $title1 = $isEdit ? 'Edit Your Class' : 'Create Your Class';
 
-    $route = $isEdit ? route('update', $player->id) : '/players/store';
+    $route = $isEdit ? route('class-update', $classes->id) : route('class-store');
 
     $button = $isEdit ? 'Update' : 'Create';
-@endphp --}}
+@endphp
 
 @extends('layouts.dashboard')
 
 @section('title', 'Dashboard | Go-Sinau')
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="main-content container-fluid">
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Form Create Class</h3>
+                <h3>{{ $title }}</h3>
                 <p class="text-subtitle text-muted">There's a lot of form layout that you can use</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class='breadcrumb-header'>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Create Class</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ $title }}</li>
                     </ol>
                 </nav>
             </div>
@@ -39,64 +49,76 @@
             <div class="col-md-12 col-12">
                 <div class="card">
                     <div class="card-header">
-                    <h4 class="card-title">Create Your Class</h4>
+                    <h4 class="card-title">{{ $title1 }}</h4>
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form form-vertical">
+                            <form action="{{ $route }}" method="POST" enctype="multipart/form-data" class="form form-vertical">
+                                @csrf
+                                @method('POST')
                                 <div class="form-body">
                                     <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group has-icon-left">
-                                            <label for="first-name-icon">Name</label>
-                                            <div class="position-relative">
-                                                <input type="text" class="form-control" name="name" placeholder="Input with icon left" id="first-name-icon">
-                                                <div class="form-control-icon">
-                                                    <i data-feather="user"></i>
+                                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                        <div class="col-12">
+                                            <div class="form-group has-icon-left">
+                                                <label for="first-name-icon">Name</label>
+                                                <div class="position-relative">
+                                                    <input type="text" class="form-control" name="name" placeholder="Input with icon left" id="first-name-icon" value="{{ $isEdit ? $classes->name : '' }}">
+                                                    <div class="form-control-icon">
+                                                        <i data-feather="user"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group mb-3">
-                                            <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                                            <textarea class="form-control" name="description" id="exampleFormControlTextarea1"
-                                                rows="3"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label >Cateogry</label>
-                                            <div class="input-group mb-3">
-                                                <label class="input-group-text"
-                                                    for="inputGroupSelect01">Options</label>
-                                                <select class="form-select" id="inputGroupSelect01">
-                                                    <option selected>Choose...</option>
-                                                    <option value="code">Code</option>
-                                                    <option value="design">Design</option>
-                                                </select>
+                                        <div class="col-12">
+                                            <div class="form-group mb-3">
+                                                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                                                <textarea class="form-control" name="description" id="exampleFormControlTextarea1"
+                                                    rows="3">{{ $isEdit ? $classes->description : '' }}</textarea>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12">
-                                                <label class="form-label">Upload Photo</label>
-                                                <div class="form-file">
-                                                    <input type="file" class="form-file-input" id="customFile">
-                                                    <label class="form-file-label" for="customFile">
-                                                        <span class="form-file-text">Choose file...</span>
-                                                        <span class="form-file-button">Browse</span>
-                                                    </label>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label >Cateogry</label>
+                                                <div class="input-group mb-3">
+                                                    <label class="input-group-text"
+                                                        for="inputGroupSelect01">Options</label>
+                                                    <select class="form-select" id="inputGroupSelect01" name="category_id">
+                                                        @if ($isEdit)
+                                                            ''
+                                                        @else
+                                                            <option selected>Choose...</option>
+                                                        @endif
+                                                        @foreach ($categories as $category)
+                                                            @if (!$isEdit)
+                                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                            @else
+                                                                <option value="{{ $category->id }}" {{ $category->id == $classes->category_id ? "selected" : ""}}>{{ $category->name }}</option>
+                                                            @endif
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        <div class="col-12">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12">
+                                                    <label class="form-label">Upload Photo</label>
+                                                    <div class="form-file">
+                                                        <input type="file" name="photo" class="form-file-input" id="customFile">
+                                                        <label class="form-file-label" for="customFile">
+                                                            <span class="form-file-text">Choose file...</span>
+                                                            <span class="form-file-button">Browse</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                    <div class="col-12 d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
-                                        <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
-                                    </div>
+                                        <div class="col-12 d-flex justify-content-end">
+                                            <button type="submit" class="btn btn-primary me-1 mb-1">{{ $button }}</button>
+                                            <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
