@@ -3,6 +3,8 @@
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\DashboardClassController;
 use App\Http\Controllers\DashboardClassUserController;
+use App\Http\Controllers\DashboardChapterController;
+use App\Http\Controllers\DashboardVideoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardSettingController;
@@ -48,6 +50,18 @@ Route::prefix('/dashboard')->middleware(['auth'])->group(function () {
     Route::post('/class/update/{id}', [DashboardClassController::class, 'update'])->name('class-update');
     Route::delete('/class/delete/{id}', [DashboardClassController::class, 'destroy'])->name('class-delete');
 
+    Route::get('/chapter/create/{id}', [DashboardChapterController::class, 'create'])->name('chapter-create');
+    Route::post('/chapter/store', [DashboardChapterController::class, 'store'])->name('chapter-store');
+    Route::get('/chapter/edit/{id}', [DashboardChapterController::class, 'edit'])->name('chapter-edit');
+    Route::post('/chapter/update/{id}', [DashboardChapterController::class, 'update'])->name('chapter-update');
+    Route::delete('/chapter/delete/{id}', [DashboardChapterController::class, 'destroy'])->name('chapter-delete'); 
+    
+    Route::get('/video/create/{id}', [DashboardVideoController::class, 'create'])->name('video-create');
+    Route::post('/video/store', [DashboardVideoController::class, 'store'])->name('video-store');
+    Route::get('/video/edit/{id}', [DashboardVideoController::class, 'edit'])->name('video-edit');
+    Route::post('/video/update/{id}', [DashboardVideoController::class, 'update'])->name('video-update');
+    Route::delete('/video/delete/{id}', [DashboardVideoController::class, 'destroy'])->name('video-delete');   
+    
     Route::get('/myclass', [DashboardClassUserController::class, 'index'])->name('myclass');
 
     Route::get('/category', [DashboardCategoryController::class, 'index'])->name('category');

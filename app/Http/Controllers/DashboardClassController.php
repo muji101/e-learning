@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ClassRequest;
 use App\Models\Category;
+use App\Models\Chapter;
 use App\Models\Course;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class DashboardClassController extends Controller
@@ -18,7 +20,10 @@ class DashboardClassController extends Controller
     public function detail($id)
     {
         $classes = Course::findOrFail($id);
-        return view('pages.dashboard.class.dashboard-class-detail', ['classes'=> $classes]);
+        // $chapters = Chapter::findOrFail($id);
+        $videos = Video::get();
+
+        return view('pages.dashboard.class.dashboard-class-detail', ['classes'=> $classes, 'videos'=> $videos]);
     }
     public function create()
     {
