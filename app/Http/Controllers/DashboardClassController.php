@@ -21,9 +21,9 @@ class DashboardClassController extends Controller
     {
         $classes = Course::findOrFail($id);
         // $chapters = Chapter::findOrFail($id);
-        $videos = Video::get();
+        // $videos = Video::get();
 
-        return view('pages.dashboard.class.dashboard-class-detail', ['classes'=> $classes, 'videos'=> $videos]);
+        return view('pages.dashboard.class.dashboard-class-detail', ['classes'=> $classes]);
     }
     public function create()
     {

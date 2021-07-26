@@ -9,11 +9,12 @@ use Illuminate\Http\Request;
 
 class DashboardVideoController extends Controller
 {
-    public function create($id)
+    public function create($idCahpter, $idClass)
     {   
-        $chapters = Chapter::findOrfail($id);
-        
-        return view('pages.dashboard.class.create-video', ['chapters'=> $chapters]);
+        $chapters = Chapter::findOrfail($idCahpter);
+        $classes = Course::find($idClass);
+
+        return view('pages.dashboard.class.create-video', ['chapters'=> $chapters, 'classes'=> $classes]);
     }
 
     public function store(Request $request)

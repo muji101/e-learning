@@ -39,12 +39,12 @@
                     <tbody>
                         @foreach ($categories as $category)
                             <tr>
-                                <td>{{ $category->name }}</td>
+                                <td class="fw-bold">{{ $category->name }}</td>
                                 <td><img style="width: 60px" src="{{ Storage::url($category->photo) }}" alt=""></td>
                                 <td>{{ $category->description }}</td>
                                 <td>{{ $category->course->count() }}</td>
                                 <td>
-                                    <div class="dropdown">
+                                    <div class="dropend">
                                         <button class="btn btn-primary dropdown-toggle me-1" type="button"
                                             id="dropdownMenuButton" data-bs-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false">

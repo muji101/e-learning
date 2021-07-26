@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardSettingController;
 use App\Http\Controllers\DashboardCategoryController;
+use App\Http\Controllers\PasswordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/class', [ClassController::class, 'index'])->name('class');
+Route::get('/class', [ClassController::class, 'index'])->name('class_list');
 Route::get('/class/{id}', [ClassController::class, 'detail'])->name('class_detail');
 Route::get('/class/mentor/{id}', [ClassController::class, 'mentor'])->name('class_mentor');
 Route::get('/class/video/{id}', [ClassController::class, 'video'])->name('class_video');
@@ -40,7 +41,9 @@ Route::prefix('/dashboard')->middleware(['auth'])->group(function () {
     
     Route::get('/', [DashboardController::class, 'index'])->name('profile');
 
-    Route::get('/settings', [DashboardSettingController::class, 'store'])->name('profile-setting');
+    // Route::get('/settings/{id}', [DashboardSettingController::class, 'store'])->name('profile-setting');
+    Route::get('/settings/edit/{id}', [DashboardSettingController::class, 'edit'])->name('password-edit');
+    Route::post('/settings/update/{id}', [DashboardSettingController::class, 'update'])->name('password-update');
 
     Route::get('/class', [DashboardClassController::class, 'index'])->name('class');
     Route::get('/class/create', [DashboardClassController::class, 'create'])->name('class-create');
@@ -56,7 +59,7 @@ Route::prefix('/dashboard')->middleware(['auth'])->group(function () {
     Route::post('/chapter/update/{id}', [DashboardChapterController::class, 'update'])->name('chapter-update');
     Route::delete('/chapter/delete/{id}', [DashboardChapterController::class, 'destroy'])->name('chapter-delete'); 
     
-    Route::get('/video/create/{id}', [DashboardVideoController::class, 'create'])->name('video-create');
+    Route::get('/video/create/{idchapter}/{idclass}', [DashboardVideoController::class, 'create'])->name('video-create');
     Route::post('/video/store', [DashboardVideoController::class, 'store'])->name('video-store');
     Route::get('/video/edit/{id}', [DashboardVideoController::class, 'edit'])->name('video-edit');
     Route::post('/video/update/{id}', [DashboardVideoController::class, 'update'])->name('video-update');
@@ -70,6 +73,7 @@ Route::prefix('/dashboard')->middleware(['auth'])->group(function () {
     Route::get('/category/edit/{id}', [DashboardCategoryController::class, 'edit'])->name('category-edit');
     Route::post('/category/update/{id}', [DashboardCategoryController::class, 'update'])->name('category-update');
     Route::delete('/category/delete/{id}', [DashboardCategoryController::class, 'destroy'])->name('category-delete');
+
 });
 
 

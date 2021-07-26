@@ -8,7 +8,7 @@
         </div>
         <div class="flex gap-6 py-2 items-center">
             <a href="{{ route('home') }}">Home</a>
-            <a href="{{ route('class') }}">Class</a>
+            <a href="{{ route('class_list') }}">Class</a>
             <a href="#">About</a>
         </div>
     </div>

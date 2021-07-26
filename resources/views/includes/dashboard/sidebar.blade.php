@@ -66,7 +66,7 @@
             
                 
                 <li class="sidebar-item">
-                    <a href="{{ route('profile-setting') }}" class='sidebar-link'>
+                    <a href="{{ route('password-edit', Auth::user()->id) }}" class='sidebar-link'>
                         <i data-feather="settings" width="20"></i>
                         <span>Setting</span>
                     </a>

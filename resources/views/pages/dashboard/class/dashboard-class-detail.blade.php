@@ -9,7 +9,7 @@
             <p class="text-subtitle text-muted">{{ $classes->category->name }}</p>
         </div>
         <div class="py-4">
-            <iframe class="w-100 vh-100" src="https://www.youtube.com/embed/auhRgeDB8-8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="w-100 vh-100" src="{{ $classes->video->first()->url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="py-2">
             <span class="fs-3 border-4 border-bottom">Description</span>
@@ -75,7 +75,7 @@
                     </div>
 
                     @php
-                        $id = 0;
+                        $idchap = 0;
                     @endphp
                     {{-- chapter --}}
                     @foreach ($classes->chapter as $chapter)
@@ -83,7 +83,7 @@
                         <div class="d-flex justify-content-between border-bottom border-2">
                                 
                                 <a class="w-50 fs-5 text-black-50" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                    {{ $chapter->name }}
+                                    # {{ $chapter->name }}
                                     <i data-feather="chevron-down"></i>
                                 </a>
                             <div class="dropdown">
@@ -93,7 +93,7 @@
                                     Info
                                 </button>
                                 <div class="dropdown-menu bg-transparent border-0" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item badge bg-success" href="{{ route('video-create', $chapter->id) }}">Video <i data-feather="plus" width="20"></i></a>
+                                    <a class="dropdown-item badge bg-success" href="{{ route('video-create', [$chapter->id, $classes->id]) }}">Video <i data-feather="plus" width="20"></i></a>
                                     {{-- <button type="button" class="dropdown-item badge bg-success" data-bs-toggle="modal"
                                     data-bs-target="#inlineForm1">
                                     video<i data-feather="plus" width="20"></i>
@@ -116,8 +116,8 @@
                                 </div>
                             </div>
                         </div>
+                        @foreach ($chapter->video as $video)
                         <div class="collapse ps-3" id="collapseExample">
-                            @foreach ($chapter->video as $video)
                                 <div class="my-1 d-flex justify-content-between">
                                     <a class="fs-5  text-black-50" href="#">
                                         <div class="d-flex justify-content-center">
@@ -152,8 +152,8 @@
                                         </div>
                                     </div> 
                                 </div>
+                            </div>
                             @endforeach
-                        </div>
                     </div>
                     @endforeach
 

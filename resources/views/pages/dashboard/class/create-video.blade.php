@@ -50,6 +50,7 @@
                                 <div class="form-body">
                                     <div class="row">
                                         <input type="hidden" name="chapter_id" value="{{ $isEdit ? $videos->chapter_id : $chapters->id }}">
+                                        <input type="hidden" name="class_id" value="{{ $isEdit ? $videos->course->id : $classes->id }}">
                                         <div class="col-12">
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Name :</label>

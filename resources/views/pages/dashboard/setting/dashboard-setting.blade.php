@@ -47,14 +47,16 @@
                                     </div>
                                     <div class="card-content">
                                         <div class="card-body">
-                                            <form class="form form-vertical">
+                                            <form action="{{ route('password-update', Auth::user()->id) }}" method="POST" class="form form-vertical">
+                                                @csrf
+                                                @method("POST")
                                             <div class="form-body">
                                                 <div class="row">
                                                 <div class="col-12">
                                                     <div class="form-group has-icon-left">
                                                         <label for="name-icon">Name</label>
                                                         <div class="position-relative">
-                                                            <input type="text" class="form-control" placeholder="Input Your Name" id="name-icon">
+                                                            <input type="text" class="form-control" placeholder="Input Your Name" id="name-icon" name="name" value="{{ Auth::user()->name }}">
                                                             <div class="form-control-icon">
                                                                 <i data-feather="user"></i>
                                                             </div>
@@ -66,7 +68,7 @@
                                                     <div class="form-group has-icon-left">
                                                         <label for="email-id-icon">Email</label>
                                                         <div class="position-relative">
-                                                            <input type="text" class="form-control" placeholder="Email" id="email-id-icon">
+                                                            <input type="text" class="form-control" placeholder="Input Your Email" id="email-id-icon" name="email" value="{{ Auth::user()->email }}">
                                                             <div class="form-control-icon">
                                                                 <i data-feather="mail"></i>
                                                             </div>
@@ -77,7 +79,7 @@
                                                     <div class="form-group has-icon-left">
                                                         <label for="mobile-id-icon">Mobile</label>
                                                         <div class="position-relative">
-                                                            <input type="text" class="form-control" placeholder="Mobile" id="mobile-id-icon">
+                                                            <input type="text" class="form-control" placeholder="Input Your Mobile" id="mobile-id-icon" name="phone" value="{{ Auth::user()->phone }}">
                                                             <div class="form-control-icon">
                                                                 <i data-feather="phone"></i>
                                                             </div>
@@ -86,9 +88,20 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group has-icon-left">
-                                                        <label for="address-icon">address</label>
+                                                        <label for="title-icon">Title</label>
                                                         <div class="position-relative">
-                                                            <input type="text" class="form-control" placeholder="Input Your Address" id="address-icon">
+                                                            <input type="text" class="form-control" placeholder="Input Your Title" id="title-icon" name="title" value="{{ Auth::user()->title }}">
+                                                            <div class="form-control-icon">
+                                                                <i data-feather="user"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group has-icon-left">
+                                                        <label for="description-icon">Description</label>
+                                                        <div class="position-relative">
+                                                            <input type="text" class="form-control" placeholder="Input Your Description" id="description-icon" name="description" value="{{ Auth::user()->description }}">
                                                             <div class="form-control-icon">
                                                                 <i data-feather="user"></i>
                                                             </div>
@@ -121,14 +134,16 @@
                                     </div>
                                     <div class="card-content">
                                         <div class="card-body">
-                                            <form class="form form-vertical">
+                                            <form action="{{ route('password-update', Auth::user()->id) }}" method="POST" class="form form-vertical">
+                                                @csrf
+                                                @method("POST")
                                             <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="form-group has-icon-left">
                                                             <label for="password-id-icon">Kata sandi saat ini</label>
                                                             <div class="position-relative">
-                                                                <input type="password" class="form-control" placeholder="Password" id="password-id-icon" name="password_now">
+                                                                <input type="password" class="form-control" placeholder="Password" id="current_password" name="current_password" value="{{ Auth::user()->password }}">
                                                                 <div class="form-control-icon">
                                                                     <i data-feather="lock"></i>
                                                                 </div>
@@ -139,7 +154,7 @@
                                                         <div class="form-group has-icon-left">
                                                             <label for="password-id-icon">Kata sandi baru</label>
                                                             <div class="position-relative">
-                                                                <input type="password" class="form-control" placeholder="New Password" id="password-id-icon" name="password">
+                                                                <input type="password" class="form-control" placeholder="New Password" id="password" name="password">
                                                                 <div class="form-control-icon">
                                                                     <i data-feather="lock"></i>
                                                                 </div>
@@ -150,7 +165,7 @@
                                                         <div class="form-group has-icon-left">
                                                             <label for="password-id-icon">Kata sandi baru (konfirmasi)</label>
                                                             <div class="position-relative">
-                                                                <input type="password" class="form-control" placeholder="Retry New Password" id="password-id-icon" name="password_confirmation">
+                                                                <input type="password" class="form-control" placeholder="Retry New Password" id="password_confirmation" name="password_confirmation">
                                                                 <div class="form-control-icon">
                                                                     <i data-feather="lock"></i>
                                                                 </div>

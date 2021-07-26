@@ -31,7 +31,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Photo</th>
-                            <th>Reviews</th>
+                            <th>Description</th>
                             <th>Category</th>
                             <th>Chapters</th>
                             <th>Videos</th>
@@ -41,14 +41,14 @@
                     <tbody>
                         @foreach ($classes as $class)
                         <tr>
-                            <td>{{ $class->name }}</td>
+                            <td class="fw-bold">{{ $class->name }}</td>
                             <td><img src="{{ Storage::url($class->photo) }}" alt="" style="width: 60px"></td>
-                            <td>ini review</td>
+                            <td>{{ $class->description }}</td>
                             <td>{{ $class->category->name }}</td>
-                            <td>9</td>
-                            <td>21</td>
+                            <td>{{ $class->chapter->count() }}</td>
+                            <td>{{ $class->video->count() }}</td>
                             <td>
-                                <div class="dropdown">
+                                <div class="dropend">
                                     <button class="btn btn-primary dropdown-toggle me-1" type="button"
                                         id="dropdownMenuButton" data-bs-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">

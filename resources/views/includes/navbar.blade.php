@@ -9,7 +9,7 @@
         </div>
         <div class="flex gap-6 py-2 items-center">
             <a href="{{ route('home') }}">Home</a>
-            <a href="{{ route('class') }}">Class</a>
+            <a href="{{ route('class_list') }}">Class</a>
             <a href="#">About</a>
             @guest
                 <a href="{{ route('login') }}" class="py-2 px-8 border-2 border-blue-900 rounded-full hover:border-white hover:bg-blue-900 font-bold">Sign In</a>
