@@ -30,7 +30,7 @@
                 <img src="/images/undraw_working_late_pukg.svg" alt="">
             </div>
             <div class="col-span-2 py-4 text-gray-100">
-                <h1 class="font-bold text-xl">Struktur Laravel Jetstream</h1>
+                <h1 class="font-bold text-xl">{{ $classes->name }}</h1>
                 <span class="font-semibold border-b-2 border-white pb-1">Opening</span>
             </div>
             <div class="col-span-1 py-4 mx-auto text-gray-100 font-bold">
@@ -39,10 +39,11 @@
         </div>
     </div>
     
+    
     <div class="grid grid-cols-4">
         <div class="col-span-1 bg-gray-800">
             <div class="overflow-x-hidden h-screen">
-                <div class="py-4 px-4">
+                <div class="py-4 px-4 border-b-2">
                     <div class="">
                         <h1 class="text-gray-100 font-bold">1. Section 1</h1>
                     </div>
@@ -87,7 +88,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="py-4 px-4">
+                <div class="py-4 px-4 border-b-2">
                     <div class="">
                         <h1 class="text-gray-100 font-bold">1. Section 1</h1>
                     </div>
@@ -132,7 +133,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="py-4 px-4">
+                <div class="py-4 px-4 border-b-2">
                     <div class="">
                         <h1 class="text-gray-100 font-bold">1. Section 1</h1>
                     </div>
@@ -177,7 +178,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="py-4 px-4">
+                <div class="py-4 px-4 border-b-2">
                     <div class="">
                         <h1 class="text-gray-100 font-bold">1. Section 1</h1>
                     </div>
@@ -222,7 +223,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="py-4 px-4">
+                <div class="py-4 px-4 border-b-2">
                     <div class="">
                         <h1 class="text-gray-100 font-bold">1. Section 1</h1>
                     </div>

@@ -63,7 +63,18 @@
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">Name</label>
                                                 <div class="position-relative">
-                                                    <input type="text" class="form-control" name="name" placeholder="Input with icon left" id="first-name-icon" value="{{ $isEdit ? $classes->name : '' }}">
+                                                    <input type="text" class="form-control" name="name" placeholder="Input name" id="first-name-icon" value="{{ $isEdit ? $classes->name : '' }}">
+                                                    <div class="form-control-icon">
+                                                        <i data-feather="user"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group has-icon-left">
+                                                <label for="first-name-icon">Title</label>
+                                                <div class="position-relative">
+                                                    <input type="text" class="form-control" name="title" placeholder="Input title" id="first-name-icon" value="{{ $isEdit ? $classes->title : '' }}">
                                                     <div class="form-control-icon">
                                                         <i data-feather="user"></i>
                                                     </div>

@@ -9,160 +9,37 @@
             
         <!-- view with category -->
         <div class="flex text-xl font-bold gap-8 text-white pt-8">
-            <a href="#">Semua</a>
-            <a href="#">Code</a>
-            <a href="#">Design</a>
-            <a href="#">Marketing</a>
-            <a href="#">Soft Skill</a>
+            <a href="/search">Semua</a>
+            @foreach ($categories as $category)
+                <a href="#">{{ $category->name }}</a>
+                {{-- <form action="#" method="GET">
+                    @csrf
+                    @method("GET")
+                    <div class="bg-blue-900 rounded-full">
+                        <input value="{{ $category->name }}" type="hidden" name="search" class="w-40 rounded-tl-full rounded-bl-full py-2 px-4 text-black">
+                        <button type="submit" class="px-4">{{ $category->name }}</button>
+                    </div>
+                </form> --}}
+            @endforeach
         </div>
 
         <!-- rekomendasi kelas -->
         <div class="pb-32">
             <div class="flex flex-wrap justify-around p-4">
-                <div data-aos="fade-up" data-aos-delay="200" class="w-96 p-4 bg-gray-50 rounded-2xl shadow-lg mt-14">
-                    <div class="">
-                        <img class="w-full h-72" src="/images/undraw_programmer_imem.svg" alt="">
+                @foreach ($classes as $class)
+                    <div data-aos="fade-up" data-aos-delay="200" class="w-96 p-4 bg-blue-900 rounded-2xl shadow-lg mt-14">
+                        <div class="">
+                            <img class="w-full" src="{{ Storage::url($class->photo) }}" alt="">
+                        </div>
+                        <div class="my-4 h-1/3 border-b-2">
+                            <h1 class="text-xl font-bold pb-3">{{ $class->name }}</h1>
+                            <p>{{ $class->title }}</p>
+                        </div>
+                        <div class="text-center pb-14">
+                            <h1 class="text-xl text-gray-800 font-bold">{{ $class->video->count() }} Materi</h1>
+                        </div>
                     </div>
-                    <div class="py-2">
-                        <h1 class="text-xl font-bold pb-3">Eloquent ORM Laravel</h1>
-                        <p>Eloquent adalah salah satu fitur di laravel, fitur ini untuk mengelola sebuah data yang ada pada database, menjadi sangat mudah.</p>
-                    </div>
-                    <div class="py-2 text-center">
-                        <h1 class="text-xl text-blue-500 font-bold">21 Materi</h1>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="300" class="w-96 p-4 bg-gray-50 rounded-2xl shadow-lg mt-14">
-                    <div class="">
-                        <img class="w-full h-72" src="/images/undraw_Character_drawing_ii11.svg" alt="">
-                    </div>
-                    <div class="py-2">
-                        <h1 class="text-xl font-bold pb-3">UX Brainstorming dengan InVision App  </h1>
-                        <p>Mempelajari metode UX Brainstorming untuk membuat sebuah fitur pada aplikasi mobile yang diputuskan oleh beberapa divisi utama seperti Developer, Designer, Business Owner, dan Customer Support. </p>
-                    </div>
-                    <div class="py-2 text-center">
-                        <h1 class="text-xl text-blue-500 font-bold">21 Materi</h1>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="400" class="w-96 p-4 bg-gray-50 rounded-2xl shadow-lg mt-14">
-                    <div class="">
-                        <img class="w-full h-72" src="/images/undraw_Marketing_re_7f1g.svg" alt="">
-                    </div>
-                    <div class="py-2">
-                        <h1 class="text-xl font-bold pb-3">E Trello Project Management</h1>
-                        <p>Manajemen projek sangatlah penting untuk dilakukan ketika bekerja sendirian ataupun bersama dengan tim. Manfaat utamanya adalah projek dapat terorganisir dengan baik dan keep on track.</p>
-                    </div>
-                    <div class="py-2 text-center">
-                        <h1 class="text-xl text-blue-500 font-bold">21 Materi</h1>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200" class="w-96 p-4 bg-gray-50 rounded-2xl shadow-lg mt-14">
-                    <div class="">
-                        <img class="w-full h-72" src="/images/undraw_programmer_imem.svg" alt="">
-                    </div>
-                    <div class="py-2">
-                        <h1 class="text-xl font-bold pb-3">Eloquent ORM Laravel</h1>
-                        <p>Eloquent adalah salah satu fitur di laravel, fitur ini untuk mengelola sebuah data yang ada pada database, menjadi sangat mudah.</p>
-                    </div>
-                    <div class="py-2 text-center">
-                        <h1 class="text-xl text-blue-500 font-bold">21 Materi</h1>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="300" class="w-96 p-4 bg-gray-50 rounded-2xl shadow-lg mt-14">
-                    <div class="">
-                        <img class="w-full h-72" src="/images/undraw_Character_drawing_ii11.svg" alt="">
-                    </div>
-                    <div class="py-2">
-                        <h1 class="text-xl font-bold pb-3">UX Brainstorming dengan InVision App  </h1>
-                        <p>Mempelajari metode UX Brainstorming untuk membuat sebuah fitur pada aplikasi mobile yang diputuskan oleh beberapa divisi utama seperti Developer, Designer, Business Owner, dan Customer Support. </p>
-                    </div>
-                    <div class="py-2 text-center">
-                        <h1 class="text-xl text-blue-500 font-bold">21 Materi</h1>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="400" class="w-96 p-4 bg-gray-50 rounded-2xl shadow-lg mt-14">
-                    <div class="">
-                        <img class="w-full h-72" src="/images/undraw_Marketing_re_7f1g.svg" alt="">
-                    </div>
-                    <div class="py-2">
-                        <h1 class="text-xl font-bold pb-3">E Trello Project Management</h1>
-                        <p>Manajemen projek sangatlah penting untuk dilakukan ketika bekerja sendirian ataupun bersama dengan tim. Manfaat utamanya adalah projek dapat terorganisir dengan baik dan keep on track.</p>
-                    </div>
-                    <div class="py-2 text-center">
-                        <h1 class="text-xl text-blue-500 font-bold">21 Materi</h1>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200" class="w-96 p-4 bg-gray-50 rounded-2xl shadow-lg mt-14">
-                    <div class="">
-                        <img class="w-full h-72" src="/images/undraw_programmer_imem.svg" alt="">
-                    </div>
-                    <div class="py-2">
-                        <h1 class="text-xl font-bold pb-3">Eloquent ORM Laravel</h1>
-                        <p>Eloquent adalah salah satu fitur di laravel, fitur ini untuk mengelola sebuah data yang ada pada database, menjadi sangat mudah.</p>
-                    </div>
-                    <div class="py-2 text-center">
-                        <h1 class="text-xl text-blue-500 font-bold">21 Materi</h1>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="300" class="w-96 p-4 bg-gray-50 rounded-2xl shadow-lg mt-14">
-                    <div class="">
-                        <img class="w-full h-72" src="/images/undraw_Character_drawing_ii11.svg" alt="">
-                    </div>
-                    <div class="py-2">
-                        <h1 class="text-xl font-bold pb-3">UX Brainstorming dengan InVision App  </h1>
-                        <p>Mempelajari metode UX Brainstorming untuk membuat sebuah fitur pada aplikasi mobile yang diputuskan oleh beberapa divisi utama seperti Developer, Designer, Business Owner, dan Customer Support. </p>
-                    </div>
-                    <div class="py-2 text-center">
-                        <h1 class="text-xl text-blue-500 font-bold">21 Materi</h1>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="400" class="w-96 p-4 bg-gray-50 rounded-2xl shadow-lg mt-14">
-                    <div class="">
-                        <img class="w-full h-72" src="/images/undraw_Marketing_re_7f1g.svg" alt="">
-                    </div>
-                    <div class="py-2">
-                        <h1 class="text-xl font-bold pb-3">E Trello Project Management</h1>
-                        <p>Manajemen projek sangatlah penting untuk dilakukan ketika bekerja sendirian ataupun bersama dengan tim. Manfaat utamanya adalah projek dapat terorganisir dengan baik dan keep on track.</p>
-                    </div>
-                    <div class="py-2 text-center">
-                        <h1 class="text-xl text-blue-500 font-bold">21 Materi</h1>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200" class="w-96 p-4 bg-gray-50 rounded-2xl shadow-lg mt-14">
-                    <div class="">
-                        <img class="w-full h-72" src="/images/undraw_programmer_imem.svg" alt="">
-                    </div>
-                    <div class="py-2">
-                        <h1 class="text-xl font-bold pb-3">Eloquent ORM Laravel</h1>
-                        <p>Eloquent adalah salah satu fitur di laravel, fitur ini untuk mengelola sebuah data yang ada pada database, menjadi sangat mudah.</p>
-                    </div>
-                    <div class="py-2 text-center">
-                        <h1 class="text-xl text-blue-500 font-bold">21 Materi</h1>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="300" class="w-96 p-4 bg-gray-50 rounded-2xl shadow-lg mt-14">
-                    <div class="">
-                        <img class="w-full h-72" src="/images/undraw_Character_drawing_ii11.svg" alt="">
-                    </div>
-                    <div class="py-2">
-                        <h1 class="text-xl font-bold pb-3">UX Brainstorming dengan InVision App  </h1>
-                        <p>Mempelajari metode UX Brainstorming untuk membuat sebuah fitur pada aplikasi mobile yang diputuskan oleh beberapa divisi utama seperti Developer, Designer, Business Owner, dan Customer Support. </p>
-                    </div>
-                    <div class="py-2 text-center">
-                        <h1 class="text-xl text-blue-500 font-bold">21 Materi</h1>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="400" class="w-96 p-4 bg-gray-50 rounded-2xl shadow-lg mt-14">
-                    <div class="">
-                        <img class="w-full h-72" src="/images/undraw_Marketing_re_7f1g.svg" alt="">
-                    </div>
-                    <div class="py-2">
-                        <h1 class="text-xl font-bold pb-3">E Trello Project Management</h1>
-                        <p>Manajemen projek sangatlah penting untuk dilakukan ketika bekerja sendirian ataupun bersama dengan tim. Manfaat utamanya adalah projek dapat terorganisir dengan baik dan keep on track.</p>
-                    </div>
-                    <div class="py-2 text-center">
-                        <h1 class="text-xl text-blue-500 font-bold">21 Materi</h1>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
 

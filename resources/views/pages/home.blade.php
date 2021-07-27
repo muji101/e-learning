@@ -8,7 +8,7 @@
     <!-- jarallax banner -->
     <div class="relative">
         <div  data-jarallax-video="https://youtu.be/mbyC-4ufrG4" class="jarallax">
-            <div class="bg-black w-full h-full opacity-40"></div>
+            <div class="bg-black w-full h-full opacity-60"></div>
         </div>
         <div class="py-40 text-center text-white absolute top-0 left-1/4 ml-28">
             <h1 class="text-4xl font-extrabold">Semakin Mudah untuk <br> Belajar dimasa Pandemi</h1>
@@ -29,30 +29,20 @@
             <div class="absolute" style="bottom: -5px">Kategori Pilihan Untuk Anda</div>
         </div>
         <div class="flex flex-wrap justify-evenly py-14">
-            <div data-aos="fade-right" data-aos-delay="200" class=" bg-blue-900 flex rounded-2xl p-4 my-6 w-5/12">
-                <div class="">
-                    <img class="" src="/images/undraw_programming_2svr.svg" alt="" style="width: 280px;">
-                </div>
-                <div class="pl-4 w-5/12 text-gray-100">
-                    <h1 class="font-bold text-lg">Code</h1>
-                    <p class="py-4">Programmer adalah keahlian yang sangat dibutuhkan di era Modern sekarang ini.</p>
+            @foreach ($categories as $category)
+                <div data-aos="fade-right" data-aos-delay="200" class=" bg-blue-900 flex rounded-2xl p-4 my-6 w-5/12">
                     <div class="">
-                        <a class="text-gray-800" href="#">pelajari lebih lanjut</a>
+                        <img class="" src="{{ Storage::url($category->photo) }}" alt="" style="width: 280px;">
+                    </div>
+                    <div class="pl-4 w-5/12 text-gray-100">
+                        <h1 class="font-bold text-lg">{{ $category->name }}</h1>
+                        <p class="py-4">{{ $category->description }}</p>
+                        <div class="">
+                            <a class="text-gray-800" href="#">pelajari lebih lanjut</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div data-aos="fade-left" data-aos-delay="200" class=" bg-blue-900 flex rounded-2xl p-4 my-6 w-5/12">
-                <div class="">
-                    <img class="" src="/images/undraw_designer_life_w96d.svg" alt="" style="width: 280px;">
-                </div>
-                <div class="px-4 w-5/12 text-gray-100">
-                    <h1 class="font-bold text-lg">Design</h1>
-                    <p class="py-4">Tidak hanya di bidang teknologi saja Designer sangat di butuhkan di berbagai industri.</p>
-                    <div class="">
-                        <a class="text-gray-800" href="#">pelajari lebih lanjut</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 
@@ -69,7 +59,7 @@
                 </div>
                 <div class="col-span-1 px-2">
                     <h1 class="text-2xl font-bold pb-4">Kelas</h1>
-                    <p class="count text-5xl font-bold">31</p>
+                    <p class="count text-5xl font-bold">{{ $classes->count() }}</p>
                 </div>
             </div>
             <div data-aos="zoom-in" data-aos-delay="200" class="grid grid-cols-2 items-center">
@@ -78,7 +68,7 @@
                 </div>
                 <div class="col-span-1 px-2">
                     <h1 class="text-2xl font-bold pb-4">Pengguna</h1>
-                    <p class="count text-5xl font-bold">5201</p>
+                    <p class="count text-5xl font-bold">{{ $users->count() }}</p>
                 </div>
             </div>
             <div data-aos="zoom-in-left" data-aos-delay="200" class="grid grid-cols-2 items-center">
@@ -197,33 +187,19 @@
             </div>
         </div>
         <div class="flex flex-wrap justify-around pt-14">
-            <div data-aos="fade-up" data-aos-delay="200" class="w-96 p-4 bg-blue-900 rounded-2xl shadow-lg">
-                <div class="">
-                    <img class="w-full h-72" src="/images/undraw_programmer_imem.svg" alt="">
-                </div>
-                <div class="py-2 text-gray-100">
-                    <h1 class="text-xl font-bold pb-3">Eloquent ORM Laravel</h1>
-                    <p>Eloquent adalah salah satu fitur di laravel, fitur ini untuk mengelola sebuah data yang ada pada database, menjadi sangat mudah.</p>
-                </div>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="300" class="w-96 p-4 bg-blue-900 rounded-2xl shadow-lg">
-                <div class="">
-                    <img class="w-full h-72" src="/images/undraw_Character_drawing_ii11.svg" alt="">
-                </div>
-                <div class="py-2 text-gray-100">
-                    <h1 class="text-xl font-bold pb-3">UX Brainstorming dengan InVision App  </h1>
-                    <p>Mempelajari metode UX Brainstorming untuk membuat sebuah fitur pada aplikasi mobile yang diputuskan oleh beberapa divisi utama seperti Developer, Designer, Business Owner, dan Customer Support. </p>
-                </div>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="400" class="w-96 p-4 bg-blue-900 rounded-2xl shadow-lg">
-                <div class="">
-                    <img class="w-full h-72" src="/images/undraw_Marketing_re_7f1g.svg" alt="">
-                </div>
-                <div class="py-2 text-gray-100">
-                    <h1 class="text-xl font-bold pb-3">E Trello Project Management</h1>
-                    <p>Manajemen projek sangatlah penting untuk dilakukan ketika bekerja sendirian ataupun bersama dengan tim. Manfaat utamanya adalah projek dapat terorganisir dengan baik dan keep on track.</p>
-                </div>
-            </div>
+            @foreach ($classes as $class)
+                <a href="#">
+                    <div data-aos="fade-up" data-aos-delay="200" class="w-96 p-4 bg-blue-900 rounded-2xl shadow-lg">
+                        <div class="">
+                            <img class="w-full rounded-2xl" src="{{ Storage::url($class->photo) }}" alt="">
+                        </div>
+                        <div class="py-2 text-gray-100">
+                            <h1 class="text-xl font-bold pb-3">{{ $class->name }}</h1>
+                            <p>{{ $class->title }}</p>
+                        </div>
+                    </div>
+                </a>
+            @endforeach
         </div>
     </div>
 </div>

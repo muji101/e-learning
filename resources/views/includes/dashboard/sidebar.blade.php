@@ -6,12 +6,9 @@
         <div class="sidebar-menu">
             <ul class="menu">
 
-
                 <li class='sidebar-title'>Main Menu</li>
 
-
-
-                <li class="sidebar-item active ">
+                <li class="sidebar-item {{ (request()->is('dashboard')) ? 'active' : '' }}">
                     <a href="{{ route('profile') }}" class='sidebar-link'>
                         <i data-feather="home" width="20"></i>
                         <span>Dashboard</span>
@@ -20,7 +17,7 @@
                 </li>
 
                 @if (Auth::user()->role === "TEACHER")
-                    <li class="sidebar-item  has-sub">
+                    <li class="sidebar-item  has-sub {{ (request()->is('dashboard/class*')) ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
                             <i data-feather="book-open" width="20"></i>
                             <span>Class</span>
@@ -37,7 +34,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="sidebar-item  has-sub">
+                    <li class="sidebar-item  has-sub {{ (request()->is('dashboard/category*')) ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
                             <i data-feather="grid" width="20"></i>
                             <span>Category</span>
@@ -55,7 +52,7 @@
                         </ul>
                     </li>
                 @else
-                    <li class="sidebar-item ">
+                    <li class="sidebar-item {{ (request()->is('dashboard/myclass')) ? 'active' : '' }}">
                         <a href="{{ route('myclass') }}" class='sidebar-link'>
                             <i data-feather="book-open" width="20"></i>
                             <span>My Class</span>
@@ -65,7 +62,7 @@
                 @endif
             
                 
-                <li class="sidebar-item">
+                <li class="sidebar-item {{ (request()->is('dashboard/settings*')) ? 'active' : '' }}">
                     <a href="{{ route('password-edit', Auth::user()->id) }}" class='sidebar-link'>
                         <i data-feather="settings" width="20"></i>
                         <span>Setting</span>
@@ -88,11 +85,6 @@
                         </a>
                     </form>
                 </li>
-
-
-
-
-
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

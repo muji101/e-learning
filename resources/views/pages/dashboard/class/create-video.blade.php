@@ -66,7 +66,7 @@
                                             <div class="form-group has-icon-left">
                                                 <label for="first-name-icon">URL :</label>
                                                 <div class="position-relative">
-                                                    <input type="text" class="form-control" name="url" placeholder="Input URL video" id="first-name-icon" value="{{ $isEdit ? $videos->url : '' }}">
+                                                    <input type="text" class="form-control" name="url" placeholder="Input URL video example : https://www.youtube.com/embed/RkRdR-LYC_E" id="first-name-icon" value="{{ $isEdit ? $videos->url : 'https://www.youtube.com/embed/codevideo' }}">
                                                     <div class="form-control-icon">
                                                         <i data-feather="user"></i>
                                                     </div>

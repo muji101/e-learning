@@ -11,7 +11,7 @@
             <div class="py-8">
                 <div class="text-center text-gray-100">
                     <h1 class="font-bold text-4xl py-4">
-                        Eloquent ORM Laravel
+                        {{ $classes->name }}
                     </h1>
                     <p>Eloquent adalah salah satu fitur di laravel, fitur ini untuk mengelola sebuah data.</p>
                 </div>
@@ -43,7 +43,7 @@
             </div>
 
             <div class="text-center text-gray-100 py-14">
-                <a href="{{ route('class_video',1) }}" class="bg-blue-600 text-lg font-bold px-14 py-4 hover:bg-blue-900 rounded-full">Gabung Kelas</a>
+                <a href="{{ route('class_video',1) }}" class="bg-blue-900 text-lg font-bold px-14 py-4 rounded-full">Gabung Kelas</a>
             </div>
         </div>
 

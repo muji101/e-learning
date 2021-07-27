@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// route home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/class', [ClassController::class, 'index'])->name('class_list');
@@ -41,10 +42,11 @@ Route::prefix('/dashboard')->middleware(['auth'])->group(function () {
     
     Route::get('/', [DashboardController::class, 'index'])->name('profile');
 
-    // Route::get('/settings/{id}', [DashboardSettingController::class, 'store'])->name('profile-setting');
+    // route edit update profile
     Route::get('/settings/edit/{id}', [DashboardSettingController::class, 'edit'])->name('password-edit');
     Route::post('/settings/update/{id}', [DashboardSettingController::class, 'update'])->name('password-update');
 
+    // route class teacher
     Route::get('/class', [DashboardClassController::class, 'index'])->name('class');
     Route::get('/class/create', [DashboardClassController::class, 'create'])->name('class-create');
     Route::get('/class/{id}', [DashboardClassController::class, 'detail'])->name('class-detail');
@@ -53,20 +55,24 @@ Route::prefix('/dashboard')->middleware(['auth'])->group(function () {
     Route::post('/class/update/{id}', [DashboardClassController::class, 'update'])->name('class-update');
     Route::delete('/class/delete/{id}', [DashboardClassController::class, 'destroy'])->name('class-delete');
 
+    // route chapter
     Route::get('/chapter/create/{id}', [DashboardChapterController::class, 'create'])->name('chapter-create');
     Route::post('/chapter/store', [DashboardChapterController::class, 'store'])->name('chapter-store');
     Route::get('/chapter/edit/{id}', [DashboardChapterController::class, 'edit'])->name('chapter-edit');
     Route::post('/chapter/update/{id}', [DashboardChapterController::class, 'update'])->name('chapter-update');
     Route::delete('/chapter/delete/{id}', [DashboardChapterController::class, 'destroy'])->name('chapter-delete'); 
-    
+
+    // route video
     Route::get('/video/create/{idchapter}/{idclass}', [DashboardVideoController::class, 'create'])->name('video-create');
     Route::post('/video/store', [DashboardVideoController::class, 'store'])->name('video-store');
     Route::get('/video/edit/{id}', [DashboardVideoController::class, 'edit'])->name('video-edit');
     Route::post('/video/update/{id}', [DashboardVideoController::class, 'update'])->name('video-update');
     Route::delete('/video/delete/{id}', [DashboardVideoController::class, 'destroy'])->name('video-delete');   
     
+    // route class user
     Route::get('/myclass', [DashboardClassUserController::class, 'index'])->name('myclass');
 
+    // route category
     Route::get('/category', [DashboardCategoryController::class, 'index'])->name('category');
     Route::get('/category/create', [DashboardCategoryController::class, 'create'])->name('category-create');
     Route::post('/category/store', [DashboardCategoryController::class, 'store'])->name('category-store');

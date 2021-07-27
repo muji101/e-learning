@@ -17,6 +17,7 @@ class CreateClassesTable extends Migration
             $table->id();
 
             $table->string('name');
+            $table->string('title');
             $table->string('description');
             $table->string('photo');
             $table->integer('category_id');

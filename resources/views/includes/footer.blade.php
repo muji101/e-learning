@@ -13,7 +13,7 @@
                     ©Go_Sinau 2021. All rights reserved
                 </p>
             </div>
-            <div class="col-span-1 pt-8 md:pt-0" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-span-1 pt-8 ml-10 md:pt-0 " data-aos="fade-up" data-aos-delay="200">
                 <h1 class="text-xl font-bold">Media Social</h1>
                 <div class="flex flex-col gap-2 mt-6">
                     <a href="#">Telegram</a>

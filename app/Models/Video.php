@@ -22,6 +22,6 @@ class Video extends Model
     }
     public function course()
     {
-        return $this->belongsTo(Course::class, 'class_id','id');
+        return $this->belongsTo(Course::class, 'class_id', 'id');
     }
 }

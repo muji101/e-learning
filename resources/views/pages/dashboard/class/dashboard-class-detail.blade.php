@@ -1,3 +1,6 @@
+@php
+    $link= isset($classes->video->first()->url)
+@endphp
 @extends('layouts.dashboard')
 
 @section('title', 'Dashboard | Go-Sinau')
@@ -6,10 +9,15 @@
     <div class="main-content container-fluid">
         <div class="page-title">
             <h3>{{ $classes->name }}</h3>
+            <h4>{{ $classes->title }}</h4>
             <p class="text-subtitle text-muted">{{ $classes->category->name }}</p>
         </div>
         <div class="py-4">
-            <iframe class="w-100 vh-100" src="{{ $classes->video->first()->url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            @if ($link)
+                <iframe class="w-100 vh-100" src="{{ $link ? $classes->video->first()->url: '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            @else
+                <h1>Belum Ada Video</h1>
+            @endif
         </div>
         <div class="py-2">
             <span class="fs-3 border-4 border-bottom">Description</span>
@@ -87,7 +95,7 @@
                                     <i data-feather="chevron-down"></i>
                                 </a>
                             <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle me-1" type="button"
+                                <button class="btn btn-primary dropdown-toggle me-1 mb-1" type="button"
                                     id="dropdownMenuButton" data-bs-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                     Info
@@ -130,7 +138,7 @@
                                         </div>
                                     </a>
                                     <div class="dropdown">
-                                        <button class="btn btn-primary dropdown-toggle me-1" type="button"
+                                        <button class="btn btn-success dropdown-toggle me-1" type="button"
                                             id="dropdownMenuButton" data-bs-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false">
                                             Info
@@ -192,7 +200,6 @@
             </div>
         </div>
 
-        
         
     </div>
 

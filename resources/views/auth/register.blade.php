@@ -78,83 +78,166 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-7 col-sm-12 mx-auto">
-                    <div class="card pt-4">
-                        <div class="card-body">
-                            <div class="text-center mb-5">
-                                <img src="/images/undraw_working_late_pukg.svg" height="48" class='mb-4'>
-                                <h3>Sign Up</h3>
-                                <p>Please fill the form to register.</p>
-                            </div>
-                            <form method="POST" action="{{ route('register') }}">
-                                @csrf
-                                <div class="row">
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="name">Name</label>
-                                            <input type="text" id="name" class="form-control"
-                                                name="name">
+
+                <div class="col-md-12">
+                    <div class="">
+                        <ul class="nav nav-tabs flex justify-content-center fw-bold fs-4" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active text-dark" id="home-tab" data-bs-toggle="tab" href="#home"
+                                    role="tab" aria-controls="home" aria-selected="true">Teacher</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link text-dark" id="contact-tab" data-bs-toggle="tab" href="#contact"
+                                    role="tab" aria-controls="contact" aria-selected="false">User</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel"
+                            aria-labelledby="home-tab">
+
+                            <div class="col-md-7 col-sm-12 mx-auto">
+                                <div class="card pt-4">
+                                    <div class="card-body">
+                                        <div class="text-center mb-5">
+                                            <img src="/images/undraw_working_late_pukg.svg" height="48" class='mb-4'>
+                                            <h3>Sign Up Teacher</h3>
+                                            <p>Please fill the form to register.</p>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="text" id="email" class="form-control"
-                                                name="email">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="password">Password</label>
-                                            <input type="password" id="password" class="form-control"
-                                                name="password">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="password_confirmation">Retry Password</label>
-                                            <input type="password" id="password_confirmation" class="form-control"
-                                                name="password_confirmation">
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label >Anda Adalah Sebagai ?</label>
-                                            <div class="input-group mb-3">
-                                                <label class="input-group-text"
-                                                    for="inputGroupSelect01">Options</label>
-                                                <select class="form-select" id="inputGroupSelect01" name="role">
-                                                    <option selected disabled>Choose...</option>
-                                                    <option value="TEACHER">Teacher</option>
-                                                    <option value="USER">User</option>
-                                                </select>
+                                        <form method="POST" action="{{ route('register') }}">
+                                            @csrf
+                                            <div class="row">
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="name">Name</label>
+                                                        <input type="text" id="name" class="form-control"
+                                                            name="name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="email">Email</label>
+                                                        <input type="text" id="email" class="form-control"
+                                                            name="email">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="password">Password</label>
+                                                        <input type="password" id="password" class="form-control"
+                                                            name="password">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="password_confirmation">Retry Password</label>
+                                                        <input type="password" id="password_confirmation" class="form-control"
+                                                            name="password_confirmation">
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" name="role" value="TEACHER">
+                                                {{-- <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label >Anda Adalah Sebagai ?</label>
+                                                        <div class="input-group mb-3">
+                                                            <label class="input-group-text"
+                                                                for="inputGroupSelect01">Options</label>
+                                                            <select class="form-select" id="inputGroupSelect01" name="role">
+                                                                <option selected disabled>Choose...</option>
+                                                                <option value="TEACHER">Teacher</option>
+                                                                <option value="USER">User</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div> --}}
                                             </div>
-                                        </div>
+            
+            
+                                            <a href="{{ route('login') }}">Have an account? Login</a>
+                                            <div class="clearfix">
+                                                <button class="btn btn-primary float-end">Submit</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
-
-
-                                <a href="{{ route('login') }}">Have an account? Login</a>
-                                <div class="clearfix">
-                                    <button class="btn btn-primary float-end">Submit</button>
-                                </div>
-                            </form>
-                            {{-- <div class="divider">
-                                <div class="divider-text">OR</div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <button class="btn btn-block mb-2 btn-primary"><i data-feather="facebook"></i>
-                                        Facebook</button>
+                            
+                        </div>
+                        <div class="tab-pane fade" id="contact" role="tabpanel"
+                            aria-labelledby="contact-tab">
+
+                            <div class="col-md-7 col-sm-12 mx-auto">
+                                <div class="card pt-4">
+                                    <div class="card-body">
+                                        <div class="text-center mb-5">
+                                            <img src="/images/undraw_working_late_pukg.svg" height="48" class='mb-4'>
+                                            <h3>Sign Up User</h3>
+                                            <p>Please fill the form to register.</p>
+                                        </div>
+                                        <form method="POST" action="{{ route('register') }}">
+                                            @csrf
+                                            <div class="row">
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="name">Name</label>
+                                                        <input type="text" id="name" class="form-control"
+                                                            name="name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="email">Email</label>
+                                                        <input type="text" id="email" class="form-control"
+                                                            name="email">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="password">Password</label>
+                                                        <input type="password" id="password" class="form-control"
+                                                            name="password">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="password_confirmation">Retry Password</label>
+                                                        <input type="password" id="password_confirmation" class="form-control"
+                                                            name="password_confirmation">
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" name="role" value="USER">
+
+                                                {{-- <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label >Anda Adalah Sebagai ?</label>
+                                                        <div class="input-group mb-3">
+                                                            <label class="input-group-text"
+                                                                for="inputGroupSelect01">Options</label>
+                                                            <select class="form-select" id="inputGroupSelect01" name="role">
+                                                                <option selected disabled>Choose...</option>
+                                                                <option value="TEACHER">Teacher</option>
+                                                                <option value="USER">User</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div> --}}
+                                            </div>
+            
+            
+                                            <a href="{{ route('login') }}">Have an account? Login</a>
+                                            <div class="clearfix">
+                                                <button class="btn btn-primary float-end">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <button class="btn btn-block mb-2 btn-secondary"><i data-feather="github"></i>
-                                        Github</button>
-                                </div>
-                            </div> --}}
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
+                
+                
             </div>
         </div>
 

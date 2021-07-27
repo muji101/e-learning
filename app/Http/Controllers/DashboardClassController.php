@@ -8,12 +8,13 @@ use App\Models\Chapter;
 use App\Models\Course;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardClassController extends Controller
 {
     public function index()
     {
-        $classes = Course::get();
+        $classes = Course::where('user_id', Auth::user()->id)->get();
         
         return view('pages.dashboard.class.dashboard-class', ['classes'=> $classes]);
     }

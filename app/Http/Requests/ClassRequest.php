@@ -25,6 +25,7 @@ class ClassRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'title' => 'required',
             'description' => 'required',
             'photo' => 'required',
             'category_id' => 'required',
@@ -35,7 +36,8 @@ class ClassRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required'        => 'Judul wajib di isi',
+            'name.required'        => 'Nama wajib di isi',
+            'title.required'        => 'Judul wajib di isi',
             'description.required'      => 'Content wajib di isi',
             'description.min'      => 'Content Minimal 10 karakter',
             'photo.required'   => 'Gambar wajib di isi',

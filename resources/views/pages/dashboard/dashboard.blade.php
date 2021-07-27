@@ -15,9 +15,9 @@
                         <div class="card-body p-0">
                             <div class="d-flex flex-column">
                                 <div class='px-3 py-3 d-flex justify-content-between'>
-                                    <h3 class='card-title'>BALANCE</h3>
+                                    <h3 class='card-title'>CLASSES</h3>
                                     <div class="card-right d-flex align-items-center">
-                                        <p>$50 </p>
+                                        <p>{{ $classes->count() }}</p>
                                     </div>
                                 </div>
                                 <div class="chart-wrapper">
@@ -32,9 +32,9 @@
                         <div class="card-body p-0">
                             <div class="d-flex flex-column">
                                 <div class='px-3 py-3 d-flex justify-content-between'>
-                                    <h3 class='card-title'>Revenue</h3>
+                                    <h3 class='card-title'>CATEGORIES</h3>
                                     <div class="card-right d-flex align-items-center">
-                                        <p>$532,2 </p>
+                                        <p>{{ $categories->count() }}</p>
                                     </div>
                                 </div>
                                 <div class="chart-wrapper">
@@ -49,9 +49,9 @@
                         <div class="card-body p-0">
                             <div class="d-flex flex-column">
                                 <div class='px-3 py-3 d-flex justify-content-between'>
-                                    <h3 class='card-title'>ORDERS</h3>
+                                    <h3 class='card-title'>USERS</h3>
                                     <div class="card-right d-flex align-items-center">
-                                        <p>1,544 </p>
+                                        <p>{{ $users->count() }}</p>
                                     </div>
                                 </div>
                                 <div class="chart-wrapper">
@@ -89,10 +89,10 @@
                             <div class="row">
                                 <div class="col-md-4 col-12">
                                     <div class="pl-3">
-                                        <h1 class='mt-5'>$21,102</h1>
-                                        <p class='text-xs'><span class="text-green"><i data-feather="bar-chart"
-                                                    width="15"></i> +19%</span> than last month</p>
-                                        <div class="legends">
+                                        {{-- <h1 class='mt-5'>$21,102</h1> --}}
+                                        {{-- <p class='text-xs'><span class="text-green"><i data-feather="bar-chart"
+                                                    width="15"></i> +19%</span> than last month</p> --}}
+                                        {{-- <div class="legends">
                                             <div class="legend d-flex flex-row align-items-center">
                                                 <div class='w-3 h-3 rounded-full bg-info me-2'></div><span
                                                     class='text-xs'>Last Month</span>
@@ -101,7 +101,7 @@
                                                 <div class='w-3 h-3 rounded-full bg-blue me-2'></div><span
                                                     class='text-xs'>Current Month</span>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-12">

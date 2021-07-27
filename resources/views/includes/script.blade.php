@@ -38,3 +38,15 @@
         });
     });
 </script>
+
+{{-- navbar --}}
+<script>
+    var navbar = document.getElementById('navbar');
+        document.onscroll = function() {
+            if (document.documentElement.scrollTop > 0) {
+                navbar.classList.add('shadow-2xl','bg-gray-700','transition-all')
+            } else {
+                navbar.classList.remove('bg-gray-700')
+            }
+        }
+</script>
