@@ -4,7 +4,7 @@
         <div class="absolute top-0 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5  text-gray-100 py-12 px-12 md:py-24 md:px-20">
             <div class="col-span-2 text-lg" data-aos="fade-up" data-aos-delay="100">
                 <div class="">
-                    <img src="images/undraw_working_late_pukg.svg" alt="" class="w-40">
+                    <img src="{{ asset('/images/undraw_working_late_pukg.svg') }}" alt="" class="w-40">
                 </div>
                 <p class="mt-4 mb-8">
                     Go_Sinau adalah solusi belajar seputar teknologi yang mudah dimengerti dalam pembelajaran 

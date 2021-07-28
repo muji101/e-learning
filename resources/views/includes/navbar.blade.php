@@ -3,7 +3,7 @@
     <div class="flex justify-between items-center py-4 px-12 text-white">
         <div class="flex py-2 gap-14">
             <a href="#">
-                <img src="images/undraw_working_late_pukg.svg" alt="" class="w-16">
+                <img src="{{ asset('images/undraw_working_late_pukg.svg') }}" alt="" class="w-16">
             </a>
             <form action="/search" method="GET">
                 @csrf
@@ -25,7 +25,7 @@
             @auth
             <div class="">
                 <a href="{{ route('profile') }}" class="flex gap-2 items-center">
-                    <img src="images/undraw_working_late_pukg.svg" alt="" class="w-12">
+                    <img src="{{ asset('images/undraw_working_late_pukg.svg') }}" alt="" class="w-12">
                     <p>Hi, {{ Auth::user()->name }}</p>
                 </a>
             </div>
