@@ -15,7 +15,7 @@
             <div class="bg-black w-full h-full opacity-60"></div>
         </div>
         <div class="py-40 text-center text-white absolute top-0 left-1/4 ml-28">
-            <h1 class="text-4xl font-extrabold">Semakin Mudah untuk <br> Belajar dimasa Karantinas</h1>
+            <h1 class="text-4xl font-extrabold">Semakin Mudah untuk <br> Belajar dimasa Pandemi</h1>
             <p class="fs-3 text-warning px-3 py-8"> GO-Sinau menyiapkan Generasi Milennial mengakselerasi Karir <br>
                 di Keahlian bidang Digital untuk siap berkarir di Masa depan
             </p>
@@ -69,7 +69,7 @@
         <div class="flex justify-around py-14">
             <div data-aos="zoom-in-right" data-aos-delay="200" class="grid grid-cols-2 items-center">
                 <div class="col-span-1">
-                    <img src="/images/undraw_Youtube_tutorial_re_69qc.svg" alt="" style="width: 180px;" class="mx-auto">
+                    <img src="{{ asset('/images/undraw_Youtube_tutorial_re_69qc.svg') }}" alt="" style="width: 180px;" class="mx-auto">
                 </div>
                 <div class="col-span-1 px-2">
                     <h1 class="text-2xl font-bold pb-4">Kelas</h1>
@@ -78,7 +78,7 @@
             </div>
             <div data-aos="zoom-in" data-aos-delay="200" class="grid grid-cols-2 items-center">
                 <div class="col-span-1">
-                    <img src="images/undraw_people_tax5.svg" alt="" style="width: 180px;" class="mx-auto">
+                    <img src="{{ asset('images/undraw_people_tax5.svg') }}" alt="" style="width: 180px;" class="mx-auto">
                 </div>
                 <div class="col-span-1 px-2">
                     <h1 class="text-2xl font-bold pb-4">Pengguna</h1>
@@ -87,7 +87,7 @@
             </div>
             <div data-aos="zoom-in-left" data-aos-delay="200" class="grid grid-cols-2 items-center">
                 <div class="col-span-1">
-                    <img src="/images/undraw_reviews_lp8w.svg" alt="" style="width: 180px;" class="mx-auto">
+                    <img src="{{ asset('/images/undraw_reviews_lp8w.svg') }}" alt="" style="width: 180px;" class="mx-auto">
                 </div>
                 <div class="col-span-1 px-2">
                     <h1 class="text-2xl font-bold pb-4">Reviews</h1>
@@ -244,7 +244,7 @@
         <div class="flex flex-wrap justify-evenly gap-2 pt-14">
             <div data-aos="fade-up" data-aos-delay="100" class="p-4 rounded-2xl shadow-2xl w-1/4 bg-blue-900 my-8">
                 <div class="">
-                    <img style="width: 140px; height: 200px;" src="/images/undraw_teaching_f1cm.svg" alt="">
+                    <img style="width: 140px; height: 200px;" src="{{ asset('/images/undraw_teaching_f1cm.svg') }}" alt="">
                 </div>
                 <div class="py-2">
                     <h1 class="text-base font-bold py-2">Mentor Praktisi Berpengalaman</h1>
@@ -253,7 +253,7 @@
             </div>
             <div data-aos="fade-up" data-aos-delay="200" class="p-4 rounded-2xl shadow-2xl w-1/4 bg-blue-900 my-8">
                 <div class="">
-                    <img style="width: 140px; height: 200px;" src="/images/undraw_learning_2q1h.svg" alt="">
+                    <img style="width: 140px; height: 200px;" src="{{ asset('/images/undraw_learning_2q1h.svg') }}" alt="">
                 </div>
                 <div class="py-2">
                     <h1 class="text-base font-bold py-2">Metode belajar yang mudah dipahami</h1>
@@ -262,7 +262,7 @@
             </div>
             <div data-aos="fade-up" data-aos-delay="300" class="p-4 rounded-2xl shadow-2xl w-1/4 bg-blue-900 my-8">
                 <div class="">
-                    <img style="width: 140px; height: 200px;" src="/images/undraw_lightbulb_moment_re_ulyo.svg" alt="">
+                    <img style="width: 140px; height: 200px;" src="{{ asset('/images/undraw_lightbulb_moment_re_ulyo.svg') }}" alt="">
                 </div>
                 <div class="py-2">
                     <h1 class="text-base font-bold py-2">Kurikulum sesuai kebutuhan industri 4.0</h1>
@@ -271,7 +271,7 @@
             </div>
             <div data-aos="fade-up" data-aos-delay="400" class="p-4 rounded-2xl shadow-2xl w-1/4 bg-blue-900 my-8">
                 <div class="">
-                    <img style="width: 140px; height: 200px;" src="/images/undraw_team_spirit_hrr4.svg" alt="">
+                    <img style="width: 140px; height: 200px;" src="{{ asset('/images/undraw_team_spirit_hrr4.svg') }}" alt="">
                 </div>
                 <div class="py-2">
                     <h1 class="text-base font-bold py-2">Komunitas Antar Member</h1>
@@ -280,7 +280,7 @@
             </div>
             <div data-aos="fade-up" data-aos-delay="500" class="p-4 rounded-2xl shadow-2xl w-1/4 bg-blue-900 my-8">
                 <div class="">
-                    <img style="width: 140px; height: 200px;" src="/images/undraw_certificate_343v.svg" alt="">
+                    <img style="width: 140px; height: 200px;" src="{{ asset('/images/undraw_certificate_343v.svg') }}" alt="">
                 </div>
                 <div class="py-2">
                     <h1 class="text-base font-bold py-2">Sertifikat Penyelesaian</h1>
@@ -289,7 +289,7 @@
             </div>
             <div data-aos="fade-up" data-aos-delay="600" class="p-4 rounded-2xl shadow-2xl w-1/4 bg-blue-900 my-8">
                 <div class="">
-                    <img style="width: 140px; height: 200px;" src="/images/undraw_Questions_re_1fy7.svg" alt="">
+                    <img style="width: 140px; height: 200px;" src="{{ asset('/images/undraw_Questions_re_1fy7.svg') }}" alt="">
                 </div>
                 <div class="py-2">
                     <h1 class="text-base font-bold py-2">Tanya Jawab dengan Mentor Praktisi</h1>
@@ -302,7 +302,7 @@
     <!-- ready learning -->
     <div class="py-32 text-gray-100">
         <div data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-delay="200" class="text-center pt-8 px-4">
-            <img src="/images/undraw_press_play_bx2d.svg" alt="" class="w-72 mx-auto">
+            <img src="{{ asset('/images/undraw_press_play_bx2d.svg') }}" alt="" class="w-72 mx-auto">
             <div class="text-4xl font-semibold py-6">
                 <h1>Siap Memulai Belajar Bersama Kami?</h1>
             </div>
