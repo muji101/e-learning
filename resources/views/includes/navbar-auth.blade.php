@@ -2,7 +2,7 @@
     <div class=" bg-blue-400 flex justify-between items-center py-4 px-12 text-white">
         <div class="flex py-2 gap-14">
             <a href="#">
-                <img src="/images/undraw_working_late_pukg.svg" alt="" class="w-16">
+                <img src="images/undraw_working_late_pukg.svg" alt="" class="w-16">
             </a>
             <input type="search" class="bg-gray-200 rounded-full py-2 px-4" placeholder="Search">
         </div>
