@@ -43,7 +43,9 @@
                         <tr>
                             <td class="fw-bold">{{ $class->name }}</td>
                             <td><img src="{{ Storage::url($class->photo) }}" alt="" style="width: 60px"></td>
-                            <td>{{ $class->description }}</td>
+                            <td>
+                                {!! str_word_count($class->description) > 5 ? substr($class->description, 0, 50) . ' ...' : $class->description !!}
+                            </td>
                             <td>{{ $class->category->name }}</td>
                             <td>{{ $class->chapter->count() }}</td>
                             <td>{{ $class->video->count() }}</td>

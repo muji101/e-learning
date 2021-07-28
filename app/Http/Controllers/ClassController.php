@@ -19,15 +19,17 @@ class ClassController extends Controller
 
         return view('pages.class',['classes'=> $classes, 'categories' => $categories, 'users' => $users]);
     }
-    public function detail()
+    public function detail($id)
     {
-        return view('pages.class_detail');
+        // return view('pages.class_detail');
+        $chaptervideo = Chapter::get();
 
-        $classes = Course::get();
-        $caltegories = Category::get();
+        $chapters = Chapter::where('class_id', $id)->get();
+        $classes = Course::findOrFail($id);
+        $categories = Category::get();
         $users = User::get();
 
-        return view('pages.class',['classes'=> $classes, 'categories' => $caltegories, 'users' => $users]);
+        return view('pages.class_detail',['classes'=> $classes, 'categories' => $categories, 'users' => $users, 'chapters' => $chapters, 'chaptervideo' => $chaptervideo]);
     }
     public function mentor()
     {
@@ -41,16 +43,5 @@ class ClassController extends Controller
         
         return view('pages.class_videos',['classes'=> $classes, 'videos' => $videos, 'chapters'=> $chapters ]);
     }
-    public function search(Request $request)
-    {
-        // dd($request->get('search'));
-        $categories = Category::get();
-
-        $videos = Video::get();
-        
-        $search = $request->get('search');
-        $classes = Course::where('name', 'like', '%'.$search.'%')->get();
-
-        return view('pages.search', ['classes' => $classes, 'categories' => $categories, 'videos' => $videos]);
-    }
+    
 }

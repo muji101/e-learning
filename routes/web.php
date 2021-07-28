@@ -9,7 +9,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardSettingController;
 use App\Http\Controllers\DashboardCategoryController;
-use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,12 +27,17 @@ use Illuminate\Support\Facades\Route;
 // route home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/class', [ClassController::class, 'index'])->name('class_list');
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+Route::get('/categories/{name}', [CategoryController::class, 'detail'])->name('categories-detail');
+
+// Route::get('/class', [ClassController::class, 'index'])->name('class_list');
 Route::get('/class/{id}', [ClassController::class, 'detail'])->name('class_detail');
 Route::get('/class/mentor/{id}', [ClassController::class, 'mentor'])->name('class_mentor');
 Route::get('/class/video/{id}', [ClassController::class, 'video'])->name('class_video');
 
-Route::get('/search', [ClassController::class, 'search'])->name('search');
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+Route::get('/search/{id}', [SearchController::class, 'searchCategory'])->name('search-category');
+
 
 // middleware_default
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

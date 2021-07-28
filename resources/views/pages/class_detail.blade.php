@@ -13,10 +13,10 @@
                     <h1 class="font-bold text-4xl py-4">
                         {{ $classes->name }}
                     </h1>
-                    <p>Eloquent adalah salah satu fitur di laravel, fitur ini untuk mengelola sebuah data.</p>
+                    <p>{{ $classes->title }}</p>
                 </div>
                 <div class="py-4 mx-28">
-                    <iframe width="1120" height="630" src="https://www.youtube.com/embed/auhRgeDB8-8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="1120" height="630" src="{{ $classes->video->first()->url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
 
@@ -31,7 +31,7 @@
                     <h1 class="font-bold text-xl border-b-2 my-2">
                         Materi
                     </h1>
-                    <p class="count text-lg">31</p>
+                    <p class="count text-lg">{{ $classes->video->count() }}</p>
                 </div>
                 <div class="text-center">
                     <h1 class="font-bold text-xl border-b-2 my-2">
@@ -59,12 +59,10 @@
             <div class="py-8">
                 <div class="py-4 text-gray-100">
                     <h1 class="font-bold text-4xl py-4">
-                        Eloquent ORM Laravel
+                        {{ $classes->name }}
                     </h1>
                     <p class="text-lg">
-                        Eloquent adalah salah satu fitur di laravel, fitur ini untuk mengelola sebuah data yang ada pada database, menjadi sangat mudah.
-                        Eloquent adalah salah satu fitur di laravel, fitur ini untuk mengelola sebuah data yang ada pada database, menjadi sangat mudah.
-                        Eloquent adalah salah satu fitur di laravel, fitur ini untuk mengelola sebuah data yang ada pada database, menjadi sangat mudah.
+                        {{ $classes->description }}
                     </p>
                 </div>
             </div>
@@ -312,95 +310,29 @@
                         Apa yang akan kamu pelajari?
                     </h1>
                 </div>
-                <div class="py-4 px-8 bg-gray-300 rounded-2xl w-3/4 shadow-xl my-4">
-                    <h1 class="font-bold text-xl py-4">
-                        1. Section 1
-                    </h1>
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <p>Opening</p>
-                        </div>
-                        <div class="">
-                            <p>1 mins </p>
-                        </div>
+                @foreach ($chapters as $chapter)
+                    <div class="py-4 px-8 bg-gray-300 rounded-2xl w-3/4 shadow-xl my-4">
+                        <h1 class="font-bold text-xl py-4">
+                            # {{ $chapter->name }}
+                        </h1>
+                        @foreach ($chaptervideo as $video)
+                            <div class="pl-4 flex justify-between py-2 text-blue-900">
+                                <div class="flex items-center">
+                                    <span class="pr-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                        </svg>
+                                    </span>
+                                    <p>{{ $video->video }}</p>
+                                </div>
+                                <div class="">
+                                    <p>1 mins </p>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <p>Preparation</p>
-                        </div>
-                        <div class="">
-                            <p>2 mins </p>
-                        </div>
-                    </div>
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <p>Review Website</p>
-                        </div>
-                        <div class="">
-                            <p>2 mins </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="py-4 px-8 bg-gray-300 rounded-2xl w-3/4 shadow-xl my-4">
-                    <h1 class="font-bold text-xl py-4">
-                        1. Section 2
-                    </h1>
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <p>Introducing Eloquent & ORM</p>
-                        </div>
-                        <div class="">
-                            <p>2 mins </p>
-                        </div>
-                    </div>
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <p>Introduction Migration & Seeder</p>
-                        </div>
-                        <div class="">
-                            <p>2 mins </p>
-                        </div>
-                    </div>
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <p>Plan basic ERD ( One to One, One to Many & Pivot )</p>
-                        </div>
-                        <div class="">
-                            <p>4 mins </p>
-                        </div>
-                    </div>
-    
-                </div>
+                @endforeach
+                
             </div>
         </div>
 
