@@ -15,7 +15,7 @@
             <div class="bg-black w-full h-full opacity-60"></div>
         </div>
         <div class="py-40 text-center text-white absolute top-0 left-1/4 ml-28">
-            <h1 class="text-4xl font-extrabold">Semakin Mudah untuk <br> Belajar dimasa Pandemi</h1>
+            <h1 class="text-4xl font-extrabold">Semakin Mudah untuk <br> Belajar dimasa Karantina</h1>
             <p class="fs-3 text-warning px-3 py-8"> GO-Sinau menyiapkan Generasi Milennial mengakselerasi Karir <br>
                 di Keahlian bidang Digital untuk siap berkarir di Masa depan
             </p>
@@ -41,7 +41,7 @@
             <a href="{{ route('categories-detail', $category->name) }}">
                 <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class=" bg-blue-900 flex rounded-2xl p-4 my-6 w-5/12">
                     <div class="">
-                        <img class="" src="{{ asset($category->photo) }}" alt="" style="width: 280px;">
+                        <img class="" src="{{ Storage::url($category->photo) }}" alt="" style="width: 280px;">
                     </div>
                     <div class="pl-4 w-5/12 text-gray-100">
                         <h1 class="font-bold text-lg">{{ $category->name }}</h1>
@@ -209,7 +209,7 @@
                 <a href="{{ route('class_detail', $class->id) }}">
                     <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="w-96 p-4 bg-blue-900 rounded-2xl shadow-lg">
                         <div class="">
-                            <img class="w-full rounded-2xl" src="{{ asset($class->photo) }}" alt="">
+                            <img class="w-full rounded-2xl" src="{{ Storage::url($class->photo) }}" alt="">
                         </div>
                         <div class="py-2 text-gray-100 border-b-2">
                             <h1 class="text-xl font-bold pb-3">{{ $class->name }}</h1>
