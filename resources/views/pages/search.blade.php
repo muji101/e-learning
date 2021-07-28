@@ -28,7 +28,7 @@
                     @forelse ($classes as $class)
                         <div data-aos="fade-up" data-aos-delay="200" class="w-96 p-4 bg-blue-900 rounded-2xl shadow-lg mt-14">
                             <div class="">
-                                <img class="w-full" src="{{ Storage::url($class->photo) }}" alt="">
+                                <img class="w-full" src="{{ asset($class->photo) }}" alt="">
                             </div>
                             <div class="my-4 h-1/3 border-b-2">
                                 <h1 class="text-xl font-bold pb-3">{{ $class->name }}</h1>
