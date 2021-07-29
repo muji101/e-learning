@@ -15,9 +15,9 @@
             </form>
         </div>
         <div class="flex gap-6 py-2 items-center">
-            <a href="{{ route('home') }}">Home</a>
-            <a href="{{ route('categories') }}">Class</a>
-            <a href="#">About</a>
+            <a class="hover:text-blue-900" href="{{ route('home') }}">Home</a>
+            <a class="hover:text-blue-900" href="{{ route('categories') }}">Class</a>
+            <a class="hover:text-blue-900" href="#">About</a>
             @guest
                 <a href="{{ route('login') }}" class="py-2 px-8 border-2 border-blue-900 rounded-full hover:border-white hover:bg-blue-900 font-bold">Sign In</a>
                 <a href="{{ route('register') }}" class="border-2 border-blue-900 px-8 py-2 rounded-full hover:border-white hover:bg-blue-900 font-bold">Sign Up</a>

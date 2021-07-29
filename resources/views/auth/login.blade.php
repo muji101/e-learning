@@ -54,10 +54,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in - Sinau</title>
-    <link rel="stylesheet" href="dist/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="{{ asset('dist/assets/css/bootstrap.css') }}">
 
-    <link rel="shortcut icon" href="dist/assets/images/favicon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="dist/assets/css/app.css">
+    <link rel="shortcut icon" href="{{ asset('dist/assets/images/favicon.svg') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ asset('dist/assets/css/app.css') }}">
 </head>
 
 <body>
@@ -69,7 +69,7 @@
                     <div class="card pt-4">
                         <div class="card-body">
                             <div class="text-center mb-5">
-                                <img src="/images/undraw_working_late_pukg.svg" height="48" class='mb-4'>
+                                <img src="{{ asset('/images/undraw_working_late_pukg.svg') }}" height="48" class='mb-4'>
                                 <h3>Sign In</h3>
                                 <p>Please sign in to continue to Sinau.</p>
                             </div>
@@ -139,10 +139,10 @@
         </div>
 
     </div>
-    <script src="dist/assets/js/feather-icons/feather.min.js"></script>
-    <script src="dist/assets/js/app.js"></script>
+    <script src="{{ asset('dist/assets/js/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('dist/assets/js/app.js') }}"></script>
 
-    <script src="dist/assets/js/main.js"></script>
+    <script src="{{ asset('dist/assets/js/main.js') }}"></script>
 </body>
 
 </html>
