@@ -24,7 +24,7 @@
             @endguest
             @auth
             <div class="">
-                <a href="{{ route('profile') }}" class="flex gap-2 items-center">
+                <a href="{{ route('profile') }}" class="flex space-x-2 items-center">
                     <img src="{{ asset('/images/avatar.png') }}" alt="" class="w-12 border-2 rounded-full">
                     <p>Hi, {{ Auth::user()->name }}</p>
                 </a>

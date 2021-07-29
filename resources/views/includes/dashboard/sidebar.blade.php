@@ -1,7 +1,10 @@
 <div id="sidebar" class='active'>
     <div class="sidebar-wrapper active">
         <div class="sidebar-header">
-            <img src="{{ asset('/dist/assets/images/logo.svg') }}" alt="" srcset="">
+            <div class="avatar me-1">
+                <img src="{{ asset('/dist/assets/images/avatar/avatar-s-1.png') }}" style="width: 100px; height: 100px" alt="" srcset="">
+            </div>
+            <div class="d-none d-md-block d-lg-inline-block">{{ Auth::user()->name }}</div>
         </div>
         <div class="sidebar-menu">
             <ul class="menu">
