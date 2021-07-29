@@ -85,13 +85,13 @@
                         <img class="" src="{{ asset('/images/undraw_programming_2svr.svg') }}" alt="" style="width: 280px;">
                     </div>
                     <div class="col-span-1 pl-4">
-                        <h1 class="font-bold text-xl">Muji Kuwat</h1>
-                        <p class="text-gray-500">Full Stack Developer</p>
+                        <h1 class="font-bold text-xl">{{ $classes->user->name }}</h1>
+                        <p class="text-gray-500">{{ $classes->user->title }}</p>
                     </div>
                     <div class="text-base py-4">
-                        <h1>Full Stack Developer Di PT.Mahir Techno Indonesia sejak Desember 2021.</h1>
+                        <h1>{{ $classes->user->description }}</h1>
                         <div class="text-base py-4 text-blue-900">
-                            <a href="{{ route('class_mentor',1) }}">Lihat Detail Mentor</a>
+                            <a href="{{ route('class_mentor', $classes->user->id) }}">Lihat Detail Mentor</a>
                         </div>
                     </div>
                 </div>
@@ -317,7 +317,7 @@
                         Apa yang akan kamu pelajari?
                     </h1>
                 </div>
-                @foreach ($classes->chapter as $chapter)
+                @forelse ($classes->chapter as $chapter)
                     <div class="py-4 px-8 bg-gray-300 rounded-2xl w-3/4 shadow-xl my-4">
                         <h1 class="font-bold text-xl py-4">
                             # {{ $chapter->name }}
@@ -338,8 +338,10 @@
                             </div>
                         @endforeach
                     </div>
-                @endforeach
-                
+                @empty
+                    <h1 class="text-white text-center text-2xl py-2 px-4 bg-blue-900 rounded-full">Belum ada materi tersedia!</h1>
+                @endforelse
+
             </div>
         </div>
 

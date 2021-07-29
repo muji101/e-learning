@@ -30,8 +30,10 @@
                 <img src="{{ asset('/images/undraw_working_late_pukg.svg') }}" alt="">
             </div>
             <div class="col-span-2 py-4 text-gray-100">
+                {{-- <h1 class="font-bold text-xl">{{ $classes->video->title }}</h1> --}}
                 <h1 class="font-bold text-xl">{{ $classes->name }}</h1>
-                <span class="font-semibold border-b-2 border-white pb-1">Opening</span>
+                
+                {{-- <span class="font-semibold border-b-2 border-white pb-1">{{ $classes->chapter->name }}</span> --}}
             </div>
             <div class="col-span-1 py-4 mx-auto text-gray-100 font-bold">
                 <button onclick="rating()" href="#" class="px-8 py-3 bg-blue-900 rounded-full">Beri Review Kelas</button>
@@ -43,7 +45,7 @@
     <div class="grid grid-cols-4">
         <div class="col-span-1 bg-gray-800">
             <div class="overflow-x-hidden h-screen">
-                @foreach ($classes->chapter as $chapter)
+                @forelse ($classes->chapter as $chapter)
                     <div class="py-4 px-4 border-b-2">
                         <div class="">
                             <h1 class="text-gray-100 font-bold"># {{ $chapter->name }}</h1>
@@ -57,7 +59,7 @@
                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
                                     </svg>
                                 </span>
-                                    <a href="#">{{ $video->title }}</a>
+                                    <a href="{{ route('class_video_detail', $video->id) }}">{{ $video->title }}</a>
                                 </div>
                                 <div class="">
                                     <p>1 mins </p>
@@ -65,13 +67,25 @@
                             </div>
                         @endforeach
                     </div>
-                @endforeach
+                @empty
+                    <h1 class="text-center text-white py-2 bg-blue-900 rounded-full my-4 mx-4">Belum Ada Video!</h1>
+                @endforelse
                 
             </div>
         </div>
+
+        @php
+            $link= isset($classes->video->first()->url)
+        @endphp
+        
+
         <div class="col-span-3 bg-gray-600">
             <div class="mx-8 py-4">
-                <iframe width="1120" height="630" src="https://www.youtube.com/embed/auhRgeDB8-8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                @if ($link)
+                    <iframe width="1120" height="630" src="{{ $link ? $classes->video->first()->url : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                @else
+                    <h1 class="text-center text-white px-4 py-2 bg-blue-900 rounded-full">Belum Ada Video!</h1>
+                @endif
             </div>
             <div class="text-right pt-8 px-12 text-gray-100">
                 <a href="#" class="py-2 px-6 mx-2 bg-blue-900 rounded-full">

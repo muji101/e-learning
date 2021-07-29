@@ -11,10 +11,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $classes = Course::get();
-        $caltegories = Category::paginate(2);
+        $classes = Course::paginate(3);
+        $categories = Category::paginate(2);
         $users = User::get();
 
-        return view('pages.home',['classes'=> $classes, 'categories' => $caltegories, 'users' => $users]);
+        return view('pages.home',['classes'=> $classes, 'categories' => $categories, 'users' => $users]);
     }
 }

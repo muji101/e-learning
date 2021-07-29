@@ -27,7 +27,7 @@
                     <a href="{{ route('categories-detail', $category->name) }}">
                         <div class="bg-blue-900 flex rounded-2xl p-4 my-6">
                             <div class="">
-                                <img class="" src="{{ Storage::url($category->photo) }}" alt="" style="width: 280px;">
+                                <img class="" src="{{ asset('/storage/'.$category->photo) }}" alt="" style="width: 280px;">
                             </div>
                             <div class="pl-4 w-5/12">
                                 <h1 class="font-bold text-lg border-b-2">{{ $category->name }}</h1>
@@ -71,7 +71,7 @@
             @forelse ($classes as $class)
                 <a href="{{ route('class_detail', $class->id) }}">
                     <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="w-96 p-4 bg-blue-900 rounded-2xl shadow-lg mt-14">
-                        <img class="w-full rounded-xl" src="{{ Storage::url($class->photo) }}" alt="">
+                        <img class="w-full h-56 rounded-xl" src="{{ asset('/storage/'.$class->photo) }}" alt="">
                         <div class="mt-4 h-1/3 border-b-2">
                             <h1 class="text-xl font-bold pb-3">{{ $class->name }}</h1>
                             <p>{{ $class->title }}</p>

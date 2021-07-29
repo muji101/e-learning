@@ -1,3 +1,8 @@
+@php
+    $increment = 100;
+@endphp
+
+
 @extends('layouts.app')
 
 @section('title')
@@ -18,12 +23,12 @@
                     <img class="" src="{{ asset('/images/undraw_programming_2svr.svg') }}" alt="" style="width: 480px;">
                 </div>
                 <div class="col-span-1 pl-4 text-lg">
-                    <h1>Lahir di Batang Jawa Tengah Juli 2000, merupakan asli keturunan jawa dan dia adalah Full Stack Developer Di PT.Mahir Techno Indonesia sejak Desember 2021.</h1>
+                    <h1>{{ $users->description }}</h1>
                 </div>
                 <div class="text-base py-4">
                     <div class="text-base py-4 text-center">
-                        <h1 class="font-bold text-xl">Muji Kuwat</h1>
-                        <p class="text-gray-500">Full Stack Developer</p>
+                        <h1 class="font-bold text-xl">{{ $users->name }}</h1>
+                        <p class="text-gray-500">{{ $users->title }}</p>
                     </div>
                 </div>
             </div>
@@ -37,43 +42,24 @@
         </div>
         
         <div class="pb-32">
-            <div class="flex flex-wrap justify-around p-4">
-                <div data-aos="fade-up" data-aos-delay="200" class="w-96 p-4 bg-gray-50 rounded-2xl shadow-lg mt-14">
-                    <div class="">
-                        <img class="w-full h-72" src="{{ asset('/images/undraw_programmer_imem.svg') }}" alt="">
-                    </div>
-                    <div class="py-2">
-                        <h1 class="text-xl font-bold pb-3">Eloquent ORM Laravel</h1>
-                        <p>Eloquent adalah salah satu fitur di laravel, fitur ini untuk mengelola sebuah data yang ada pada database, menjadi sangat mudah.</p>
-                    </div>
-                    <div class="py-2 text-center">
-                        <h1 class="text-xl text-blue-500 font-bold">21 Materi</h1>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="300" class="w-96 p-4 bg-gray-50 rounded-2xl shadow-lg mt-14">
-                    <div class="">
-                        <img class="w-full h-72" src="{{ asset('/images/undraw_Character_drawing_ii11.svg') }}" alt="">
-                    </div>
-                    <div class="py-2">
-                        <h1 class="text-xl font-bold pb-3">UX Brainstorming dengan InVision App  </h1>
-                        <p>Mempelajari metode UX Brainstorming untuk membuat sebuah fitur pada aplikasi mobile yang diputuskan oleh beberapa divisi utama seperti Developer, Designer, Business Owner, dan Customer Support. </p>
-                    </div>
-                    <div class="py-2 text-center">
-                        <h1 class="text-xl text-blue-500 font-bold">21 Materi</h1>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="400" class="w-96 p-4 bg-gray-50 rounded-2xl shadow-lg mt-14">
-                    <div class="">
-                        <img class="w-full h-72" src="{{ asset('/images/undraw_Marketing_re_7f1g.svg') }}" alt="">
-                    </div>
-                    <div class="py-2">
-                        <h1 class="text-xl font-bold pb-3">E Trello Project Management</h1>
-                        <p>Manajemen projek sangatlah penting untuk dilakukan ketika bekerja sendirian ataupun bersama dengan tim. Manfaat utamanya adalah projek dapat terorganisir dengan baik dan keep on track.</p>
-                    </div>
-                    <div class="py-2 text-center">
-                        <h1 class="text-xl text-blue-500 font-bold">21 Materi</h1>
-                    </div>
-                </div>
+            <div class="flex flex-wrap justify-around p-4 text-gray-100">
+                @forelse ($classes as $class)
+                    <a href="{{ route('class_detail', $class->id) }}">
+                        <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="w-96 p-4 bg-blue-900 rounded-2xl shadow-lg mt-14">
+                            <img class="w-full rounded-xl" src="{{ asset('/storage/'.$class->photo) }}" alt="">
+                            <div class="mt-4 h-1/3 border-b-2">
+                                <h1 class="text-xl font-bold pb-3">{{ $class->name }}</h1>
+                                <p>{{ $class->title }}</p>
+                            </div>
+                            <p class="italic py-1 text-gray-800">{{ $class->category->name }}</p>
+                            <div class="text-center">
+                                <h1 class="text-xl text-gray-800 font-bold">{{ $class->video->count() }} Materi</h1>
+                            </div>
+                        </div>
+                    </a>
+                @empty
+                    <h1 class="bg-gray-400 text-gray-800 text-2xl py-4 px-10 mt-24 rounded-full">Kelas Tidak Ditemukan!</h1>
+                @endforelse
             </div>
         </div>
 

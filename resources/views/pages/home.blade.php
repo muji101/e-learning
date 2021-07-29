@@ -51,7 +51,7 @@
                     </div>
                 </div>
             @empty
-                <h1 class="text-center text-2xl py-2 px-4 bg-blue-900 rounded-full">Belum ada kategori tersedia!</h1>
+                <h1 class="text-white text-center text-2xl py-2 px-4 bg-blue-900 rounded-full">Belum ada kategori tersedia!</h1>
             @endforelse
         </div>
     </div>
@@ -219,7 +219,7 @@
                     </div>
                 </a>
             @empty
-                <h1 class="text-center text-2xl py-2 px-4 bg-blue-900 rounded-full">Belum ada kelas tersedia!</h1>
+                <h1 class="text-white text-center text-2xl py-2 px-4 bg-blue-900 rounded-full">Belum ada kelas tersedia!</h1>
             @endforelse
         </div>
     </div>

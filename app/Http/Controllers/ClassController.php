@@ -13,7 +13,8 @@ class ClassController extends Controller
 {
     public function index()
     {
-        $classes = Course::get();
+        $classes = Course::get
+        ();
         $categories = Category::get();
         $users = User::get();
 
@@ -29,12 +30,28 @@ class ClassController extends Controller
 
         return view('pages.class_detail',['classes'=> $classes, 'categories' => $categories, 'users' => $users, 'chapters' => $chapters]);
     }
-    public function mentor()
+    public function mentor($id)
     {
-        return view('pages.class_mentor');
+        $users = User::findOrFail($id);
+        $classes = Course::where('user_id', $id)->get();
+
+        return view('pages.class_mentor', ['users' => $users, 'classes'=> $classes]);
     }
     public function video($id)
     {
+        $classes = Course::findOrFail($id);
+        
+        return view('pages.class_videos',['classes'=> $classes]);
+    }
+
+    public function videoDetail($id)
+    {
+        // $classes = Course::find($id);
+        // $chapters = Chapter::get();
+        // $videos = Video::get();
+
+        // return view('pages.class_videos', ['videos' => $videos, 'classes'=> $classes, 'chapters' => $chapters]);
+
         $classes = Course::findOrFail($id);
         
         return view('pages.class_videos',['classes'=> $classes]);
