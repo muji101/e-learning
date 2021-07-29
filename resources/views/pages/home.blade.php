@@ -15,7 +15,7 @@
             <div class="bg-black w-full h-full opacity-60"></div>
         </div>
         <div class="py-40 text-center text-white absolute top-0 left-1/4 ml-28">
-            <h1 class="text-4xl font-extrabold">Semakin Mudah untuk <br> Belajar dimasa Karantina</h1>
+            <h1 class="text-4xl font-extrabold">Semakin Mudah untuk <br> Belajar dimasa Pandemi</h1>
             <p class="fs-3 text-warning px-3 py-8"> GO-Sinau menyiapkan Generasi Milennial mengakselerasi Karir <br>
                 di Keahlian bidang Digital untuk siap berkarir di Masa depan
             </p>
