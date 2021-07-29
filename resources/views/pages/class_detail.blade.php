@@ -1,3 +1,6 @@
+@php
+    $link= isset($classes->video->first()->url)
+@endphp
 @extends('layouts.app')
 
 @section('title')
@@ -16,7 +19,11 @@
                     <p>{{ $classes->title }}</p>
                 </div>
                 <div class="py-4 mx-28">
-                    <iframe width="1120" height="630" src="{{ $classes->video->first()->url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    @if ($link)
+                        <iframe width="1120" height="630" src="{{ $link ? $classes->video->first()->url : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    @else
+                        <h1>Belum Ada Video</h1>
+                    @endif
                 </div>
             </div>
 

@@ -14,7 +14,7 @@
     @stack('addon-style')
 </head>
 {{-- <body class="bg-gradient-to-r from-gray-700 via-gray-400 to-gray-700"> --}}
-<body class="bg-gray-800">
+<body class="bg-gradient-to-r from-gray-900 to-blue-900">
 
     {{-- navbar --}}
     @include('includes.navbar')

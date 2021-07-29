@@ -71,15 +71,13 @@
             @forelse ($classes as $class)
                 <a href="{{ route('class_detail', $class->id) }}">
                     <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="w-96 p-4 bg-blue-900 rounded-2xl shadow-lg mt-14">
-                        <div class="">
-                            <img class="w-full" src="{{ Storage::url($class->photo) }}" alt="">
-                        </div>
+                        <img class="w-full rounded-xl" src="{{ Storage::url($class->photo) }}" alt="">
                         <div class="mt-4 h-1/3 border-b-2">
                             <h1 class="text-xl font-bold pb-3">{{ $class->name }}</h1>
                             <p>{{ $class->title }}</p>
                         </div>
                         <p class="italic py-1 text-gray-800">{{ $class->category->name }}</p>
-                        <div class="text-center pb-14">
+                        <div class="text-center">
                             <h1 class="text-xl text-gray-800 font-bold">{{ $class->video->count() }} Materi</h1>
                         </div>
                     </div>

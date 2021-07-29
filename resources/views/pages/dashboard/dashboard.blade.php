@@ -6,93 +6,133 @@
     <div class="main-content container-fluid">
         <div class="page-title">
             <h3>Dashboard</h3>
-            <p class="text-subtitle text-muted">A good dashboard to display your statistics</p>
+            <p class="text-subtitle text-muted">Your your statistics</p>
         </div>
         <section class="section">
             <div class="row mb-2">
-                <div class="col-12 col-md-3">
-                    <div class="card card-statistic">
-                        <div class="card-body p-0">
-                            <div class="d-flex flex-column">
-                                <div class='px-3 py-3 d-flex justify-content-between'>
-                                    <h3 class='card-title'>CLASSES</h3>
-                                    <div class="card-right d-flex align-items-center">
-                                        <p>{{ $classes->count() }}</p>
+                @if (Auth::user()->role == 'TEACHER')
+                    <div class="col-12 col-md-3">
+                        <div class="card card-statistic">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-column">
+                                    <div class='px-3 py-3 d-flex justify-content-between'>
+                                        <h3 class='card-title'>CLASSES</h3>
+                                        <div class="card-right d-flex align-items-center">
+                                            <p>{{ $classes->count() }}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="chart-wrapper">
-                                    <canvas id="canvas1" style="height:100px !important"></canvas>
+                                    <div class="chart-wrapper">
+                                        <canvas id="canvas1" style="height:100px !important"></canvas>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-3">
-                    <div class="card card-statistic">
-                        <div class="card-body p-0">
-                            <div class="d-flex flex-column">
-                                <div class='px-3 py-3 d-flex justify-content-between'>
-                                    <h3 class='card-title'>CATEGORIES</h3>
-                                    <div class="card-right d-flex align-items-center">
-                                        <p>{{ $categories->count() }}</p>
+                    <div class="col-12 col-md-3">
+                        <div class="card card-statistic">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-column">
+                                    <div class='px-3 py-3 d-flex justify-content-between'>
+                                        <h3 class='card-title'>CATEGORIES</h3>
+                                        <div class="card-right d-flex align-items-center">
+                                            <p>{{ $categories->count() }}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="chart-wrapper">
-                                    <canvas id="canvas2" style="height:100px !important"></canvas>
+                                    <div class="chart-wrapper">
+                                        <canvas id="canvas2" style="height:100px !important"></canvas>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-3">
-                    <div class="card card-statistic">
-                        <div class="card-body p-0">
-                            <div class="d-flex flex-column">
-                                <div class='px-3 py-3 d-flex justify-content-between'>
-                                    <h3 class='card-title'>USERS</h3>
-                                    <div class="card-right d-flex align-items-center">
-                                        <p>{{ $users->count() }}</p>
+                    {{-- <div class="col-12 col-md-3">
+                        <div class="card card-statistic">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-column">
+                                    <div class='px-3 py-3 d-flex justify-content-between'>
+                                        <h3 class='card-title'>USERS</h3>
+                                        <div class="card-right d-flex align-items-center">
+                                            <p>{{ $users->count() }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="chart-wrapper">
+                                        <canvas id="canvas3" style="height:100px !important"></canvas>
                                     </div>
                                 </div>
-                                <div class="chart-wrapper">
-                                    <canvas id="canvas3" style="height:100px !important"></canvas>
+                            </div>
+                        </div>
+                    </div> --}}
+                    <div class="col-12 col-md-3">
+                        <div class="card card-statistic">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-column">
+                                    <div class='px-3 py-3 d-flex justify-content-between'>
+                                        <h3 class='card-title'>VIDEOS</h3>
+                                        <div class="card-right d-flex align-items-center">
+                                            <p>{{ $videos->count() }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="chart-wrapper">
+                                        <canvas id="canvas4" style="height:100px !important"></canvas>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-3">
-                    <div class="card card-statistic">
-                        <div class="card-body p-0">
-                            <div class="d-flex flex-column">
-                                <div class='px-3 py-3 d-flex justify-content-between'>
-                                    <h3 class='card-title'>Sales Today</h3>
-                                    <div class="card-right d-flex align-items-center">
-                                        <p>423 </p>
+                @else
+                    <div class="col-12 col-md-3">
+                        <div class="card card-statistic">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-column">
+                                    <div class='px-3 py-3 d-flex justify-content-between'>
+                                        <h3 class='card-title'>CODE</h3>
+                                        <div class="card-right d-flex align-items-center">
+                                            <p>{{ $videos->count() }}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="chart-wrapper">
-                                    <canvas id="canvas4" style="height:100px !important"></canvas>
+                                    <div class="chart-wrapper">
+                                        <canvas id="canvas4" style="height:100px !important"></canvas>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div class="col-12 col-md-3">
+                        <div class="card card-statistic">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-column">
+                                    <div class='px-3 py-3 d-flex justify-content-between'>
+                                        <h3 class='card-title'>DESIGN</h3>
+                                        <div class="card-right d-flex align-items-center">
+                                            <p>{{ $videos->count() }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="chart-wrapper">
+                                        <canvas id="canvas4" style="height:100px !important"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+                
             </div>
+
+            
             <div class="row mb-4">
                 <div class="col-md-8">
-                    <div class="card">
+                    {{-- <div class="card">
                         <div class="card-header">
-                            <h3 class='card-heading p-1 pl-3'>Sales</h3>
+                            <h3 class='card-heading p-1 pl-3'>Kelas</h3>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4 col-12">
                                     <div class="pl-3">
-                                        {{-- <h1 class='mt-5'>$21,102</h1> --}}
-                                        {{-- <p class='text-xs'><span class="text-green"><i data-feather="bar-chart"
-                                                    width="15"></i> +19%</span> than last month</p> --}}
-                                        {{-- <div class="legends">
+                                        <h1 class='mt-5'>$21,102</h1>
+                                        <p class='text-xs'><span class="text-green"><i data-feather="bar-chart"
+                                                    width="15"></i> +19%</span> than last month</p>
+                                        <div class="legends">
                                             <div class="legend d-flex flex-row align-items-center">
                                                 <div class='w-3 h-3 rounded-full bg-info me-2'></div><span
                                                     class='text-xs'>Last Month</span>
@@ -101,7 +141,7 @@
                                                 <div class='w-3 h-3 rounded-full bg-blue me-2'></div><span
                                                     class='text-xs'>Current Month</span>
                                             </div>
-                                        </div> --}}
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-12">
@@ -109,98 +149,73 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h4 class="card-title">Orders Today</h4>
-                            <div class="d-flex ">
+                            <h4 class="card-title">Kelas Terbaru</h4>
+                            {{-- <div class="d-flex ">
                                 <i data-feather="download"></i>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="card-body px-0 pb-0">
-                            <div class="table-responsive">
-                                <table class='table mb-0' id="table1">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>City</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Graiden</td>
-                                            <td>vehicula.aliquet@semconsequat.co.uk</td>
-                                            <td>076 4820 8838</td>
-                                            <td>Offenburg</td>
-                                            <td>
-                                                <span class="badge bg-success">Active</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Dale</td>
-                                            <td>fringilla.euismod.enim@quam.ca</td>
-                                            <td>0500 527693</td>
-                                            <td>New Quay</td>
-                                            <td>
-                                                <span class="badge bg-success">Active</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nathaniel</td>
-                                            <td>mi.Duis@diam.edu</td>
-                                            <td>(012165) 76278</td>
-                                            <td>Grumo Appula</td>
-                                            <td>
-                                                <span class="badge bg-danger">Inactive</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Darius</td>
-                                            <td>velit@nec.com</td>
-                                            <td>0309 690 7871</td>
-                                            <td>Ways</td>
-                                            <td>
-                                                <span class="badge bg-success">Active</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ganteng</td>
-                                            <td>velit@nec.com</td>
-                                            <td>0309 690 7871</td>
-                                            <td>Ways</td>
-                                            <td>
-                                                <span class="badge bg-success">Active</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Oleg</td>
-                                            <td>rhoncus.id@Aliquamauctorvelit.net</td>
-                                            <td>0500 441046</td>
-                                            <td>Rossignol</td>
-                                            <td>
-                                                <span class="badge bg-success">Active</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kermit</td>
-                                            <td>diam.Sed.diam@anteVivamusnon.org</td>
-                                            <td>(01653) 27844</td>
-                                            <td>Patna</td>
-                                            <td>
-                                                <span class="badge bg-success">Active</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            @if (Auth::user()->role == 'TEACHER')
+                                <div class="table-responsive">
+                                    <table class='table mb-0'>
+                                        <thead>
+                                            <tr>
+                                                <th>Photo</th>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>Category</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($classes as $class)
+                                                <tr>
+                                                    <td><img src="{{ asset('storage/'.$class->photo) }}" alt="" style="width: 60px"></td>
+                                                    <td class="fw-bold">{{ $class->name }}</td>
+                                                    <td>
+                                                        {!! str_word_count($class->description) > 5 ? substr($class->description, 0, 50) . ' ...' : $class->description !!}
+                                                    </td>
+                                                    <td>{{ $class->category->name }}</td>
+                                                    <td>
+                                                        <span class="badge bg-success">Active</span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            @else
+                                <div class="d-flex my-2">
+                                    <div class="">
+                                        <img src="{{ asset('/images/undraw_people_tax5.png') }}" style="width : 200px" alt="">
+                                    </div>
+                                    <div class="">
+                                        <h1>Laravel 8</h1>
+                                        <p>Code</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="">
+                                        <img src="{{ asset('/images/undraw_people_tax5.png') }}" style="width : 200px" alt="">
+                                    </div>
+                                    <div class="">
+                                        <h1>Tailwindcss</h1>
+                                        <p>Code</p>
+                                    </div>
+                                </div>
+                            @endif
+                            
+
+
+                            
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card ">
+                    {{-- <div class="card ">
                         <div class="card-header">
                             <h4>Your Earnings</h4>
                         </div>
@@ -211,69 +226,133 @@
                                 <h1 class='text-green'>+$2,134</h1>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="card widget-todo">
-                        <div
-                            class="card-header border-bottom d-flex justify-content-between align-items-center">
-                            <h4 class="card-title d-flex">
-                                <i class='bx bx-check font-medium-5 pl-25 pr-75'></i>Progress
-                            </h4>
+                        @if (Auth::user()->role == 'TEACHER')
+                            <div
+                                class="card-header border-bottom d-flex justify-content-between align-items-center">
+                                <h4 class="card-title d-flex">
+                                    <i class='bx bx-check font-medium-5 pl-25 pr-75'></i>Kelas Populer
+                                </h4>
 
-                        </div>
-                        <div class="card-body px-0 py-1">
-                            <table class='table table-borderless'>
-                                <tr>
-                                    <td class='col-3'>UI Design</td>
-                                    <td class='col-6'>
-                                        <div class="progress progress-info">
-                                            <div class="progress-bar" role="progressbar" style="width: 60%"
-                                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </td>
-                                    <td class='col-3 text-center'>60%</td>
-                                </tr>
-                                <tr>
-                                    <td class='col-3'>VueJS</td>
-                                    <td class='col-6'>
-                                        <div class="progress progress-success">
-                                            <div class="progress-bar" role="progressbar" style="width: 35%"
-                                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </td>
-                                    <td class='col-3 text-center'>30%</td>
-                                </tr>
-                                <tr>
-                                    <td class='col-3'>Laravel</td>
-                                    <td class='col-6'>
-                                        <div class="progress progress-danger">
-                                            <div class="progress-bar" role="progressbar" style="width: 50%"
-                                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </td>
-                                    <td class='col-3 text-center'>50%</td>
-                                </tr>
-                                <tr>
-                                    <td class='col-3'>ReactJS</td>
-                                    <td class='col-6'>
-                                        <div class="progress progress-primary">
-                                            <div class="progress-bar" role="progressbar" style="width: 80%"
-                                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </td>
-                                    <td class='col-3 text-center'>80%</td>
-                                </tr>
-                                <tr>
-                                    <td class='col-3'>Go</td>
-                                    <td class='col-6'>
-                                        <div class="progress progress-secondary">
-                                            <div class="progress-bar" role="progressbar" style="width: 65%"
-                                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </td>
-                                    <td class='col-3 text-center'>65%</td>
-                                </tr>
-                            </table>
-                        </div>
+                            </div>
+                            <div class="card-body px-0 py-1">
+                                <table class='table table-borderless'>
+                                    <tr>
+                                        <td class='col-3'>UI Design</td>
+                                        <td class='col-6'>
+                                            <div class="progress progress-info">
+                                                <div class="progress-bar" role="progressbar" style="width: 60%"
+                                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td class='col-3 text-center'>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='col-3'>VueJS</td>
+                                        <td class='col-6'>
+                                            <div class="progress progress-success">
+                                                <div class="progress-bar" role="progressbar" style="width: 35%"
+                                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td class='col-3 text-center'>30%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='col-3'>Laravel</td>
+                                        <td class='col-6'>
+                                            <div class="progress progress-danger">
+                                                <div class="progress-bar" role="progressbar" style="width: 50%"
+                                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td class='col-3 text-center'>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='col-3'>ReactJS</td>
+                                        <td class='col-6'>
+                                            <div class="progress progress-primary">
+                                                <div class="progress-bar" role="progressbar" style="width: 80%"
+                                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td class='col-3 text-center'>80%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='col-3'>Go</td>
+                                        <td class='col-6'>
+                                            <div class="progress progress-secondary">
+                                                <div class="progress-bar" role="progressbar" style="width: 65%"
+                                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td class='col-3 text-center'>65%</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        @else
+                            <div
+                                class="card-header border-bottom d-flex justify-content-between align-items-center">
+                                <h4 class="card-title d-flex">
+                                    <i class='bx bx-check font-medium-5 pl-25 pr-75'></i>Proggres Kelas
+                                </h4>
+
+                            </div>
+                            <div class="card-body px-0 py-1">
+                                <table class='table table-borderless'>
+                                    <tr>
+                                        <td class='col-3'>UI Design</td>
+                                        <td class='col-6'>
+                                            <div class="progress progress-info">
+                                                <div class="progress-bar" role="progressbar" style="width: 60%"
+                                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td class='col-3 text-center'>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='col-3'>VueJS</td>
+                                        <td class='col-6'>
+                                            <div class="progress progress-success">
+                                                <div class="progress-bar" role="progressbar" style="width: 35%"
+                                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td class='col-3 text-center'>30%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='col-3'>Laravel</td>
+                                        <td class='col-6'>
+                                            <div class="progress progress-danger">
+                                                <div class="progress-bar" role="progressbar" style="width: 50%"
+                                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td class='col-3 text-center'>50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='col-3'>ReactJS</td>
+                                        <td class='col-6'>
+                                            <div class="progress progress-primary">
+                                                <div class="progress-bar" role="progressbar" style="width: 80%"
+                                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td class='col-3 text-center'>80%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='col-3'>Go</td>
+                                        <td class='col-6'>
+                                            <div class="progress progress-secondary">
+                                                <div class="progress-bar" role="progressbar" style="width: 65%"
+                                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                        <td class='col-3 text-center'>65%</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

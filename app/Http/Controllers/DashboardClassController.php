@@ -14,7 +14,7 @@ class DashboardClassController extends Controller
 {
     public function index()
     {
-        $classes = Course::where('user_id', Auth::user()->id)->get();
+        $classes = Course::where('user_id', Auth::user()->id)->orderBy('id','desc')->get();
         
         return view('pages.dashboard.class.dashboard-class', ['classes'=> $classes]);
     }
