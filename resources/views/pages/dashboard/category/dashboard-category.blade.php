@@ -40,7 +40,7 @@
                         @foreach ($categories as $category)
                             <tr>
                                 <td class="fw-bold">{{ $category->name }}</td>
-                                <td><img style="width: 60px" src="{{ Storage::url($category->photo) }}" alt=""></td>
+                                <td><img style="width: 60px" src="{{ asset('/storage/'.$category->photo) }}" alt=""></td>
                                 <td>{{ $category->description }}</td>
                                 <td>{{ $category->course->count() }}</td>
                                 <td>

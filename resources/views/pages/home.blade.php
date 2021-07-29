@@ -37,22 +37,22 @@
             <div class="absolute" style="bottom: -5px">Kategori Pilihan Untuk Anda</div>
         </div>
         <div class="flex flex-wrap justify-evenly py-14">
-            @foreach ($categories as $category)
-            <a href="{{ route('categories-detail', $category->name) }}">
+            @forelse ($categories as $category)
                 <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class=" bg-blue-900 flex rounded-2xl p-4 my-6 w-5/12">
                     <div class="">
-                        <img class="" src="{{ asset('storage/'.$category->photo) }}" alt="" style="width: 280px;">
+                        <img class="" src="{{ asset('/storage/'.$category->photo) }}" alt="" style="width: 280px;">
                     </div>
                     <div class="pl-4 w-5/12 text-gray-100">
                         <h1 class="font-bold text-lg">{{ $category->name }}</h1>
                         <p class="py-4">{{ $category->description }}</p>
                         <div class="">
-                            <a class="text-gray-800" href="#">pelajari lebih lanjut</a>
+                            <a class="text-gray-800" href="{{ route('categories-detail', $category->name) }}">pelajari lebih lanjut</a>
                         </div>
                     </div>
                 </div>
-            </a>
-            @endforeach
+            @empty
+                <h1 class="text-center text-2xl py-2 px-4 bg-blue-900 rounded-full">Belum ada kategori tersedia!</h1>
+            @endforelse
         </div>
     </div>
 
@@ -205,11 +205,11 @@
             </div>
         </div>
         <div class="flex flex-wrap justify-around pt-14">
-            @foreach ($classes as $class)
+            @forelse ($classes as $class)
                 <a href="{{ route('class_detail', $class->id) }}">
                     <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="w-96 p-4 bg-blue-900 rounded-2xl shadow-lg">
                         <div class="">
-                            <img class="w-full rounded-2xl" src="{{ asset('storage/'.$class->photo) }}" alt="">
+                            <img class="w-full rounded-2xl" src="{{ asset('/storage/'.$class->photo) }}" alt="">
                         </div>
                         <div class="py-2 text-gray-100 border-b-2">
                             <h1 class="text-xl font-bold pb-3">{{ $class->name }}</h1>
@@ -218,7 +218,9 @@
                         <p class="italic text-gray-800">{{ $class->category->name }}</p>
                     </div>
                 </a>
-            @endforeach
+            @empty
+                <h1 class="text-center text-2xl py-2 px-4 bg-blue-900 rounded-full">Belum ada kelas tersedia!</h1>
+            @endforelse
         </div>
     </div>
 </div>

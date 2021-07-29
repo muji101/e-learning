@@ -30,10 +30,14 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
 Route::get('/categories/{name}', [CategoryController::class, 'detail'])->name('categories-detail');
 
+// Route class front
 // Route::get('/class', [ClassController::class, 'index'])->name('class_list');
 Route::get('/class/{id}', [ClassController::class, 'detail'])->name('class_detail');
 Route::get('/class/mentor/{id}', [ClassController::class, 'mentor'])->name('class_mentor');
-Route::get('/class/video/{id}', [ClassController::class, 'video'])->name('class_video');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/class/video/{id}', [ClassController::class, 'video'])->name('class_video');
+});
+
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 Route::get('/search/{id}', [SearchController::class, 'searchCategory'])->name('search-category');

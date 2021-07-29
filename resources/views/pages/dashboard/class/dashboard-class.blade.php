@@ -42,7 +42,7 @@
                         @foreach ($classes as $class)
                         <tr>
                             <td class="fw-bold">{{ $class->name }}</td>
-                            <td><img src="{{ Storage::url($class->photo) }}" alt="" style="width: 60px"></td>
+                            <td><img src="{{ asset('/storage/'.$class->photo) }}" alt="" style="width: 60px"></td>
                             <td>
                                 {!! str_word_count($class->description) > 5 ? substr($class->description, 0, 50) . ' ...' : $class->description !!}
                             </td>

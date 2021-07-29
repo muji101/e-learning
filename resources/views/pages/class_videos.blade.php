@@ -27,7 +27,7 @@
     <div class="bg-gray-700">
         <div class="grid grid-cols-4">
             <div class="col-span-1 w-24 py-2 mx-auto">
-                <img src="/images/undraw_working_late_pukg.svg" alt="">
+                <img src="{{ asset('/images/undraw_working_late_pukg.svg') }}" alt="">
             </div>
             <div class="col-span-2 py-4 text-gray-100">
                 <h1 class="font-bold text-xl">{{ $classes->name }}</h1>
@@ -43,231 +43,30 @@
     <div class="grid grid-cols-4">
         <div class="col-span-1 bg-gray-800">
             <div class="overflow-x-hidden h-screen">
-                <div class="py-4 px-4 border-b-2">
-                    <div class="">
-                        <h1 class="text-gray-100 font-bold">1. Section 1</h1>
-                    </div>
-    
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <a href="#">Opening</a>
-                        </div>
+                @foreach ($classes->chapter as $chapter)
+                    <div class="py-4 px-4 border-b-2">
                         <div class="">
-                            <p>1 mins </p>
+                            <h1 class="text-gray-100 font-bold"># {{ $chapter->name }}</h1>
                         </div>
+        
+                        @foreach ($chapter->video as $video)
+                        <div class="pl-4 flex justify-between py-2 text-blue-900">
+                            <div class="flex items-center">
+                                <span class="pr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                                    <a href="#">{{ $video->title }}</a>
+                                </div>
+                                <div class="">
+                                    <p>1 mins </p>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <a href="#">Preparation</a>
-                        </div>
-                        <div class="">
-                            <p>2 mins </p>
-                        </div>
-                    </div>
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <a href="#">Review Website</a>
-                        </div>
-                        <div class="">
-                            <p>2 mins </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="py-4 px-4 border-b-2">
-                    <div class="">
-                        <h1 class="text-gray-100 font-bold">1. Section 1</h1>
-                    </div>
-    
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <a href="#">Opening</a>
-                        </div>
-                        <div class="">
-                            <p>1 mins </p>
-                        </div>
-                    </div>
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <a href="#">Preparation</a>
-                        </div>
-                        <div class="">
-                            <p>2 mins </p>
-                        </div>
-                    </div>
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <a href="#">Review Website</a>
-                        </div>
-                        <div class="">
-                            <p>2 mins </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="py-4 px-4 border-b-2">
-                    <div class="">
-                        <h1 class="text-gray-100 font-bold">1. Section 1</h1>
-                    </div>
-    
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <a href="#">Opening</a>
-                        </div>
-                        <div class="">
-                            <p>1 mins </p>
-                        </div>
-                    </div>
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <a href="#">Preparation</a>
-                        </div>
-                        <div class="">
-                            <p>2 mins </p>
-                        </div>
-                    </div>
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <a href="#">Review Website</a>
-                        </div>
-                        <div class="">
-                            <p>2 mins </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="py-4 px-4 border-b-2">
-                    <div class="">
-                        <h1 class="text-gray-100 font-bold">1. Section 1</h1>
-                    </div>
-    
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <a href="#">Opening</a>
-                        </div>
-                        <div class="">
-                            <p>1 mins </p>
-                        </div>
-                    </div>
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <a href="#">Preparation</a>
-                        </div>
-                        <div class="">
-                            <p>2 mins </p>
-                        </div>
-                    </div>
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <a href="#">Review Website</a>
-                        </div>
-                        <div class="">
-                            <p>2 mins </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="py-4 px-4 border-b-2">
-                    <div class="">
-                        <h1 class="text-gray-100 font-bold">1. Section 1</h1>
-                    </div>
-    
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <a href="#">Opening</a>
-                        </div>
-                        <div class="">
-                            <p>1 mins </p>
-                        </div>
-                    </div>
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <a href="#">Preparation</a>
-                        </div>
-                        <div class="">
-                            <p>2 mins </p>
-                        </div>
-                    </div>
-                    <div class="pl-4 flex justify-between py-2 text-blue-900">
-                        <div class="flex items-center">
-                            <span class="pr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                </svg>
-                            </span>
-                            <a href="#">Review Website</a>
-                        </div>
-                        <div class="">
-                            <p>2 mins </p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+                
             </div>
         </div>
         <div class="col-span-3 bg-gray-600">

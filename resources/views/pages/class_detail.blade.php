@@ -22,7 +22,7 @@
                     @if ($link)
                         <iframe width="1120" height="630" src="{{ $link ? $classes->video->first()->url : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     @else
-                        <h1>Belum Ada Video</h1>
+                        <h1 class="text-center text-white px-4 py-2 bg-blue-900 rounded-full">Belum Ada Video</h1>
                     @endif
                 </div>
             </div>
@@ -50,7 +50,7 @@
             </div>
 
             <div class="text-center text-gray-100 py-14">
-                <a href="{{ route('class_video',1) }}" class="bg-blue-900 text-lg font-bold px-14 py-4 rounded-full">Gabung Kelas</a>
+                <a href="{{ route('class_video', $classes->id) }}" class="bg-blue-900 text-lg font-bold px-14 py-4 rounded-full">Gabung Kelas</a>
             </div>
         </div>
 
@@ -82,7 +82,7 @@
                 </div>
                 <div data-aos="fade-right" data-aos-delay="200" class="grid grid-cols-2 bg-gray-100 rounded-2xl p-4 my-6 w-6/12">
                     <div class="col-span-1">
-                        <img class="" src="/images/undraw_programming_2svr.svg" alt="" style="width: 280px;">
+                        <img class="" src="{{ asset('/images/undraw_programming_2svr.svg') }}" alt="" style="width: 280px;">
                     </div>
                     <div class="col-span-1 pl-4">
                         <h1 class="font-bold text-xl">Muji Kuwat</h1>
@@ -110,7 +110,7 @@
                     <div data-aos="fade-right" data-aos-delay="100" class="bg-gray-100 rounded-2xl p-4 my-6 w-96">
                         <div class="grid grid-cols-2">
                             <div class="col-span-1">
-                                <img class="" src="/images/undraw_programming_2svr.svg" alt="" style="width: 280px;">
+                                <img class="" src="{{ asset('/images/undraw_programming_2svr.svg') }}" alt="" style="width: 280px;">
                             </div>
                             <div class="col-span-1 pl-4">
                                 <h1 class="font-bold text-xl">Ivan Andrianto</h1>
@@ -143,7 +143,7 @@
                     <div data-aos="fade-right" data-aos-delay="200" class="bg-gray-100 rounded-2xl p-4 my-6 w-96">
                         <div class="grid grid-cols-2">
                             <div class="col-span-1">
-                                <img class="" src="/images/undraw_programming_2svr.svg" alt="" style="width: 280px;">
+                                <img class="" src="{{ asset('/images/undraw_programming_2svr.svg') }}" alt="" style="width: 280px;">
                             </div>
                             <div class="col-span-1 pl-4">
                                 <h1 class="font-bold text-xl">Ivan Andrianto</h1>
@@ -176,7 +176,7 @@
                     <div data-aos="fade-right" data-aos-delay="300" class="bg-gray-100 rounded-2xl p-4 my-6 w-96">
                         <div class="grid grid-cols-2">
                             <div class="col-span-1">
-                                <img class="" src="/images/undraw_programming_2svr.svg" alt="" style="width: 280px;">
+                                <img class="" src="{{ asset('/images/undraw_programming_2svr.svg') }}" alt="" style="width: 280px;">
                             </div>
                             <div class="col-span-1 pl-4">
                                 <h1 class="font-bold text-xl">Ivan Andrianto</h1>
@@ -209,7 +209,7 @@
                     <div data-aos="fade-right" data-aos-delay="400" class="bg-gray-100 rounded-2xl p-4 my-6 w-96">
                         <div class="grid grid-cols-2">
                             <div class="col-span-1">
-                                <img class="" src="/images/undraw_programming_2svr.svg" alt="" style="width: 280px;">
+                                <img class="" src="{{ asset('/images/undraw_programming_2svr.svg') }}" alt="" style="width: 280px;">
                             </div>
                             <div class="col-span-1 pl-4">
                                 <h1 class="font-bold text-xl">Ivan Andrianto</h1>
@@ -242,7 +242,7 @@
                     <div data-aos="fade-right" data-aos-delay="500" class="bg-gray-100 rounded-2xl p-4 my-6 w-96">
                         <div class="grid grid-cols-2">
                             <div class="col-span-1">
-                                <img class="" src="/images/undraw_programming_2svr.svg" alt="" style="width: 280px;">
+                                <img class="" src="{{ asset('/images/undraw_programming_2svr.svg') }}" alt="" style="width: 280px;">
                             </div>
                             <div class="col-span-1 pl-4">
                                 <h1 class="font-bold text-xl">Ivan Andrianto</h1>
@@ -275,7 +275,7 @@
                     <div data-aos="fade-right" data-aos-delay="600" class="bg-gray-100 rounded-2xl p-4 my-6 w-96">
                         <div class="grid grid-cols-2">
                             <div class="col-span-1">
-                                <img class="" src="/images/undraw_programming_2svr.svg" alt="" style="width: 280px;">
+                                <img class="" src="{{ asset('/images/undraw_programming_2svr.svg') }}" alt="" style="width: 280px;">
                             </div>
                             <div class="col-span-1 pl-4">
                                 <h1 class="font-bold text-xl">Ivan Andrianto</h1>
@@ -317,12 +317,12 @@
                         Apa yang akan kamu pelajari?
                     </h1>
                 </div>
-                @foreach ($chapters as $chapter)
+                @foreach ($classes->chapter as $chapter)
                     <div class="py-4 px-8 bg-gray-300 rounded-2xl w-3/4 shadow-xl my-4">
                         <h1 class="font-bold text-xl py-4">
                             # {{ $chapter->name }}
                         </h1>
-                        @foreach ($chaptervideo as $video)
+                        @foreach ($chapter->video as $video)
                             <div class="pl-4 flex justify-between py-2 text-blue-900">
                                 <div class="flex items-center">
                                     <span class="pr-2">
@@ -330,7 +330,7 @@
                                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
                                         </svg>
                                     </span>
-                                    {{-- <p>{{ $video->video }}</p> --}}
+                                    <p>{{ $video->title }}</p>
                                 </div>
                                 <div class="">
                                     <p>1 mins </p>

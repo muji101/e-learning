@@ -1,4 +1,4 @@
-<div id="particles-js" class="w-full h-96">
+<div id="particles-js" class="footer w-full h-96">
     <!-- footer -->
     <div class="relative">
         <div class="absolute top-0 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5  text-gray-100 py-12 px-12 md:py-24 md:px-20">

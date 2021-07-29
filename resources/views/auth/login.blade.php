@@ -54,10 +54,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in - Sinau</title>
-    <link rel="stylesheet" href="{{ asset('dist/assets/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('/dist/assets/css/bootstrap.css') }}">
 
-    <link rel="shortcut icon" href="{{ asset('dist/assets/images/favicon.svg') }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('dist/assets/css/app.css') }}">
+    <link rel="shortcut icon" href="{{ asset('/dist/assets/images/favicon.svg') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ asset('/dist/assets/css/app.css') }}">
 </head>
 
 <body>

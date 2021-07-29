@@ -15,7 +15,7 @@
             </div>
             <div data-aos="fade-right" data-aos-delay="200" class="grid grid-cols-2 bg-gray-100 rounded-2xl p-4 my-6 w-8/12">
                 <div class="col-span-1">
-                    <img class="" src="/images/undraw_programming_2svr.svg" alt="" style="width: 480px;">
+                    <img class="" src="{{ asset('/images/undraw_programming_2svr.svg') }}" alt="" style="width: 480px;">
                 </div>
                 <div class="col-span-1 pl-4 text-lg">
                     <h1>Lahir di Batang Jawa Tengah Juli 2000, merupakan asli keturunan jawa dan dia adalah Full Stack Developer Di PT.Mahir Techno Indonesia sejak Desember 2021.</h1>
@@ -40,7 +40,7 @@
             <div class="flex flex-wrap justify-around p-4">
                 <div data-aos="fade-up" data-aos-delay="200" class="w-96 p-4 bg-gray-50 rounded-2xl shadow-lg mt-14">
                     <div class="">
-                        <img class="w-full h-72" src="/images/undraw_programmer_imem.svg" alt="">
+                        <img class="w-full h-72" src="{{ asset('/images/undraw_programmer_imem.svg') }}" alt="">
                     </div>
                     <div class="py-2">
                         <h1 class="text-xl font-bold pb-3">Eloquent ORM Laravel</h1>
@@ -52,7 +52,7 @@
                 </div>
                 <div data-aos="fade-up" data-aos-delay="300" class="w-96 p-4 bg-gray-50 rounded-2xl shadow-lg mt-14">
                     <div class="">
-                        <img class="w-full h-72" src="/images/undraw_Character_drawing_ii11.svg" alt="">
+                        <img class="w-full h-72" src="{{ asset('/images/undraw_Character_drawing_ii11.svg') }}" alt="">
                     </div>
                     <div class="py-2">
                         <h1 class="text-xl font-bold pb-3">UX Brainstorming dengan InVision App  </h1>
@@ -64,7 +64,7 @@
                 </div>
                 <div data-aos="fade-up" data-aos-delay="400" class="w-96 p-4 bg-gray-50 rounded-2xl shadow-lg mt-14">
                     <div class="">
-                        <img class="w-full h-72" src="/images/undraw_Marketing_re_7f1g.svg" alt="">
+                        <img class="w-full h-72" src="{{ asset('/images/undraw_Marketing_re_7f1g.svg') }}" alt="">
                     </div>
                     <div class="py-2">
                         <h1 class="text-xl font-bold pb-3">E Trello Project Management</h1>
