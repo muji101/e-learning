@@ -36,7 +36,7 @@
                     <div class="card w-25 bg-primary my-4">
                         <div class="card-body">
                             <div class="">
-                                <img src="/images/undraw_Character_drawing_ii11.svg" alt="Ini gambar" style="width: 260px">
+                                <img src="{{ asset('/images/undraw_Character_drawing_ii11.svg') }}" alt="Ini gambar" style="width: 260px">
                             </div>
                             <div class="text-white pt-3">
                                 <p class="fs-3 border-bottom border-white">Laravel 8</p>
@@ -47,7 +47,7 @@
                     <div class="card w-25 bg-primary my-4">
                         <div class="card-body">
                             <div class="">
-                                <img src="/images/undraw_Character_drawing_ii11.svg" alt="Ini gambar" style="width: 260px">
+                                <img src="{{ asset('/images/undraw_Character_drawing_ii11.svg') }}" alt="Ini gambar" style="width: 260px">
                             </div>
                             <div class="text-white pt-3">
                                 <p class="fs-3 border-bottom border-white">Laravel 8</p>
@@ -58,7 +58,7 @@
                     <div class="card w-25 bg-primary my-4">
                         <div class="card-body">
                             <div class="">
-                                <img src="/images/undraw_Character_drawing_ii11.svg" alt="Ini gambar" style="width: 260px">
+                                <img src="{{ asset('/images/undraw_Character_drawing_ii11.svg') }}" alt="Ini gambar" style="width: 260px">
                             </div>
                             <div class="text-white pt-3">
                                 <p class="fs-3 border-bottom border-white">Laravel 8</p>
