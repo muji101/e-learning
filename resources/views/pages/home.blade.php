@@ -205,7 +205,7 @@
             </div>
         </div>
         <div class="flex flex-wrap justify-around pt-14">
-            @forelse ($classes as $class)
+            @forelse ($classesRecomend as $class)
                 <a href="{{ route('class_detail', $class->id) }}">
                     <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="w-96 p-4 bg-blue-900 rounded-2xl shadow-lg">
                         <div class="">
