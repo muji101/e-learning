@@ -44,17 +44,14 @@ class ClassController extends Controller
         return view('pages.class_videos',['classes'=> $classes]);
     }
 
-    public function videoDetail($id)
+    public function videoDetail($classId, $videoId)
     {
-        // $classes = Course::find($id);
-        // $chapters = Chapter::get();
-        // $videos = Video::get();
+        $videos = Video::where('class_id', $classId)->find($videoId);
+        $classes = Course::find($classId);
 
-        // return view('pages.class_videos', ['videos' => $videos, 'classes'=> $classes, 'chapters' => $chapters]);
-
-        $classes = Course::findOrFail($id);
+        // dd($videosFirst);
         
-        return view('pages.class_videos',['classes'=> $classes]);
+        return view('pages.class_videos',['videos'=> $videos, 'classes'=> $classes]);
     }
     
 }

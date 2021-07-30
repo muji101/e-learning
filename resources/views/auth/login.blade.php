@@ -83,7 +83,7 @@
                                 <div class="form-group position-relative has-icon-left">
                                     <label for="username">Username</label>
                                     <div class="position-relative">
-                                        <input type="email" name="email" class="form-control" id="name" required>
+                                        <input type="email" name="email" class="form-control" id="name" value="{{ old('email') }}" required>
                                         <div class="form-control-icon">
                                             <i data-feather="user"></i>
                                         </div>
@@ -99,7 +99,7 @@
                                         @endif
                                     </div>
                                     <div class="position-relative">
-                                        <input type="password" class="form-control" id="password" name="password" required>
+                                        <input type="password" class="form-control" id="password" name="password" value="{{ old('password') }}" required>
                                         <div class="form-control-icon">
                                             <i data-feather="lock"></i>
                                         </div>

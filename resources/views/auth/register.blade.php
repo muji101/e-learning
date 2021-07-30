@@ -111,14 +111,14 @@
                                                     <div class="form-group">
                                                         <label for="name">Name</label>
                                                         <input type="text" id="name" class="form-control"
-                                                            name="name">
+                                                            name="name" value="{{ old('name') }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
                                                         <label for="email">Email</label>
                                                         <input type="text" id="email" class="form-control"
-                                                            name="email">
+                                                            name="email" value="{{ old('email') }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
@@ -181,14 +181,14 @@
                                                     <div class="form-group">
                                                         <label for="name">Name</label>
                                                         <input type="text" id="name" class="form-control"
-                                                            name="name">
+                                                            name="name" value="{{ old('name') }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
                                                         <label for="email">Email</label>
                                                         <input type="text" id="email" class="form-control"
-                                                            name="email">
+                                                            name="email" value="{{ old('email') }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">

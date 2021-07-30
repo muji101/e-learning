@@ -29,11 +29,15 @@
                         <ul class="submenu ">
 
                             <li>
-                                <a href="{{ route('class') }}">List Class</a>
+                                <a href="{{ route('class') }}" class="d-flex align-items-center">
+                                    <i data-feather="list" width="20"></i><span>List Class</span>
+                                </a>
                             </li>
 
                             <li>
-                                <a href="{{ route('class-create') }}">Crate Class</a>
+                                <a href="{{ route('class-create') }}">
+                                    <i data-feather="plus-square" width="20"></i><span>Create Class</span>
+                                </a>
                             </li>
                         </ul>
                     </li>
@@ -46,11 +50,15 @@
                         <ul class="submenu ">
 
                             <li>
-                                <a href="{{ route('category') }}">List Cateogry</a>
+                                <a href="{{ route('category') }}" class="d-flex align-items-center">
+                                    <i data-feather="list" width="20"></i><span>List Category</span>
+                                </a>
                             </li>
 
                             <li>
-                                <a href="{{ route('category-create') }}">Create Category</a>
+                                <a href="{{ route('category-create') }}">
+                                    <i data-feather="plus-square" width="20"></i><span>Create Category</span>
+                                </a>
                             </li>
                         </ul>
                     </li>

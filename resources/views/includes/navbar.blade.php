@@ -1,6 +1,6 @@
 <div id="navbar"  class="sticky top-0 z-10">
     {{-- <div class="bg-gradient-to-r from-gray-400 via-gray-600 to-gray-400 flex justify-between items-center py-4 px-12 text-white"> --}}
-    <div class="flex justify-between items-center py-4 px-12 text-white">
+    <div class="flex justify-between items-center py-2 px-12 text-white">
         <div class="flex py-2 space-x-14">
             <a href="#">
                 <img src="{{ asset('/images/undraw_working_late_pukg.svg') }}" alt="" class="w-16">
@@ -35,7 +35,10 @@
                     </button>
                     <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-12 origin-top-right rounded-md shadow-lg md:w-48">
                         <div class="px-2 py-2 bg-blue-900 rounded-md shadow dark-mode:bg-gray-800">
-                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg hover:text-black" href="{{ route('profile') }}">Dashboard</a>
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg hover:text-black" href="{{ route('profile') }}">
+                            <i data-feather="home" width="20"></i>
+                            <span>Dashboard</span>
+                        </a>
                         {{-- <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg" href="#">Logout</a> --}}
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

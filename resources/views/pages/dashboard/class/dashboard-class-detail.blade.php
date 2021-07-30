@@ -37,7 +37,7 @@
                         data-bs-target="#inlineForm">
                         Buat Chapter<i data-feather="plus" width="20"></i>
                         </button> --}}
-                        <a href="{{ route('chapter-create', $classes->id) }}">Create Chapter</a>
+                        <a class="bg-primary px-4 py-2 text-white rounded" href="{{ route('chapter-create', $classes->id) }}">Create Chapter <i data-feather="plus" width="20"></i></a>
 
                         <!--create chapter Modal -->
                         {{-- <div class="modal fade text-left" id="inlineForm" tabindex="-1"

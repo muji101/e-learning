@@ -23,24 +23,6 @@
     </style>
 </head>
 <body>
-
-    <div class="bg-gray-700">
-        <div class="grid grid-cols-4">
-            <div class="col-span-1 w-24 py-2 mx-auto">
-                <img src="{{ asset('/images/undraw_working_late_pukg.svg') }}" alt="">
-            </div>
-            <div class="col-span-2 py-4 text-gray-100">
-                {{-- <h1 class="font-bold text-xl">{{ $classes->video->title }}</h1> --}}
-                <h1 class="font-bold text-xl">Kelas : {{ $classes->name }}</h1>
-                
-                <span class="border-b-2 border-white pb-1 text-white">Materi : {{ $videos->title }}</span>
-            </div>
-            <div class="col-span-1 py-4 mx-auto text-gray-100 font-bold">
-                <button onclick="rating()" href="#" class="px-8 py-3 bg-blue-900 rounded-full">Beri Review Kelas</button>
-            </div>
-        </div>
-    </div>
-    
     
     <div class="grid grid-cols-4">
         <div class="col-span-1 bg-gray-800">
@@ -75,8 +57,7 @@
         </div>
 
         @php
-            $link= isset($videos->url);
-            $videosFirst = isset($classes->video->first()->url);
+            $link= isset($videos->url)
         @endphp
         
 
@@ -84,10 +65,8 @@
             <div class="mx-8 py-4">
                 @if ($link)
                     <iframe width="1120" height="630" src="{{ $link ? $videos->url : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                @elseif ($videosFirst)
-                    <iframe width="1120" height="630" src="{{ $videosFirst ? $classes->video->first()->url : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 @else
-                    <h1   h1 class="text-center text-white px-4 py-2 bg-blue-900 rounded-full">Belum Ada Video!</h1>
+                    <h1 class="text-center text-white px-4 py-2 bg-blue-900 rounded-full">Belum Ada Video!</h1>
                 @endif
             </div>
             <div class="text-right pt-8 px-12 text-gray-100">
