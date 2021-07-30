@@ -37,19 +37,12 @@ class ClassController extends Controller
 
         return view('pages.class_mentor', ['users' => $users, 'classes'=> $classes]);
     }
-    public function video($id)
-    {
-        $classes = Course::findOrFail($id);
-        
-        return view('pages.class_videos',['classes'=> $classes]);
-    }
 
-    public function videoDetail($classId, $videoId)
+    public function video($classId, $videoId)
     {
         $videos = Video::where('class_id', $classId)->find($videoId);
         $classes = Course::find($classId);
 
-        // dd($videosFirst);
         
         return view('pages.class_videos',['videos'=> $videos, 'classes'=> $classes]);
     }

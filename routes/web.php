@@ -40,8 +40,7 @@ Route::get('/search/{id}', [SearchController::class, 'searchCategory'])->name('s
 Route::get('/class/{id}', [ClassController::class, 'detail'])->name('class_detail');
 Route::get('/class/mentor/{id}', [ClassController::class, 'mentor'])->name('class_mentor');
 Route::middleware(['auth'])->group(function () {
-    Route::get('/class/video/{id}', [ClassController::class, 'video'])->name('class_video');
-    Route::get('/class/video/{classid}/{id}',[ClassController::class, 'videoDetail'])->name('class_video_detail');
+    Route::get('/class/video/{classid}/{id}', [ClassController::class, 'video'])->name('class_video');
 });
 
 
