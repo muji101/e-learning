@@ -1,11 +1,11 @@
 <div id="navbar"  class="sticky top-0 z-10">
     {{-- <div class="bg-gradient-to-r from-gray-400 via-gray-600 to-gray-400 flex justify-between items-center py-4 px-12 text-white"> --}}
     <div class="flex justify-between items-center py-4 px-12 text-white">
-        <div class="flex py-2 gap-14">
+        <div class="flex py-2 space-x-14">
             <a href="#">
                 <img src="{{ asset('/images/undraw_working_late_pukg.svg') }}" alt="" class="w-16">
             </a>
-            <form action="/search" method="GET">
+            <form action="{{ route('search') }}" method="GET">
                 @csrf
                 @method("GET")
                 <div class="bg-blue-900 rounded-full">
@@ -15,9 +15,9 @@
             </form>
         </div>
         <div class="flex gap-6 py-2 items-center">
-            <a class="hover:text-blue-900 font-bold" href="{{ route('home') }}">Home</a>
-            <a class="hover:text-blue-900 font-bold" href="{{ route('categories') }}">Class</a>
-            <a class="hover:text-blue-900 font-bold" href="#">About</a>
+            <a class="font-bold {{ request()->path() === '/' ? 'text-white' : 'text-blue-900' }}" href="{{ route('home') }}">Home</a>
+            <a class="font-bold {{ request()->path() === 'categories' ? 'text-white' : 'text-blue-900' }}" href="{{ route('categories') }}">Class</a>
+            <a class="font-bold text-blue-900" href="#">About</a>
             @guest
                 <a href="{{ route('login') }}" class="animate-pulse py-2 px-8 border-2 border-blue-900 rounded-full hover:border-white hover:bg-blue-900 font-bold">Sign In</a>
                 <a href="{{ route('register') }}" class="animate-pulse border-2 border-blue-900 px-8 py-2 rounded-full hover:border-white hover:bg-blue-900 font-bold">Sign Up</a>
