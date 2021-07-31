@@ -108,27 +108,24 @@
                     </h1>
                 </div>
 
-                <div class="">
-                    <form action="{{ route('class_review') }}" method="POST" class="">
-                        @csrf
-                        @method("POST")
-                        <input type="hidden" name="class_id" value="{{ $classes->id }}">
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                        <div class="text-center sm:mt-0 sm:ml-4 sm:text-left py-4">
-                            <h3 class="text-lg text-white">
-                                Beri Ulasan
-                            </h3>
-                            <div class="mt-2">
-                                <div class="text-base text-blue-500">
-                                    {{-- <textarea name="content" id="" class="bg-gray-50" cols="40"></textarea> --}}
-                                    <input type="number" name="rating">
-                                    <input type="text" name="content">
-                                </div>
+                <form action="{{ route('class_review') }}" method="POST" class="">
+                    @csrf
+                    @method("POST")
+                    <input type="hidden" name="class_id" value="{{ $classes->id }}">
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                    <div class="py-4">
+                        <h3 class="text-lg text-white">
+                            Beri Ulasan
+                        </h3>
+                        <div class="my-2">
+                            <div class="text-base text-blue-500">
+                                <input type="hidden" name="rating" value="5">
+                                <textarea name="content" id="" class="bg-gray-50 p-2" cols="40" rows="5"></textarea>
                             </div>
                         </div>
-                        <button>kirim</button>
-                    </form>
-                </div>
+                        <button class="bg-blue-900 py-2 px-8 rounded-full text-white">kirim</button>
+                    </div>
+                </form>
 
                 <div class="flex flex-wrap justify-around">
                     @forelse ($reviews as $review)
