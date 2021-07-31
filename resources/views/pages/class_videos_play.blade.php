@@ -23,7 +23,7 @@
     </style>
 </head>
 <body>
-    
+{{--     
     <div class="grid grid-cols-4">
         <div class="col-span-1 bg-gray-800">
             <div class="overflow-x-hidden h-screen">
@@ -76,6 +76,86 @@
                 </a>
                 <a href="#" class="py-2 px-6 mx-2 bg-blue-900 rounded-full">
                     Selanjutnya
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div> --}}
+
+    <div class="bg-gray-700">
+        <div class="grid grid-cols-4">
+            <div class="col-span-1 w-24 py-2 mx-auto">
+                <img src="{{ asset('/images/undraw_working_late_pukg.svg') }}" alt="">
+            </div>
+            <div class="col-span-2 py-4 text-gray-100">
+                {{-- <h1 class="font-bold text-xl">{{ $classes->video->title }}</h1> --}}
+                <h1 class="font-bold text-xl">Kelas : {{ $classes->name }}</h1>
+                
+                <span class="border-b-2 border-white pb-1 text-white">Materi : {{ $videos->title }}</span>
+            </div>
+            <div class="col-span-1 py-4 mx-auto text-gray-100 font-bold">
+                <button onclick="rating()" href="#" class="px-8 py-3 bg-blue-900 rounded-full">Beri Review Kelas</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex">
+        <div class="bg-gray-800 ">
+            <div class="flex flex-col bg-blue-900 text-white px-4 py-2">
+                <button class="border-2 rounded-2xl my-1" onclick="hide()">hide</button>
+                <button class="border-2 rounded-2xl my-1" onclick="show()">show</button>
+            </div>
+            <div id="side"  class="overflow-x-hidden h-screen">
+                @forelse ($classes->chapter as $chapter)
+                    <div class="py-4 px-4 border-b-2">
+                        <div class="">
+                            <h1 class="text-gray-100 font-bold"># {{ $chapter->name }}</h1>
+                        </div>
+        
+                        @foreach ($chapter->video as $video)
+                        <div class="pl-4 flex justify-between py-2 text-blue-900">
+                            <div class="flex items-center">
+                                <span class="pr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                                    <a href="{{ route('class_video', [$classes->id, $video->id]) }}">{{ $video->title }}</a>
+                            </div>
+                                {{-- <div class="">
+                                    <p>1 mins </p>
+                                </div> --}}
+                        </div>
+                        @endforeach
+                    </div>
+                @empty
+                    <h1 class="text-center text-white py-2 bg-blue-900 rounded-full my-4 mx-4">Belum Ada Video!</h1>
+                @endforelse
+                
+            </div>
+        </div>
+
+        @php
+            $link = isset($videos->url);
+            $pn = isset($videos->id);
+        @endphp
+        
+
+        <div class="flex-grow bg-gray-600">
+            <div class="mx-8 py-4 h-screen">
+                @if ($link)
+                    <iframe class="w-full h-full" src="{{ $link ? $videos->url : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                @else
+                    <h1 class="text-center text-white px-4 py-2 bg-blue-900 rounded-full">Belum Ada Video!</h1>
+                @endif
+            </div>
+            <div class="text-right px-12 text-gray-100">
+                <a href="{{ route('class_video', [$classes->id, $pn ? $videos->id -1 : '']) }}" class="py-2 px-6 mx-2 bg-blue-900 rounded-full">
+                    <i class="fas fa-arrow-left"></i>
+                    Prev
+                </a>
+                <a href="{{ route('class_video', [$classes->id, $pn ? $videos->id +1 : '']) }}" class="py-2 px-6 mx-2 bg-blue-900 rounded-full">
+                    Next
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
@@ -197,6 +277,12 @@
         }
         function sembunyi(){
             document.getElementById("modal").style.display = "none";
+        }
+        function hide(){
+            document.getElementById("side").style.display = "none";
+        }
+        function show(){
+            document.getElementById("side").style.display = "block";
         }
     </script>
 </body>

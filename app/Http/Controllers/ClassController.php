@@ -44,7 +44,7 @@ class ClassController extends Controller
         $classes = Course::find($classId);
 
         
-        return view('pages.class_videos',['videos'=> $videos, 'classes'=> $classes]);
+        return view('pages.class_videos_play',['videos'=> $videos, 'classes'=> $classes]);
     }
     
 }
