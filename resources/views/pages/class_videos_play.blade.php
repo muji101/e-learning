@@ -84,7 +84,7 @@
 
     <div class="bg-gray-700">
         <div class="grid grid-cols-4">
-            <div class="col-span-1 w-24 py-2 mx-auto">
+            <div class="col-span-1 w-24 py-2 mx-16">
                 <img src="{{ asset('/images/undraw_working_late_pukg.svg') }}" alt="">
             </div>
             <div class="col-span-2 py-4 text-gray-100">
@@ -113,14 +113,19 @@
                         </div>
         
                         @foreach ($chapter->video as $video)
-                        <div class="pl-4 flex justify-between py-2 text-blue-900">
-                            <div class="flex items-center">
-                                <span class="pr-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                    </svg>
-                                </span>
-                                    <a href="{{ route('class_video', [$classes->id, $video->id]) }}">{{ $video->title }}</a>
+                        <div class="pl-4 flex py-2 my-2 text-white {{ request()->path() == 'class/video/'.$classes->id.'/'.$video->id ? 'text-white font-semibold bg-blue-900 py-2 px-6 rounded-full' : 'text-white bg-gray-700 py-2 px-6 rounded-full' }}">
+                            <div class="flex items-center ">
+                                <a 
+                                    href="{{ route('class_video', [$classes->id, $video->id]) }}"
+                                    class="flex items-center"
+                                >
+                                    <span class="pr-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                        </svg>
+                                    </span>
+                                    {{ $video->title }}
+                                </a>
                             </div>
                                 {{-- <div class="">
                                     <p>1 mins </p>
@@ -142,22 +147,24 @@
         
 
         <div class="flex-grow bg-gray-600">
-            <div class="mx-8 py-4 h-screen">
+            <div class="sticky top-0 mx-8 py-4 h-screen">
                 @if ($link)
                     <iframe class="w-full h-full" src="{{ $link ? $videos->url : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 @else
                     <h1 class="text-center text-white px-4 py-2 bg-blue-900 rounded-full">Belum Ada Video!</h1>
                 @endif
             </div>
-            <div class="text-right px-12 text-gray-100">
-                <a href="{{ route('class_video', [$classes->id, $pn ? $videos->id -1 : '']) }}" class="py-2 px-6 mx-2 bg-blue-900 rounded-full">
-                    <i class="fas fa-arrow-left"></i>
-                    Prev
-                </a>
-                <a href="{{ route('class_video', [$classes->id, $pn ? $videos->id +1 : '']) }}" class="py-2 px-6 mx-2 bg-blue-900 rounded-full">
-                    Next
-                    <i class="fas fa-arrow-right"></i>
-                </a>
+            <div class="sticky bottom-0 mt-8 px-12 text-gray-100">
+                <div class="flex justify-center">
+                    <a href="{{ route('class_video', [$classes->id, $pn ? $videos->id -1 : '']) }}" class="py-2 px-6 mx-2 rounded-full bg-blue-900 bg-opacity-50 hover:bg-blue-900">
+                        <i class="fas fa-arrow-left"></i>
+                        Prev
+                    </a>
+                    <a href="{{ route('class_video', [$classes->id, $pn ? $videos->id +1 : '']) }}" class="py-2 px-6 mx-2 rounded-full bg-blue-900 bg-opacity-50 hover:bg-blue-900">
+                        Next
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
