@@ -5,8 +5,10 @@ use App\Models\Course;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Chapter;
+use App\Models\Review;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use App\Http\Requests\ReviewRequest;
 use PHPUnit\Framework\Constraint\Count;
 
 class ClassController extends Controller
@@ -46,5 +48,35 @@ class ClassController extends Controller
         
         return view('pages.class_videos_play',['videos'=> $videos, 'classes'=> $classes]);
     }
+
+    // review
+
+    public function store(ReviewRequest $request)
+    {
+        // $review = Review::get();
+
+        $data = $request->all();
+
+        Review::create($data);
+        return back();
+    }
     
+    public function review($id)
+    {
+        $classes = Course::findOrFail($id);
+
+        $chapters = Chapter::where('class_id', $id)->get();
+        $categories = Category::get();
+        $users = User::get();
+
+        $reviews = Review::where('class_id', $id)->get();
+
+        return view('pages.class_detail_review',[
+            'classes'=> $classes, 
+            'categories' => $categories, 
+            'users' => $users, 
+            'chapters' => $chapters,
+            'reviews' => $reviews
+        ]);
+    }
 }

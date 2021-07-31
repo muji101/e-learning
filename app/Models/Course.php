@@ -36,4 +36,8 @@ class Course extends Model
     {
         return $this->hasMany(Video::class, 'class_id', 'id');
     }
+    public function review()
+    {
+        return $this->hasMany(Review::class, 'class_id', 'id');
+    }
 }

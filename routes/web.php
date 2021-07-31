@@ -41,6 +41,9 @@ Route::get('/class/{id}', [ClassController::class, 'detail'])->name('class_detai
 Route::get('/class/mentor/{id}', [ClassController::class, 'mentor'])->name('class_mentor');
 Route::middleware(['auth'])->group(function () {
     Route::get('/class/video/{classid}/{id}', [ClassController::class, 'video'])->name('class_video');
+    
+    Route::post('/class/reviews', [ClassController::class, 'store'])->name('class_review');
+    Route::get('/class/{id}/reviews', [ClassController::class, 'review'])->name('class_detail_review');
 });
 
 
