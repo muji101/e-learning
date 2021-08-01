@@ -15,12 +15,15 @@ class ClassController extends Controller
 {
     public function index()
     {
-        $classes = Course::get
-        ();
+        $classes = Course::get();
         $categories = Category::get();
         $users = User::get();
 
-        return view('pages.class',['classes'=> $classes, 'categories' => $categories, 'users' => $users]);
+        return view('pages.class',[
+            'classes'=> $classes, 
+            'categories' => $categories, 
+            'users' => $users
+        ]);
     }
     public function detail($id)
     {
@@ -29,8 +32,15 @@ class ClassController extends Controller
         $chapters = Chapter::where('class_id', $id)->get();
         $categories = Category::get();
         $users = User::get();
+        $reviews = Review::where('class_id', $id)->get();
 
-        return view('pages.class_detail',['classes'=> $classes, 'categories' => $categories, 'users' => $users, 'chapters' => $chapters]);
+        return view('pages.class_detail',[
+            'classes'=> $classes, 
+            'categories' => $categories, 
+            'users' => $users, 
+            'chapters' => $chapters,
+            'reviews' => $reviews
+        ]);
     }
     public function mentor($id)
     {
@@ -45,8 +55,12 @@ class ClassController extends Controller
         $videos = Video::where('class_id', $classId)->find($videoId);
         $classes = Course::find($classId);
 
+
         
-        return view('pages.class_videos_play',['videos'=> $videos, 'classes'=> $classes]);
+        return view('pages.class_videos_play',[
+            'videos'=> $videos, 
+            'classes'=> $classes,
+        ]);
     }
 
     // review

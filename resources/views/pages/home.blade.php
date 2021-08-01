@@ -91,7 +91,7 @@
                 </div>
                 <div class="col-span-1 px-2">
                     <h1 class="text-2xl font-bold pb-4">Reviews</h1>
-                    <p class="count text-5xl font-bold">1014</p>
+                    <p class="count text-5xl font-bold">{{ $reviews->count() }}</p>
                 </div>
             </div>
         </div>
@@ -108,76 +108,29 @@
         <div class="splide" data-aos="fade-up">
             <div class="splide__track">
                 <ul class="splide__list">
-                    <li class="splide__slide">
-                        <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 px-4 md:px-32 text-center items-center">
-                            <div class=" col-span-1 md:col-span-2 md:flex md:items-center md:ml-0">
-                                <div class="text-lg  text-center lg:text-left">
-                                    <div class="text-xl">
-                                        “Our dedicated patient engagement app and
-                                    web portal allow you to access information instantaneously (no tedeous form, long calls, 
-                                    or administrative hassle) and securely”
+                    @foreach ($reviews as $review)
+                        <li class="splide__slide">
+                            <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 px-4 md:px-32 text-center items-center">
+                                <div class=" col-span-1 md:col-span-2 md:flex md:items-center md:ml-0">
+                                    <div class="text-lg  text-center lg:text-left">
+                                        <div class="text-xl">
+                                            "{{ $review->content }}"
+                                        </div>
+                                        <div class="py-4 md:text-left">
+                                            <h1 class="font-bold text-2xl">{{ $review->user->name }}</h1>
+                                            <h4 class="text-lg">{{ $review->user->title }}</h4>
+                                        </div>
                                     </div>
-                                    <div class="py-4 md:text-left">
-                                        <h1 class="font-bold text-2xl">Edward Newgate</h1>
-                                        <h4 class="font-bold text-lg">Founder Circle</h4>
-                                    </div>
+                                    
+                                </div>
+                                <div class="col-span-1 m-auto mr-0">
+                                    <img src="https://picsum.photos/200/200" alt="" class="w-36 md:m-0 md:w-52 rounded-2xl">
                                 </div>
                                 
-                            </div>
-                            <div class="col-span-1 m-auto mr-0">
-                                <img src="https://picsum.photos/200/200" alt="" class="w-36 md:m-0 md:w-52 rounded-2xl">
-                            </div>
-                            
-                            
-                        </div>
-                    </li>
-                    <li class="splide__slide">
-                        <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 px-4 md:px-32 text-center items-center">
-                            <div class=" col-span-1 md:col-span-2 md:flex md:items-center md:ml-0">
-                                <div class="text-lg  text-center lg:text-left">
-                                    <div class="text-xl">
-                                        “Our dedicated patient engagement app and
-                                    web portal allow you to access information instantaneously (no tedeous form, long calls, 
-                                    or administrative hassle) and securely”
-                                    </div>
-                                    <div class="py-4 md:text-left">
-                                        <h1 class="font-bold text-2xl">Edward Newgate</h1>
-                                        <h4 class="font-bold text-lg">Founder Circle</h4>
-                                    </div>
-                                </div>
                                 
                             </div>
-                            <div class="col-span-1 m-auto mr-0">
-                                <img src="https://picsum.photos/200/200" alt="" class="w-36 md:m-0 md:w-52 rounded-2xl">
-                            </div>
-                            
-                            
-                        </div>
-                    </li>
-                    <li class="splide__slide">
-                        <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 px-4 md:px-32 text-center items-center">
-                            <div class=" col-span-1 md:col-span-2 md:flex md:items-center md:ml-0">
-                                <div class="text-lg  text-center lg:text-left">
-                                    <div class="text-xl">
-                                        “Our dedicated patient engagement app and
-                                    web portal allow you to access information instantaneously (no tedeous form, long calls, 
-                                    or administrative hassle) and securely”
-                                    </div>
-                                    <div class="py-4 md:text-left">
-                                        <h1 class="font-bold text-2xl">Edward Newgate</h1>
-                                        <h4 class="font-bold text-lg">Founder Circle</h4>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            <div class="col-span-1 m-auto mr-0">
-                                <img src="https://picsum.photos/200/200" alt="" class="w-36 md:m-0 md:w-52 rounded-2xl">
-                            </div>
-                            
-                            
-                        </div>
-                    </li>
-                    
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

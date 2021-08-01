@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\Category;
+use App\Models\Review;
 use Illuminate\Http\Request;
+
 
 class CategoryController extends Controller
 {
@@ -12,10 +14,14 @@ class CategoryController extends Controller
     {
         $categories = Category::get();
         $classes = Course::get();
+        $reviews = Review::get();
+
         
         return view('pages.class', [
             'categories' => $categories,
             'classes' => $classes,
+            'reviews' => $reviews,
+
             ]);
     }
 

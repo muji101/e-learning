@@ -20,7 +20,7 @@ class DashboardSettingController extends Controller
         $data = User::find($id);
         if($request->password){
         $request->validate([
-            'name'=> 'required|min:5|max:25',
+            'name'=> 'required',
             'email'=> 'required|min:5|max:25|email:rfc,dns|unique:users,email,'.$id,
             'phone' => 'required|max:75',
             'title' => 'required',
@@ -35,7 +35,7 @@ class DashboardSettingController extends Controller
 
         }else{
             $request->validate([
-                'name'=> 'required|min:5|max:25',
+                'name'=> 'required',
                 'email'=> 'required|min:5|max:25|email:rfc,dns|unique:users,email,'. $id,
                 'phone' => 'required|max:75',
                 'title' => 'required',

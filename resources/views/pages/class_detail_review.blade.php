@@ -163,7 +163,7 @@
                             </div>
                         </div>
                     @empty
-                        
+                        <h1 class="text-center text-white px-4 py-2 bg-blue-900 rounded-full">Belum Ada Komentar!</h1>
                     @endforelse
                     
                 </div>
