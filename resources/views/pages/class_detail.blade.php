@@ -50,7 +50,15 @@
             </div>
 
             <div class="text-center text-gray-100 py-14">
-                <a href="{{ route('class_video', [$classes->id, $classes->video->first()->id]) }}" class="bg-blue-900 text-lg font-bold px-14 py-4 rounded-full">Gabung Kelas</a>
+                {{-- <a href="{{ route('class_video', [$classes->id, $classes->video->first()->id]) }}" class="bg-blue-900 text-lg font-bold px-14 py-4 rounded-full">Gabung Kelas</a> --}}
+
+                <form method="POST" action="{{ route('class_join',[$classes->id, $classes->user->id]) }}">
+                    @csrf
+                    @method("POST")
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                    <input type="hidden" name="class_id" value="{{ $classes->id }}">
+                    <button class="bg-blue-900 text-lg font-bold px-14 py-4 rounded-full">Gabung Kelas</button>
+                </form>
             </div>
         </div>
 

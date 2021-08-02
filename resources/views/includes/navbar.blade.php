@@ -1,4 +1,4 @@
-<div id="navbar"  class="sticky top-0 z-10">
+<div id="navbar"  class="bg-gray-600 sticky top-0 z-10">
     {{-- <div class="bg-gradient-to-r from-gray-400 via-gray-600 to-gray-400 flex justify-between items-center py-4 px-12 text-white"> --}}
     <div class="flex justify-between items-center py-2 px-12 text-white">
         <div class="flex py-2 space-x-14">

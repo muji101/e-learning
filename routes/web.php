@@ -42,6 +42,8 @@ Route::get('/class/mentor/{id}', [ClassController::class, 'mentor'])->name('clas
 Route::middleware(['auth'])->group(function () {
     Route::get('/class/video/{classid}/{id}', [ClassController::class, 'video'])->name('class_video');
     
+    Route::post('/class/join/{classid}/{videoid}', [ClassController::class, 'join'])->name('class_join');
+    
     Route::post('/class/reviews', [ClassController::class, 'store'])->name('class_review');
     Route::get('/class/{id}/reviews', [ClassController::class, 'review'])->name('class_detail_review');
 });
@@ -87,6 +89,7 @@ Route::prefix('/dashboard')->middleware(['auth'])->group(function () {
     
     // route class user
     Route::get('/myclass', [DashboardClassUserController::class, 'index'])->name('myclass');
+    Route::get('/myclass/{id}/{name}', [DashboardClassUserController::class, 'category'])->name('myclass_category');
 
     // route category
     Route::get('/category', [DashboardCategoryController::class, 'index'])->name('category');

@@ -85,9 +85,9 @@
                             <div class="card-body p-0">
                                 <div class="d-flex flex-column">
                                     <div class='px-3 py-3 d-flex justify-content-between'>
-                                        <h3 class='card-title'>CODE</h3>
+                                        <h3 class='card-title'>Kelas Saya</h3>
                                         <div class="card-right d-flex align-items-center">
-                                            <p>{{ $videos->count() }}</p>
+                                            <p>{{ $joins->count() }}</p>
                                         </div>
                                     </div>
                                     <div class="chart-wrapper">
@@ -97,7 +97,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-3">
+                    {{-- <div class="col-12 col-md-3">
                         <div class="card card-statistic">
                             <div class="card-body p-0">
                                 <div class="d-flex flex-column">
@@ -113,7 +113,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 @endif
                 
             </div>
@@ -188,24 +188,19 @@
                                     </table>
                                 </div>
                             @else
-                                <div class="d-flex my-2">
-                                    <div class="">
-                                        <img src="{{ asset('/images/undraw_people_tax5.png') }}" style="width : 200px" alt="">
+                                @forelse ($joinses as $join)
+                                    <div class="d-flex my-2 p-4">
+                                        <div class="">
+                                            <img src="{{ asset('storage/'. $join->course->photo) }}" style="width : 200px" alt="">
+                                        </div>
+                                        <div class="ps-4">
+                                            <h1>{{ $join->course->name }}</h1>
+                                            <p class="fst-italic">{{ $join->course->category->name }}</p>
+                                        </div>
                                     </div>
-                                    <div class="">
-                                        <h1>Laravel 8</h1>
-                                        <p>Code</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex">
-                                    <div class="">
-                                        <img src="{{ asset('/images/undraw_people_tax5.png') }}" style="width : 200px" alt="">
-                                    </div>
-                                    <div class="">
-                                        <h1>Tailwindcss</h1>
-                                        <p>Code</p>
-                                    </div>
-                                </div>
+                                @empty
+                                    <h1 class="bg-gray-400 text-gray-800 text-2xl py-4 px-10 mt-24 rounded-full">Kelas Tidak Ditemukan!</h1>
+                                @endforelse
                             @endif
                             
 

@@ -9,6 +9,7 @@ use App\Models\Review;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use App\Http\Requests\ReviewRequest;
+use App\Models\Join;
 use PHPUnit\Framework\Constraint\Count;
 
 class ClassController extends Controller
@@ -61,6 +62,29 @@ class ClassController extends Controller
             'videos'=> $videos, 
             'classes'=> $classes,
         ]);
+    }
+    
+    // join
+    public function join(Request $request, $classId, $userId)
+    {
+        $data = $request->all();
+
+        // $request->validate([
+        //     'user_id'=> 'unique:joins,user_id,'.$userId,
+        //     'class_id'=> 'unique:joins,class_id,'.$classId,
+        // ]);
+        
+        $videos = Video::where('class_id', $classId)->find($userId);
+        $classes = Course::find($classId);
+        
+        Join::create($data);
+        
+        return view('pages.class_videos_play',[
+            'videos'=> $videos, 
+            'classes'=> $classes,
+        ]);
+
+        // return view('pages.class_videos_play');
     }
 
     // review

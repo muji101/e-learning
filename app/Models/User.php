@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'image',
         'phone',
         'title',
         'description',
@@ -73,4 +74,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Review::class);
     }
+    // public function join()
+    // {
+    //     return $this->hasMany(Join::class);
+    // }
 }

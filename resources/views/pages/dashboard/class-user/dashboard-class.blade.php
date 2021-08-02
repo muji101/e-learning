@@ -21,54 +21,37 @@
         </div>
     </div>
     <section class="section">
-        <div class="card">
-            <div class="card-header fw-bold fs-4">
+        {{-- <div class="card"> --}}
+            {{-- <div class="card-header fw-bold fs-4">
                 Pilih Berdasarkan
-            </div>
-            <div class="card-body">
-                <div class="d-flex fs-5">
-                    <a class="pe-2" href="#">All</a>
+            </div> --}}
+            {{-- <div class="card-body"> --}}
+                {{-- <div class="d-flex fs-5">
+                    <a class="pe-2" href="{{ route('myclass') }}">All</a>
                     @foreach ($categories as $category)
-                        <a class="px-2" href="#">{{ $category->name }}</a>
+                        <a class="px-2" href="{{ route('myclass_category', $category->name) }}">{{ $category->name }}</a>
                     @endforeach
+                </div> --}}
+                <div class="d-flex flex-wrap">
+                    @forelse ($joins as $join)
+                    <a href="{{ route('class_detail', $join->course->id) }}">
+                        <div class="card mx-2" style="width: 400px">
+                            <div class="bg-primary">
+                                <img src="{{ asset('storage/'.$join->course->photo) }}" class="img-thumbnail" alt="Ini gambar">
+                                <div class="p-2 text-white">
+                                    <p class="fs-5 border-bottom mb-0 border-white">{{ $join->course->name }}</p>
+                                    <p class="fst-italic mb-0">{{ $join->course->category->name }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    @empty
+                        <h1 class="bg-gray-400 text-gray-800 text-2xl py-4 px-10 mt-24 rounded-full">Kelas Tidak Ditemukan!</h1>
+                    @endforelse
                 </div>
-                <div class="d-flex flex-wrap justify-content-between">
-                    <div class="card w-25 bg-primary my-4">
-                        <div class="card-body">
-                            <div class="">
-                                <img src="{{ asset('/images/undraw_Character_drawing_ii11.svg') }}" alt="Ini gambar" style="width: 260px">
-                            </div>
-                            <div class="text-white pt-3">
-                                <p class="fs-3 border-bottom border-white">Laravel 8</p>
-                                <p class="">Code</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card w-25 bg-primary my-4">
-                        <div class="card-body">
-                            <div class="">
-                                <img src="{{ asset('/images/undraw_Character_drawing_ii11.svg') }}" alt="Ini gambar" style="width: 260px">
-                            </div>
-                            <div class="text-white pt-3">
-                                <p class="fs-3 border-bottom border-white">Laravel 8</p>
-                                <p class="">Code</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card w-25 bg-primary my-4">
-                        <div class="card-body">
-                            <div class="">
-                                <img src="{{ asset('/images/undraw_Character_drawing_ii11.svg') }}" alt="Ini gambar" style="width: 260px">
-                            </div>
-                            <div class="text-white pt-3">
-                                <p class="fs-3 border-bottom border-white">Laravel 8</p>
-                                <p class="">Code</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+            {{-- </div> --}}
+        {{-- </div> --}}
 
     </section>
 </div>

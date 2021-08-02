@@ -47,71 +47,88 @@
                                     </div>
                                     <div class="card-content">
                                         <div class="card-body">
-                                            <form action="{{ route('password-update', Auth::user()->id) }}" method="POST" class="form form-vertical">
+                                            <form action="{{ route('password-update', Auth::user()->id) }}" enctype="multipart/form-data" method="POST" class="form form-vertical">
                                                 @csrf
                                                 @method("POST")
                                             <div class="form-body">
                                                 <div class="row">
-                                                <div class="col-12">
-                                                    <div class="form-group has-icon-left">
-                                                        <label for="name-icon">Name</label>
-                                                        <div class="position-relative">
-                                                            <input type="text" class="form-control" placeholder="Input Your Name" id="name-icon" name="name" value="{{ Auth::user()->name }}">
-                                                            <div class="form-control-icon">
-                                                                <i data-feather="user"></i>
+                                                    {{-- <div class="col-12">
+                                                        <div class="row">
+                                                            <div class="">
+                                                                <img style="width: 100px" class="rounded-full" src="/profile/{{ Auth::user()->image }}" alt="Gambar profile">
+                                                            </div>
+                                                            <div class="col-lg-12 col-md-12">
+                                                                <label class="form-label">Ganti Photo</label>
+                                                                <div class="form-file">
+                                                                    <input type="file" name="image_file" class="form-file-input" id="customFile">
+                                                                    <label class="form-file-label" for="customFile">
+                                                                        <span class="form-file-text">Choose file...</span>
+                                                                        <span class="form-file-button">Browse</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> --}}
+                                                    <div class="col-12">
+                                                        <div class="form-group has-icon-left">
+                                                            <label for="name-icon">Name</label>
+                                                            <div class="position-relative">
+                                                                <input type="text" class="form-control" placeholder="Input Your Name" id="name-icon" name="name" value="{{ Auth::user()->name }}">
+                                                                <div class="form-control-icon">
+                                                                    <i data-feather="user"></i>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    
-                                                    <div class="form-group has-icon-left">
-                                                        <label for="email-id-icon">Email</label>
-                                                        <div class="position-relative">
-                                                            <input type="text" class="form-control" placeholder="Input Your Email" id="email-id-icon" name="email" value="{{ Auth::user()->email }}">
-                                                            <div class="form-control-icon">
-                                                                <i data-feather="mail"></i>
+                                                    <div class="col-12">
+                                                        
+                                                        <div class="form-group has-icon-left">
+                                                            <label for="email-id-icon">Email</label>
+                                                            <div class="position-relative">
+                                                                <input type="text" class="form-control" placeholder="Input Your Email" id="email-id-icon" name="email" value="{{ Auth::user()->email }}">
+                                                                <div class="form-control-icon">
+                                                                    <i data-feather="mail"></i>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form-group has-icon-left">
-                                                        <label for="mobile-id-icon">Mobile</label>
-                                                        <div class="position-relative">
-                                                            <input type="text" class="form-control" placeholder="Input Your Mobile" id="mobile-id-icon" name="phone" value="{{ Auth::user()->phone }}">
-                                                            <div class="form-control-icon">
-                                                                <i data-feather="phone"></i>
+                                                    <div class="col-12">
+                                                        <div class="form-group has-icon-left">
+                                                            <label for="mobile-id-icon">Mobile</label>
+                                                            <div class="position-relative">
+                                                                <input type="text" class="form-control" placeholder="Input Your Mobile" id="mobile-id-icon" name="phone" value="{{ Auth::user()->phone }}">
+                                                                <div class="form-control-icon">
+                                                                    <i data-feather="phone"></i>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form-group has-icon-left">
-                                                        <label for="title-icon">Title</label>
-                                                        <div class="position-relative">
-                                                            <input type="text" class="form-control" placeholder="Input Your Title" id="title-icon" name="title" value="{{ Auth::user()->title }}">
-                                                            <div class="form-control-icon">
-                                                                <i data-feather="user"></i>
+                                                    <div class="col-12">
+                                                        <div class="form-group has-icon-left">
+                                                            <label for="title-icon">Title</label>
+                                                            <div class="position-relative">
+                                                                <input type="text" class="form-control" placeholder="Input Your Title" id="title-icon" name="title" value="{{ Auth::user()->title }}">
+                                                                <div class="form-control-icon">
+                                                                    <i data-feather="user"></i>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form-group has-icon-left">
-                                                        <label for="description-icon">Description</label>
-                                                        <div class="position-relative">
-                                                            <input type="text" class="form-control" placeholder="Input Your Description" id="description-icon" name="description" value="{{ Auth::user()->description }}">
-                                                            <div class="form-control-icon">
-                                                                <i data-feather="user"></i>
+                                                    <div class="col-12">
+                                                        <div class="form-group has-icon-left">
+                                                            <label for="description-icon">Description</label>
+                                                            <div class="position-relative">
+                                                                <input type="text" class="form-control" placeholder="Input Your Description" id="description-icon" name="description" value="{{ Auth::user()->description }}">
+                                                                <div class="form-control-icon">
+                                                                    <i data-feather="user"></i>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-12 d-flex justify-content-end">
-                                                    <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
-                                                    <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
-                                                </div>
+                                                    <div class="col-12 d-flex justify-content-end">
+                                                        <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
+                                                        <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             </form>
