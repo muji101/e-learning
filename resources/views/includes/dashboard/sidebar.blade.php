@@ -2,7 +2,7 @@
     <div class="sidebar-wrapper active">
         <div class="sidebar-header">
             <div class="avatar me-1">
-                <img src="{{ asset('/dist/assets/images/avatar/avatar-s-1.png') }}" style="width: 100px; height: 100px" alt="" srcset="">
+                <img src="{{ asset('/storage/'. Auth::user()->image) }}" style="width: 100px; height: 100px" alt="" srcset="">
             </div>
             <div class="d-none d-md-block d-lg-inline-block">{{ Auth::user()->name }}</div>
         </div>

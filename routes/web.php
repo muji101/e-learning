@@ -37,9 +37,9 @@ Route::get('/search/{id}', [SearchController::class, 'searchCategory'])->name('s
 
 // Route class front
 // Route::get('/class', [ClassController::class, 'index'])->name('class_list');
-Route::get('/class/{id}', [ClassController::class, 'detail'])->name('class_detail');
-Route::get('/class/mentor/{id}', [ClassController::class, 'mentor'])->name('class_mentor');
 Route::middleware(['auth'])->group(function () {
+    Route::get('/class/{id}', [ClassController::class, 'detail'])->name('class_detail');
+    Route::get('/class/mentor/{id}', [ClassController::class, 'mentor'])->name('class_mentor');
     Route::get('/class/video/{classid}/{id}', [ClassController::class, 'video'])->name('class_video');
     
     Route::post('/class/join/{classid}/{videoid}', [ClassController::class, 'join'])->name('class_join');
@@ -63,6 +63,7 @@ Route::prefix('/dashboard')->middleware(['auth'])->group(function () {
     // route edit update profile
     Route::get('/settings/edit/{id}', [DashboardSettingController::class, 'edit'])->name('password-edit');
     Route::post('/settings/update/{id}', [DashboardSettingController::class, 'update'])->name('password-update');
+    Route::post('/settings/updatePass/{id}', [DashboardSettingController::class, 'updatePass'])->name('password-updatePass');
 
     // route class teacher
     Route::get('/class', [DashboardClassController::class, 'index'])->name('class');

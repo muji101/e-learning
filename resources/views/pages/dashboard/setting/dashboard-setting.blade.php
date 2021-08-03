@@ -3,6 +3,15 @@
 @section('title', 'Dashboard | Go-Sinau|Settings')
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="main-content container-fluid">
         <div class="page-title">
             <div class="row">
@@ -52,15 +61,15 @@
                                                 @method("POST")
                                             <div class="form-body">
                                                 <div class="row">
-                                                    {{-- <div class="col-12">
+                                                    <div class="col-12">
                                                         <div class="row">
                                                             <div class="">
-                                                                <img style="width: 100px" class="rounded-full" src="/profile/{{ Auth::user()->image }}" alt="Gambar profile">
+                                                                <img style="width: 100px" class="rounded-full" src="{{ asset('storage/'.Auth::user()->image) }}" alt="Gambar profile">
                                                             </div>
                                                             <div class="col-lg-12 col-md-12">
                                                                 <label class="form-label">Ganti Photo</label>
                                                                 <div class="form-file">
-                                                                    <input type="file" name="image_file" class="form-file-input" id="customFile">
+                                                                    <input type="file" name="image" class="form-file-input">
                                                                     <label class="form-file-label" for="customFile">
                                                                         <span class="form-file-text">Choose file...</span>
                                                                         <span class="form-file-button">Browse</span>
@@ -68,7 +77,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div> --}}
+                                                    </div>
                                                     <div class="col-12">
                                                         <div class="form-group has-icon-left">
                                                             <label for="name-icon">Name</label>
@@ -125,6 +134,39 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    {{-- <div class="col-12">
+                                                        <div class="form-group has-icon-left">
+                                                            <label for="password-id-icon">Kata sandi saat ini</label>
+                                                            <div class="position-relative">
+                                                                <input type="password" class="form-control" placeholder="Password" id="current_password" name="current_password" value="{{ Auth::user()->password }}">
+                                                                <div class="form-control-icon">
+                                                                    <i data-feather="lock"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-group has-icon-left">
+                                                            <label for="password-id-icon">Kata sandi baru</label>
+                                                            <div class="position-relative">
+                                                                <input type="password" class="form-control" placeholder="New Password" id="password" name="password">
+                                                                <div class="form-control-icon">
+                                                                    <i data-feather="lock"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-group has-icon-left">
+                                                            <label for="password-id-icon">Kata sandi baru (konfirmasi)</label>
+                                                            <div class="position-relative">
+                                                                <input type="password" class="form-control" placeholder="Retry New Password" id="password_confirmation" name="password_confirmation">
+                                                                <div class="form-control-icon">
+                                                                    <i data-feather="lock"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> --}}
                                                     <div class="col-12 d-flex justify-content-end">
                                                         <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
                                                         <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
@@ -151,7 +193,7 @@
                                     </div>
                                     <div class="card-content">
                                         <div class="card-body">
-                                            <form action="{{ route('password-update', Auth::user()->id) }}" method="POST" class="form form-vertical">
+                                            <form action="{{ route('password-updatePass', Auth::user()->id) }}" method="POST" class="form form-vertical">
                                                 @csrf
                                                 @method("POST")
                                             <div class="form-body">

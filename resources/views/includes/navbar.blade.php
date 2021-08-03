@@ -15,6 +15,7 @@
                 </div>
             </form>
         </div>
+        
         <div class="flex gap-6 py-2 items-center">
             <a class="font-bold {{ request()->path() === '/' ? 'text-white' : 'text-blue-900' }}" href="{{ route('home') }}">Home</a>
             <a href="{{ url('categories') }}" class="font-bold 

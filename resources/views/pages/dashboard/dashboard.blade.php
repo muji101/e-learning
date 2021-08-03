@@ -79,6 +79,23 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-12 col-md-3">
+                        <div class="card card-statistic">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-column">
+                                    <div class='px-3 py-3 d-flex justify-content-between'>
+                                        <h3 class='card-title'>MEMBERS</h3>
+                                        <div class="card-right d-flex align-items-center">
+                                            <p>{{ $joinall->count() }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="chart-wrapper">
+                                        <canvas id="canvas4" style="height:100px !important"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @else
                     <div class="col-12 col-md-3">
                         <div class="card card-statistic">
@@ -199,7 +216,7 @@
                                         </div>
                                     </div>
                                 @empty
-                                    <h1 class="bg-gray-400 text-gray-800 text-2xl py-4 px-10 mt-24 rounded-full">Kelas Tidak Ditemukan!</h1>
+                                    <h1 class=" text-gray-800 text-2xl p-4 mt-24">Kelas Tidak Ditemukan!</h1>
                                 @endforelse
                             @endif
                             

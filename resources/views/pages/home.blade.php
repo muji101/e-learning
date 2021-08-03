@@ -149,7 +149,7 @@
                     @foreach ($reviews as $review)
                     <li class="splide__slide">
                         <div class="flex py-14">
-                            <div class="mx-auto py-8 px-8 border-2 border-blue-900 w-96 h-56 rounded-xl">
+                            <div class="mx-auto py-8 px-8 border-2 bg-gray-50 border-blue-900 w-96 h-56 rounded-xl">
                                 <div class="flex items-center justify-between">
                                     <img src="https://source.unsplash.com/400x400/?person" alt="" class="w-12 rounded-lg">
                                     <div class="px-4">
@@ -194,10 +194,10 @@
         </div>
         <div class="flex flex-wrap justify-around pt-14">
             @forelse ($classesRecomend as $class)
-                <a href="{{ route('class_detail', $class->id) }}">
+                <a href="{{ route('class_detail', $class->id) }}" class="transform hover:scale-105">
                     <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="w-96 p-4 bg-white rounded-2xl shadow-lg">
                         <div class="">
-                            <img class="w-full rounded-2xl" src="{{ asset('/storage/'.$class->photo) }}" alt="">
+                            <img class="w-full rounded-2xl shadow-md" src="{{ asset('/storage/'.$class->photo) }}" alt="">
                         </div>
                         <div class="py-2 text-gray-700 border-b-2">
                             <h1 class="text-xl font-bold pb-3">{{ $class->name }}</h1>

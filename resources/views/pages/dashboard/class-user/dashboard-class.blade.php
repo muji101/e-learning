@@ -37,7 +37,7 @@
                     <a href="{{ route('class_detail', $join->course->id) }}">
                         <div class="card mx-2" style="width: 400px">
                             <div class="bg-primary">
-                                <img src="{{ asset('storage/'.$join->course->photo) }}" class="img-thumbnail" alt="Ini gambar">
+                                <img src="{{ asset('storage/'.$join->course->photo) }}" style="width: 400px; height: 260px" alt="Ini gambar">
                                 <div class="p-2 text-white">
                                     <p class="fs-5 border-bottom mb-0 border-white">{{ $join->course->name }}</p>
                                     <p class="fst-italic mb-0">{{ $join->course->category->name }}</p>

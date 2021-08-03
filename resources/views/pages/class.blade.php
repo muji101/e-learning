@@ -44,7 +44,7 @@
             @endforeach
         </div> --}}
         <div class="flex flex-wrap space-x-2 justify-center py-14 text-gray-800">
-                <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="border-2 border-blue-900 bg-gray-200 rounded-lg shadow-lg w-60 p-2 mt-2">
+                <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="border-2 border-blue-900 bg-gray-50 rounded-lg shadow-lg w-60 p-2 mt-2">
                     <a href="{{ route('categories') }}">
                         <div class="">
                             <img class="" src="{{ asset('/images/undraw_All.svg') }}" alt="" style="width: 280px; height: 180px">
@@ -63,7 +63,7 @@
                     </a>
                 </div>   
             @foreach ($categories as $category)
-                <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="border-2 border-blue-900 bg-gray-200 rounded-lg shadow-lg w-60 p-2 mt-2">
+                <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="border-2 border-blue-900 bg-gray-50 rounded-lg shadow-lg w-60 p-2 mt-2">
                     <a href="{{ route('categories-detail', $category->name) }}">
                         <div class="">
                             <img class="" src="{{ asset('/storage/'.$category->photo) }}" alt="" style="width: 280px; height: 180px">
@@ -109,7 +109,7 @@
     <div class="pb-32">
         <div class="flex flex-wrap justify-around p-4 text-gray-100">
             @forelse ($classes as $class)
-                <a href="{{ route('class_detail', $class->id) }}">
+                <a href="{{ route('class_detail', $class->id) }}" class=" transform hover:scale-105">
                     <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="w-96 p-4 bg-white rounded-2xl shadow-lg mt-14">
                         <img class="w-full h-52 rounded-2xl" src="{{ asset('/storage/'.$class->photo) }}" alt="">
                         <div class="py-2 text-gray-700 border-b-2 h-32">
@@ -140,7 +140,7 @@
                     @foreach ($reviews as $review)
                     <li class="splide__slide">
                         <div class="flex py-14">
-                            <div class="mx-auto py-8 px-8 border-2 border-blue-900 w-96 h-56 rounded-xl">
+                            <div class="mx-auto py-8 px-8 border-2 bg-gray-50 border-blue-900 w-96 h-56 rounded-xl">
                                 <div class="flex items-center justify-between">
                                     <img src="https://source.unsplash.com/400x400/?person" alt="" class="w-12 rounded-lg">
                                     <div class="px-4">

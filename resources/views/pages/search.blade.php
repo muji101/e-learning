@@ -34,7 +34,7 @@
                 <div class="pb-32">
                     <div class="flex flex-wrap justify-around p-4 text-gray-100">
                         @forelse ($classes as $class)
-                            <a href="{{ route('class_detail', $class->id) }}">
+                            <a href="{{ route('class_detail', $class->id) }}" class="transform hover:scale-105">
                                 <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="w-96 p-4 bg-white rounded-2xl shadow-lg mt-14">
                                     <img class="w-full h-52 rounded-2xl" src="{{ asset('/storage/'.$class->photo) }}" alt="">
                                     <div class="py-2 text-gray-700 border-b-2 h-32">
@@ -48,7 +48,7 @@
                                 </div>
                             </a>
                         @empty
-                            <h1 class="bg-gray-400 text-gray-800 text-2xl py-4 px-10 mt-24 rounded-full">Kelas Tidak Ditemukan!</h1>
+                            <h1 class="bg-blue-900 text-white text-2xl py-4 px-10 mt-24 rounded-full">Kelas Tidak Ditemukan!</h1>
                         @endforelse
                     </div>
                 </div>
