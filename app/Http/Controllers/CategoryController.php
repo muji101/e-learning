@@ -21,7 +21,6 @@ class CategoryController extends Controller
             'categories' => $categories,
             'classes' => $classes,
             'reviews' => $reviews,
-
             ]);
     }
 
@@ -30,10 +29,13 @@ class CategoryController extends Controller
         $categories = Category::get();
         $category = Category::where('name', $name)->firstOrFail();
         $classes = Course::where('category_id', $category->id)->paginate(32);
+        $reviews = Review::get();
+
         
         return view('pages.class', [
             'categories' => $categories,
             'classes' => $classes,
+            'reviews' => $reviews,
             ]);
     }
 }

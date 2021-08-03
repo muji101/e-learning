@@ -33,7 +33,7 @@
         data-aos-offset="100"
         data-aos-easing="ease-in-sine"
         class="font-bold my-5 relative text-gray-800 text-2xl">
-            <div class="bg-blue-900 rounded-bl-full rounded-br-full w-6/12" style="height:7px"></div>
+            <div class="bg-blue-900 rounded-bl-full rounded-br-full w-4/12" style="height:7px"></div>
             <div class="absolute" style="bottom: -5px">Kategori Pilihan Untuk Anda</div>
         </div>
         <div class="flex flex-wrap justify-evenly py-14">
@@ -45,7 +45,7 @@
                     <div class="pl-4 w-5/12 text-gray-800">
                         <h1 class="font-bold text-lg">{{ $category->name }}</h1>
                         <p class="py-4">{{ $category->description }}</p>
-                        <div class="">
+                        <div class="pt-24">
                             <a class="text-blue-900" href="{{ route('categories-detail', $category->name) }}">pelajari lebih lanjut</a>
                         </div>
                     </div>
@@ -140,7 +140,7 @@
 
     <div class="py-4 sm:py-14">
         <div class="text-center">
-            <h1 class="text-3xl font-bold">Trusted by Thousands of Happy Customer</h1>
+            <h1 class="text-2xl font-bold">Trusted by Thousands of Happy Customer</h1>
             <p class="text-base py-2">These are the stories of our customers who have joined us with great pleasure when using this crazy feature.</p>
         </div>
         <div class="splide">
@@ -195,7 +195,7 @@
         <div class="flex flex-wrap justify-around pt-14">
             @forelse ($classesRecomend as $class)
                 <a href="{{ route('class_detail', $class->id) }}">
-                    <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="w-96 p-4 bg-white rounded-2xl">
+                    <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="w-96 p-4 bg-white rounded-2xl shadow-lg">
                         <div class="">
                             <img class="w-full rounded-2xl" src="{{ asset('/storage/'.$class->photo) }}" alt="">
                         </div>
@@ -220,7 +220,7 @@
 <div class="container mx-auto px-24">
 
     <!-- bergabung bersama kami -->
-    <div class="py-32 text-gray-100">
+    <div class="py-16 text-gray-100">
         <div class="text-center pt-8 px-4">
             <div 
             data-aos="fade-right"

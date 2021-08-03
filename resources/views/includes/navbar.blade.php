@@ -1,9 +1,10 @@
 <div id="navbar"  class="bg-gray-600 sticky top-0 z-10">
     {{-- <div class="bg-gradient-to-r from-gray-400 via-gray-600 to-gray-400 flex justify-between items-center py-4 px-12 text-white"> --}}
     <div class="flex justify-between items-center py-2 px-12 text-white">
-        <div class="flex py-2 space-x-14">
-            <a href="#">
-                <img src="{{ asset('/images/undraw_working_late_pukg.svg') }}" alt="" class="w-16">
+        <div class="flex py-2 space-x-6 items-center">
+            <a href="#" class="flex space-x-2 items-center">
+                <img src="{{ asset('/images/logo.png') }}" alt="" class="w-12">
+                <p class="font-bold text-xl">Go Sinau</p>
             </a>
             <form action="{{ route('search') }}" method="GET">
                 @csrf
@@ -16,7 +17,11 @@
         </div>
         <div class="flex gap-6 py-2 items-center">
             <a class="font-bold {{ request()->path() === '/' ? 'text-white' : 'text-blue-900' }}" href="{{ route('home') }}">Home</a>
-            <a class="font-bold {{ request()->path() === 'categories' ? 'text-white' : 'text-blue-900' }}" href="{{ route('categories') }}">Class</a>
+            <a href="{{ url('categories') }}" class="font-bold 
+                {{ (request()->is('categories')) ? 'text-white' : 'text-blue-900' }} 
+                {{-- {{ (request()->is('search')) ? 'text-white' : 'text-blue-900' }}  --}}
+                {{-- {{ (request()->is('class/{id}')) ? 'text-white' : 'text-blue-900' }}  --}}
+                " >Class</a>
             <a class="font-bold text-blue-900" href="#">About</a>
             @guest
                 <a href="{{ route('login') }}" class="animate-pulse py-2 px-8 border-2 border-blue-900 rounded-full hover:border-white hover:bg-blue-900 font-bold">Sign In</a>

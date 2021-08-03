@@ -10,9 +10,9 @@
 @section('content')
     <div class="container mx-auto px-24">
             
-        <div class="shadow-2xl rounded-3xl">
+        {{-- <div class="shadow-2xl rounded-3xl">
             <div class="py-8">
-                <div class="text-center text-gray-100">
+                <div class="text-center text-gray-800">
                     <h1 class="font-bold text-4xl py-4">
                         {{ $classes->name }}
                     </h1>
@@ -27,7 +27,7 @@
                 </div>
             </div>
 
-            <div class="flex justify-evenly py-4 text-gray-100">
+            <div class="flex justify-evenly py-4 text-gray-800">
                 <div class="text-center">
                     <h1 class="font-bold text-xl border-b-2 my-2">
                         Pengguna
@@ -49,8 +49,7 @@
                 </div>
             </div>
 
-            <div class="text-center text-gray-100 py-14">
-                {{-- <a href="{{ route('class_video', [$classes->id, $classes->video->first()->id]) }}" class="bg-blue-900 text-lg font-bold px-14 py-4 rounded-full">Gabung Kelas</a> --}}
+            <div class="text-center text-gray-800 py-14">
 
                 <form method="POST" action="{{ route('class_join',[$classes->id, $classes->user->id]) }}">
                     @csrf
@@ -60,19 +59,38 @@
                     <button class="bg-blue-900 text-lg font-bold px-14 py-4 rounded-full">Gabung Kelas</button>
                 </form>
             </div>
+        </div> --}}
+        <div class="grid grid-cols-3 bg-gray-200 my-4">
+            <div class="col-span-2">
+                <div class=" text-gray-800">
+                    <h1 class="font-bold text-4xl py-4">
+                        {{ $classes->name }}
+                    </h1>
+                    <p>{{ $classes->title }}</p>
+                </div>
+            </div>
+            <div class="col-span-1 mr-8">
+                <div class="">
+                    @if ($link)
+                        <iframe width="600" height="340" src="{{ $link ? $classes->video->first()->url : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    @else
+                        <h1 class="text-center text-white px-4 py-2 bg-blue-900 rounded-full">Belum Ada Video</h1>
+                    @endif
+                </div>
+            </div>
         </div>
 
-        <div class="flex gap-4 text-gray-100 py-14">
-            <button onclick="des()" class="shadow text-lg font-bold px-14 py-4 hover:bg-blue-900 rounded-full">Deskripsi kelas</button>
-            <button onclick="rat()" class="shadow text-lg font-bold px-14 py-4 hover:bg-blue-900 rounded-full">Review / Rating</button>
-            <button onclick="mat()" class="shadow text-lg font-bold px-14 py-4 hover:bg-blue-900 rounded-full">Materi kelas</button>
+        <div class="flex gap-4 text-gray-800 py-14">
+            <button onclick="des()" class="shadow text-lg font-bold px-14 py-4 hover:bg-blue-900 rounded-full border-2 border-blue-900">Deskripsi kelas</button>
+            <button onclick="rat()" class="shadow text-lg font-bold px-14 py-4 hover:bg-blue-900 rounded-full border-2 border-blue-900">Review / Rating</button>
+            <button onclick="mat()" class="shadow text-lg font-bold px-14 py-4 hover:bg-blue-900 rounded-full border-2 border-blue-900">Materi kelas</button>
         </div>
 
         
         {{-- deskripsi --}}
         <div id="des">
             <div class="py-8">
-                <div class="py-4 text-gray-100">
+                <div class="py-4 text-gray-800">
                     <h1 class="font-bold text-4xl py-4">
                         {{ $classes->name }}
                     </h1>
@@ -83,7 +101,7 @@
             </div>
     
             <div class="py-8">
-                <div class="py-4 text-gray-100">
+                <div class="py-4 text-gray-800">
                     <h1 class="font-bold text-4xl py-4">
                         Profile Pengajar
                     </h1>
@@ -109,14 +127,14 @@
         {{-- rating --}}
         <div id="rat" style="display: none">
             <div class="py-8">
-                <div class="py-4 text-gray-100">
+                <div class="py-4 text-gray-800">
                     <h1 class="font-bold text-4xl py-4">
                         Reviews
                     </h1>
                 </div>
-                <div class="flex flex-wrap justify-around">
+                <div class="flex flex-wrap justify-start">
                     @forelse ($reviews as $review)
-                        <div data-aos="fade-right" data-aos-delay="100" class="bg-gray-100 rounded-2xl p-4 my-6 w-96">
+                        <div data-aos="fade-right" data-aos-delay="100" class="bg-gray-200 rounded-2xl shadow-lg p-4 my-6 mr-4 w-96">
                             <div class="grid grid-cols-2">
                                 <div class="col-span-1">
                                     <img class="" src="{{ asset('/images/undraw_programming_2svr.svg') }}" alt="" style="width: 280px;">
@@ -159,13 +177,13 @@
         {{-- materi --}}
         <div id="mat" style="display: none">
             <div class="py-8">
-                <div class="py-4 text-gray-100">
+                <div class="py-4 text-gray-800">
                     <h1 class="font-bold text-4xl py-4">
                         Apa yang akan kamu pelajari?
                     </h1>
                 </div>
                 @forelse ($classes->chapter as $chapter)
-                    <div class="py-4 px-8 bg-gray-300 rounded-2xl w-3/4 shadow-xl my-4">
+                    <div class="py-4 px-8 bg-gray-200 rounded-2xl w-3/4 shadow-lg my-4">
                         <h1 class="font-bold text-xl py-4">
                             # {{ $chapter->name }}
                         </h1>

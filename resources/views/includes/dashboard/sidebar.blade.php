@@ -16,7 +16,6 @@
                         <i data-feather="home" width="20"></i>
                         <span>Dashboard</span>
                     </a>
-
                 </li>
 
                 @if (Auth::user()->role === "TEACHER")
