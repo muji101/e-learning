@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Videos Class Page</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    {{-- icon --}}
+    <link rel="shortcut icon" href="{{ asset('/images/logo.png') }}" type="image/x-icon">
 
     <!-- splide -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
@@ -48,6 +50,9 @@
         @php
             $link = isset($videos->url);
             $pn = isset($videos->id);
+            //code prev next video
+            $prev = request()->path() === 'class/video/'.$classes->id.'/'.$videos->first()->id;
+            $next = request()->path() === 'class/video/'.$classes->id.'/'.$videosNext->first()->id;
         @endphp
         
 
@@ -61,14 +66,24 @@
             </div>
             <div class="sticky bottom-0 mt-8 px-12 text-gray-100 hidden md:block">
                 <div class="flex justify-center">
-                    <a href="{{ route('class_video', [$classes->id, $pn ? $videos->id -1 : '']) }}" class="py-2 px-6 mx-2 rounded-full bg-blue-900 bg-opacity-50 hover:bg-blue-900">
-                        <i class="fas fa-arrow-left"></i>
-                        Prev
-                    </a>
-                    <a href="{{ route('class_video', [$classes->id, $pn ? $videos->id +1 : '']) }}" class="py-2 px-6 mx-2 rounded-full bg-blue-900 bg-opacity-50 hover:bg-blue-900">
-                        Next
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
+                    @if ($prev)
+                        
+                    @else
+                        <a href="{{ route('class_video', [$classes->id, $pn ? $videos->id -1 : '']) }}" class="py-2 px-6 mx-2 rounded-full bg-blue-900 bg-opacity-50 hover:bg-blue-900">
+                            <i class="fas fa-arrow-left"></i>
+                            Prev
+                        </a>
+                    @endif
+                    
+                    @if ($next)
+
+                    @else
+                        <a href="{{ route('class_video', [$classes->id, $pn ? $videos->id +1 : '']) }}" class="py-2 px-6 mx-2 rounded-full bg-blue-900 bg-opacity-50 hover:bg-blue-900">
+                            Next
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    @endif
+                    
                 </div>
             </div>
         </div>

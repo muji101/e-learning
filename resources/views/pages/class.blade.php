@@ -56,7 +56,7 @@
                                     <p class="">Semua Kategori</p>
                                 </div>
                                 <div class="text-xl font-bold text-gray-800 border-t-2 border-gray-300 pt-1">
-                                    <h1>{{ $classes->count() }} Kelas</h1>
+                                    <h1>{{ $classCount->count() }} Kelas</h1>
                                 </div>
                             </div>
                         </div>
@@ -142,8 +142,8 @@
                         <div class="flex py-14">
                             <div class="mx-auto py-8 px-8 border-2 bg-gray-50 border-blue-900 w-96 h-56 rounded-xl">
                                 <div class="flex items-center justify-between">
-                                    <img src="https://source.unsplash.com/400x400/?person" alt="" class="w-12 rounded-lg">
-                                    <div class="px-4">
+                                    <img src="{{ asset('/storage/'.$review->user->image) }}" alt="" class="w-14 h-14 rounded-lg">
+                                    <div class="">
                                         <h1 class="text-lg font-bold">{{ $review->user->name }}</h1>
                                         <p class="text-sm">{{ $review->user->title }}</p>
                                     </div>

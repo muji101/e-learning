@@ -19,7 +19,7 @@
             <p class="fs-3 text-warning px-3 py-8"> GO-Sinau menyiapkan Generasi Milennial mengakselerasi Karir <br>
                 di Keahlian bidang Digital untuk siap berkarir di Masa depan
             </p>
-            <a href="#" class="bg-blue-900 py-4 px-8 rounded-full font-bold hover:bg-blue-800">Cari tahu Caranya</a>
+            <a href="#ready" class="bg-blue-900 py-4 px-8 rounded-full font-bold hover:bg-blue-800">Cari tahu Caranya</a>
         </div>
     </div>
 
@@ -151,7 +151,7 @@
                         <div class="flex py-14">
                             <div class="mx-auto py-8 px-8 border-2 bg-gray-50 border-blue-900 w-96 h-56 rounded-xl">
                                 <div class="flex items-center justify-between">
-                                    <img src="https://source.unsplash.com/400x400/?person" alt="" class="w-12 rounded-lg">
+                                    <img src="{{ asset('/storage/'.$review->user->image) }}" alt="" class="w-14 h-14 rounded-lg">
                                     <div class="px-4">
                                         <h1 class="text-lg font-bold">{{ $review->user->name }}</h1>
                                         <p class="text-sm">{{ $review->user->title }}</p>
@@ -290,7 +290,7 @@
     </div>
     
     <!-- ready learning -->
-    <div class="py-16 text-gray-800">
+    <div id="ready" class="py-16 text-gray-800">
         <div data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-delay="200" class="text-center pt-8 px-4">
             <img src="{{ asset('/images/undraw_press_play_bx2d.svg') }}" alt="" class="w-72 mx-auto">
             <div class="text-4xl font-semibold py-6">

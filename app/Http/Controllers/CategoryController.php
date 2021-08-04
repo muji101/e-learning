@@ -14,6 +14,7 @@ class CategoryController extends Controller
     {
         $categories = Category::get();
         $classes = Course::get();
+        $classCount =Course::get();
         $reviews = Review::get();
 
         
@@ -21,6 +22,8 @@ class CategoryController extends Controller
             'categories' => $categories,
             'classes' => $classes,
             'reviews' => $reviews,
+            'classCount' => $classCount
+
             ]);
     }
 
@@ -31,11 +34,14 @@ class CategoryController extends Controller
         $classes = Course::where('category_id', $category->id)->paginate(32);
         $reviews = Review::get();
 
+        $classCount = Course::get();
+
         
         return view('pages.class', [
             'categories' => $categories,
             'classes' => $classes,
             'reviews' => $reviews,
+            'classCount' => $classCount
             ]);
     }
 }

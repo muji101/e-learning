@@ -1,10 +1,12 @@
 <div id="sidebar" class='active'>
     <div class="sidebar-wrapper active">
         <div class="sidebar-header">
-            <div class="avatar me-1">
-                <img src="{{ asset('/storage/'. Auth::user()->image) }}" style="width: 100px; height: 100px" alt="" srcset="">
-            </div>
-            <div class="d-none d-md-block d-lg-inline-block">{{ Auth::user()->name }}</div>
+            <a href="{{ route('home') }}">
+                <div class="avatar m">
+                    <img src="{{ asset('/storage/'. Auth::user()->image) }}" style="width: 100px; height: 100px" alt="" srcset="">
+                </div>
+                <div class="d-none d-md-block d-lg-inline-block fs-4">{{ Auth::user()->name }}</div>
+            </a>
         </div>
         <div class="sidebar-menu">
             <ul class="menu">

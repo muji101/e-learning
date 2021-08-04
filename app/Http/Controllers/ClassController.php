@@ -35,12 +35,15 @@ class ClassController extends Controller
         $users = User::get();
         $reviews = Review::where('class_id', $id)->get();
 
+        $joins = Join::where('class_id', $id)->get();
+
         return view('pages.class_detail',[
             'classes'=> $classes, 
             'categories' => $categories, 
             'users' => $users, 
             'chapters' => $chapters,
-            'reviews' => $reviews
+            'reviews' => $reviews,
+            'joins' => $joins
         ]);
     }
     public function mentor($id)
@@ -54,6 +57,7 @@ class ClassController extends Controller
     public function video($classId, $videoId)
     {
         $videos = Video::where('class_id', $classId)->find($videoId);
+        $videosNext = Video::where('class_id', $classId)->orderBy('id', 'desc')->get();
         $classes = Course::find($classId);
 
 
@@ -61,11 +65,12 @@ class ClassController extends Controller
         return view('pages.class_videos_play',[
             'videos'=> $videos, 
             'classes'=> $classes,
+            'videosNext' => $videosNext
         ]);
     }
     
     // join
-    public function join(Request $request, $classId, $userId)
+    public function join(Request $request, $classId, $videoId)
     {
         $data = $request->all();
 
@@ -74,7 +79,7 @@ class ClassController extends Controller
         //     'class_id'=> 'unique:joins,class_id,'.$classId,
         // ]);
         
-        $videos = Video::where('class_id', $classId)->find($userId);
+        $videos = Video::where('class_id', $classId)->find($videoId);
         $classes = Course::find($classId);
         
         Join::create($data);
@@ -109,12 +114,18 @@ class ClassController extends Controller
 
         $reviews = Review::where('class_id', $id)->get();
 
+        $joins = Join::where('class_id', $id)->get();
+
+        
+
         return view('pages.class_detail_review',[
             'classes'=> $classes, 
             'categories' => $categories, 
             'users' => $users, 
             'chapters' => $chapters,
-            'reviews' => $reviews
+            'reviews' => $reviews,
+            'joins' => $joins
+
         ]);
     }
 }

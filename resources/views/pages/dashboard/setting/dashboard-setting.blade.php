@@ -64,7 +64,7 @@
                                                     <div class="col-12">
                                                         <div class="row">
                                                             <div class="">
-                                                                <img style="width: 100px" class="rounded-full" src="{{ asset('storage/'.Auth::user()->image) }}" alt="Gambar profile">
+                                                                <img style="width: 100px; height: 100px" class="rounded-full" src="{{ asset('storage/'.Auth::user()->image) }}" alt="Gambar profile">
                                                             </div>
                                                             <div class="col-lg-12 col-md-12">
                                                                 <label class="form-label">Ganti Photo</label>
@@ -116,7 +116,26 @@
                                                         <div class="form-group has-icon-left">
                                                             <label for="title-icon">Title</label>
                                                             <div class="position-relative">
-                                                                <input type="text" class="form-control" placeholder="Input Your Title" id="title-icon" name="title" value="{{ Auth::user()->title }}">
+                                                                {{-- <input type="text" class="form-control" placeholder="Input Your Title" id="title-icon" name="title" value="{{ Auth::user()->title }}"> --}}
+
+                                                                <select name="title" class="form-select form-control" id="inputGroupSelect01">
+                                                                    <option value="Lifetime Learner" disabled="">Pilih Keahlian</option>
+                                                                    <option value="UX Designer"{{ Auth::user()->title === 'UX Designer'? 'selected': '' }}>UX Designer</option>
+                                                                    <option value="UI Designer" {{ Auth::user()->title === 'UI Designer'? 'selected': '' }}>UI Designer</option>
+                                                                    <option value="Full-Stack Developer" {{ Auth::user()->title === 'Full-Stack Developer'? 'selected': '' }}>Full-Stack Developer</option>
+                                                                    <option value="Front-End Developer" {{ Auth::user()->title === 'Front-End Developer'? 'selected': '' }}>Front-End Developer</option>
+                                                                    <option value="Back-End Developer" {{ Auth::user()->title === 'Back-End Developer'? 'selected': '' }}>Back-End Developer</option>
+                                                                    <option value="Product Designer" {{ Auth::user()->title === 'Product Designer'? 'selected': '' }}>Product Designer</option>
+                                                                    <option value="Mobile App Developer" {{ Auth::user()->title === 'Mobile App Developer'? 'selected': '' }}>Mobile App Developer</option>
+                                                                    <option value="Lifetime Learner" {{ Auth::user()->title === 'Lifetime Learner'? 'selected': '' }}>Lifetime Learner</option>
+                                                                    <option value="Full-Stack JavaScript Developer" {{ Auth::user()->title === 'Full-Stack JavaScript Developer'? 'selected': '' }}>Full-Stack JavaScript Developer</option>
+                                                                    <option value="Quality Assurance" {{ Auth::user()->title === 'Quality Assurance'? 'selected': '' }}>Quality Assurance</option>
+                                                                    <option value="Data Scientist" {{ Auth::user()->title === 'Data Scientist'? 'selected': '' }}>Data Scientist</option>
+                                                                    <option value="Project Manager" {{ Auth::user()->title === 'Project Manager'? 'selected': '' }}>Project Manager</option>
+                                                                    <option value="Illustration Designer" {{ Auth::user()->title === 'Illustration Designer'? 'selected': '' }}>Illustration Designer</option>
+                                                                    <option value="Logo Designer" {{ Auth::user()->title === 'Logo Designer'? 'selected': '' }}>Logo Designer</option>
+                                                                    <option value="Network Engineer" {{ Auth::user()->title === 'Network Engineer'? 'selected': '' }}>Network Engineer</option>
+                                                                    </select>
                                                                 <div class="form-control-icon">
                                                                     <i data-feather="user"></i>
                                                                 </div>

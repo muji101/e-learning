@@ -72,7 +72,7 @@
                             <h1 class="font-bold text-xl border-b-2">
                                 Pengguna
                             </h1>
-                            <p class="count text-lg">5121</p>
+                            <p class="count text-lg">{{ $joins->count() }}</p>
                         </div>
                         <div class="mt-2">
                             <h1 class="font-bold text-xl border-b-2">
@@ -90,7 +90,7 @@
                     </div>
                     <div class="text-gray-800">
 
-                        <form method="POST" action="{{ route('class_join',[$classes->id, $classes->user->id]) }}">
+                        <form method="POST" action="{{ route('class_join',[$classes->id, isset($classes->video->first()->id) ? $classes->video->first()->id : $classes->user->id]) }}">
                             @csrf
                             @method("POST")
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
@@ -159,7 +159,7 @@
 
         {{-- rating --}}
         <div id="rat" style="display: none">
-            <div class="py-8">
+            <div class="py-4">
                 <div class="py-4 text-gray-800">
                     <h1 class="font-bold text-4xl py-4">
                         Reviews
@@ -170,7 +170,7 @@
                         <div data-aos="fade-right" data-aos-delay="100" class="bg-gray-200 rounded-2xl shadow-lg p-4 my-6 mr-4 w-96">
                             <div class="grid grid-cols-2">
                                 <div class="col-span-1">
-                                    <img class="rounded-full" src="{{ asset('storage/'.Auth::user()->image) }}" alt="" style="width: 150px;">
+                                    <img class="rounded-full w-24 h-24" src="{{ asset('storage/'.$review->user->image) }}" alt="">
                                 </div>
                                 <div class="col-span-1 pl-4">
                                     <h1 class="font-bold text-xl">{{ $review->user->name }}</h1>
@@ -209,7 +209,7 @@
 
         {{-- materi --}}
         <div id="mat" style="display: none">
-            <div class="py-8">
+            <div class="py-4">
                 <div class="py-4 text-gray-800">
                     <h1 class="font-bold text-4xl py-4">
                         Apa yang akan kamu pelajari?
@@ -237,7 +237,9 @@
                         @endforeach
                     </div>
                 @empty
-                    <h1 class="text-white text-center text-2xl py-2 px-4 bg-blue-900 rounded-full">Belum ada materi tersedia!</h1>
+                    {{-- <h1 class="text-white text-center text-2xl py-2 px-4 bg-blue-900 rounded-full">Belum ada materi tersedia!</h1> --}}
+                    <h1 class="text-center text-white px-4 py-2 bg-blue-900 rounded-full">Belum Ada Materi tersedia!</h1>
+
                 @endforelse
 
             </div>
