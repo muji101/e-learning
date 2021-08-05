@@ -4,7 +4,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Go-Sinau Detail Class Review Page 
+    Go-Sinau | {{ $classes->name }} Reviews  
 @endsection
 
 @section('content')
@@ -94,11 +94,11 @@
                 <div class="flex flex-wrap justify-start">
                     @forelse ($reviews as $review)
                         <div data-aos="fade-right" data-aos-delay="100" class="bg-gray-200 rounded-2xl shadow-lg p-4 my-6 mr-4 w-96">
-                            <div class="grid grid-cols-2">
+                            <div class="grid grid-cols-3">
                                 <div class="col-span-1">
                                     <img class="rounded-full w-24 h-24" src="{{ asset('storage/'.$review->user->image) }}" alt="">
                                 </div>
-                                <div class="col-span-1 pl-4">
+                                <div class="col-span-2">
                                     <h1 class="font-bold text-xl">{{ $review->user->name }}</h1>
                                     <p class="text-gray-500">{{ $review->user->title }}</p>
                                 </div>

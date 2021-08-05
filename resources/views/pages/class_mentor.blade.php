@@ -6,7 +6,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Go-Sinau Class Mentor Page
+    Go-Sinau | Detail Mentor {{ $users->name }} 
 @endsection
 
 @section('content')

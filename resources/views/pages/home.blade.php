@@ -5,7 +5,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Go-Sinau Home Page
+    Go-Sinau | Home Page
 @endsection
 
 @section('content')
@@ -302,7 +302,7 @@
                 </p>
             </div>
             <div class="py-14">
-                <a href="{{ route('register') }}" class="bg-blue-900 py-4 px-8 rounded-full shadow-2xl font-bold hover:bg-blue-800 text-white">Daftar & Belajar Sekarang</a>
+                <a href="{{ route('register') }}" class="bg-blue-900 py-4 px-8 rounded-full shadow-2xl font-bold border-2 hover:border-white text-white">Daftar & Belajar Sekarang</a>
             </div>
         </div>
     </div>

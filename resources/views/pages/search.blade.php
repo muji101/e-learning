@@ -5,7 +5,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Go-Sinau Class Page
+    Go-Sinau | Search Class Page
 @endsection
 
 @section('content')
