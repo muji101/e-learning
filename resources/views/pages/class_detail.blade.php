@@ -97,6 +97,7 @@
                             <input type="hidden" name="class_id" value="{{ $classes->id }}">
                             <button class="bg-blue-900 text-lg font-bold px-6 py-2 rounded-full shadow-xl text-white">Gabung Kelas</button>
                         </form>
+                        <a href="{{ route('class_video', ) }}" class="bg-blue-900 text-lg font-bold px-6 py-2 rounded-full shadow-xl text-white">Lanjut Belajar</a>
                     </div>
                 </div>
             {{-- </div> --}}

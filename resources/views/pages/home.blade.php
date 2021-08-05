@@ -173,7 +173,7 @@
 </div>
 
     {{-- jarallax --}}
-    <div data-jarallax data-speed="-0.2" class="jarallax my-16" style="height: 400px; background-image: url('https://images.unsplash.com/photo-1563461660947-507ef49e9c47?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80');">
+    <div data-jarallax data-speed="-0.2" class="jarallax my-16" style="height: 400px; background-image: url('https://source.unsplash.com/1920x1080/?design');">
     </div>
     
     
@@ -214,7 +214,7 @@
 </div>
 
 {{-- jarallax --}}
-<div data-jarallax data-speed="-0.2" class="jarallax my-16" style="height: 400px ;background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80');">
+<div data-jarallax data-speed="-0.2" class="jarallax my-16" style="height: 400px ;background-image: url('https://source.unsplash.com/1920x1080/?coding');">
 </div>
 
 <div class="container mx-auto px-24">

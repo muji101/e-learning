@@ -6,6 +6,7 @@ use App\Http\Requests\ClassRequest;
 use App\Models\Category;
 use App\Models\Chapter;
 use App\Models\Course;
+use App\Models\Review;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,10 +22,14 @@ class DashboardClassController extends Controller
     public function detail($id)
     {
         $classes = Course::findOrFail($id);
+        $reviews = Review::where('class_id', $id);
         // $chapters = Chapter::findOrFail($id);
         // $videos = Video::get();
 
-        return view('pages.dashboard.class.dashboard-class-detail', ['classes'=> $classes]);
+        return view('pages.dashboard.class.dashboard-class-detail', [
+            'classes'=> $classes, 
+            'reviews' => $reviews
+        ]);
     }
     public function create()
     {

@@ -13,9 +13,9 @@
             <form action="{{ route('search') }}" method="GET">
                 @csrf
                 @method("GET")
-                <div class="bg-blue-900 rounded-full">
+                <div class="bg-blue-900 rounded-full flex items-center">
                     <input type="search" name="search" class="w-40 rounded-tl-full rounded-bl-full py-2 px-4 text-black">
-                    <button type="submit" class="px-4">Search</button>
+                    <button type="submit" class="pl-2 pr-3 text-2xl"><i class="fas fa-search"></i></button>
                 </div>
             </form>
         </div>

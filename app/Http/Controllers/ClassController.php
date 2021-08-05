@@ -74,20 +74,27 @@ class ClassController extends Controller
     {
         $data = $request->all();
 
-        // $request->validate([
-        //     'user_id'=> 'unique:joins,user_id,'.$userId,
-        //     'class_id'=> 'unique:joins,class_id,'.$classId,
-        // ]);
-        
         $videos = Video::where('class_id', $classId)->find($videoId);
         $classes = Course::find($classId);
         
-        Join::create($data);
-        
+
+        if (!$request->validate([
+            'user_id'=> 'unique:joins,user_id',
+            'class_id'=> 'unique:joins,class_id,'.$classId,
+            ])
+        ){
+            Join::create($data);
+
+            return view('pages.class_videos_play',[
+                'videos'=> $videos, 
+                'classes'=> $classes,
+            ]);
+        }else{
         return view('pages.class_videos_play',[
             'videos'=> $videos, 
             'classes'=> $classes,
         ]);
+        }
 
         // return view('pages.class_videos_play');
     }

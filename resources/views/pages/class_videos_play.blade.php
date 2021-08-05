@@ -76,7 +76,10 @@
                     @endif
                     
                     @if ($next)
-
+                        <a href="{{ route('class_detail_review', $classes->id) }}" class="py-2 px-6 mx-2 rounded-full bg-blue-900 bg-opacity-50 hover:bg-blue-900">
+                            Finish
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     @else
                         <a href="{{ route('class_video', [$classes->id, $pn ? $videos->id +1 : '']) }}" class="py-2 px-6 mx-2 rounded-full bg-blue-900 bg-opacity-50 hover:bg-blue-900">
                             Next
