@@ -7,6 +7,10 @@
 
 <script src="{{ asset('/dist/assets/js/feather-icons/feather.min.js') }}"></script>
 
+{{-- lordicon --}}
+<script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+
+
 
 <script>
     AOS.init();

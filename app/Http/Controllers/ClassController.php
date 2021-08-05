@@ -83,6 +83,7 @@ class ClassController extends Controller
         $data = $request->all();
 
         $videos = Video::where('class_id', $classId)->find($videoId);
+        $videosPrev = Video::where('class_id', $classId)->get();
         $videosNext = Video::where('class_id', $classId)->orderBy('id', 'desc')->get();
         
         $classes = Course::find($classId);
@@ -95,6 +96,8 @@ class ClassController extends Controller
             'videos'=> $videos, 
             'classes'=> $classes,
             'videosNext' => $videosNext,
+            'videosPrev' => $videosPrev
+
             // 'joins' => $joins
         ]);
 
