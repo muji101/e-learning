@@ -141,7 +141,7 @@ class ClassController extends Controller
             'chapters' => $chapters,
             'reviews' => $reviews,
             'joins' => $joins,
-            'joinButton' => $joinsButton
+            'joinsButton' => $joinsButton
 
         ]);
     }
