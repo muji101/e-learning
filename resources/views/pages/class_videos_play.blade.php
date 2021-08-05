@@ -51,7 +51,7 @@
             $link = isset($videos->url);
             $pn = isset($videos->id);
             //code prev next video
-            $prev = request()->path() === 'class/video/'.$classes->id.'/'.$videos->first()->id;
+            $prev = request()->path() === 'class/video/'.$classes->id.'/'.$videosPrev->first()->id;
             $next = request()->path() === 'class/video/'.$classes->id.'/'.$videosNext->first()->id;
         @endphp
         

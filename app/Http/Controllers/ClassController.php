@@ -10,6 +10,7 @@ use App\Models\Video;
 use Illuminate\Http\Request;
 use App\Http\Requests\ReviewRequest;
 use App\Models\Join;
+use Illuminate\Support\Facades\Auth;
 use PHPUnit\Framework\Constraint\Count;
 
 class ClassController extends Controller
@@ -37,13 +38,16 @@ class ClassController extends Controller
 
         $joins = Join::where('class_id', $id)->get();
 
+        $joinsButton = Join::where([['class_id', $id], ['user_id', Auth::user()->id]])->get();
+
         return view('pages.class_detail',[
             'classes'=> $classes, 
             'categories' => $categories, 
             'users' => $users, 
             'chapters' => $chapters,
             'reviews' => $reviews,
-            'joins' => $joins
+            'joins' => $joins,
+            'joinsButton' => $joinsButton
         ]);
     }
     public function mentor($id)
@@ -57,7 +61,10 @@ class ClassController extends Controller
     public function video($classId, $videoId)
     {
         $videos = Video::where('class_id', $classId)->find($videoId);
+        $videosPrev = Video::where('class_id', $classId)->get();
         $videosNext = Video::where('class_id', $classId)->orderBy('id', 'desc')->get();
+        // dd($videosNext);
+        
         $classes = Course::find($classId);
 
 
@@ -65,6 +72,7 @@ class ClassController extends Controller
         return view('pages.class_videos_play',[
             'videos'=> $videos, 
             'classes'=> $classes,
+            'videosPrev' => $videosPrev,
             'videosNext' => $videosNext
         ]);
     }
@@ -75,26 +83,21 @@ class ClassController extends Controller
         $data = $request->all();
 
         $videos = Video::where('class_id', $classId)->find($videoId);
-        $classes = Course::find($classId);
+        $videosNext = Video::where('class_id', $classId)->orderBy('id', 'desc')->get();
         
+        $classes = Course::find($classId);
+        // $joins = Join::where('user_id', Auth::user()->id)->with('class_id', $classId)->get();
 
-        if (!$request->validate([
-            'user_id'=> 'unique:joins,user_id',
-            'class_id'=> 'unique:joins,class_id,'.$classId,
-            ])
-        ){
-            Join::create($data);
+        
+        Join::create($data);
 
-            return view('pages.class_videos_play',[
-                'videos'=> $videos, 
-                'classes'=> $classes,
-            ]);
-        }else{
         return view('pages.class_videos_play',[
             'videos'=> $videos, 
             'classes'=> $classes,
+            'videosNext' => $videosNext,
+            // 'joins' => $joins
         ]);
-        }
+
 
         // return view('pages.class_videos_play');
     }
@@ -123,6 +126,9 @@ class ClassController extends Controller
 
         $joins = Join::where('class_id', $id)->get();
 
+        $joinsButton = Join::where([['class_id', $id], ['user_id', Auth::user()->id]])->get();
+
+
         
 
         return view('pages.class_detail_review',[
@@ -131,7 +137,8 @@ class ClassController extends Controller
             'users' => $users, 
             'chapters' => $chapters,
             'reviews' => $reviews,
-            'joins' => $joins
+            'joins' => $joins,
+            'joinButton' => $joinsButton
 
         ]);
     }

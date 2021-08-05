@@ -16,7 +16,7 @@ class DashboardClassUserController extends Controller
         $categories = Category::get();
         $joins = Join::where('user_id', Auth::user()->id)->get();
 
-        return view('pages.dashboard.class-user.dashboard-class', [
+        return view('pages.dashboard.class-user.dashboard-class-user', [
             'classes' => $classes,
             'categories'=> $categories,
             'joins' => $joins
@@ -31,7 +31,7 @@ class DashboardClassUserController extends Controller
         $joins = Join::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
 
         
-        return view('pages.dashboard.class-user.dashboard-class', [
+        return view('pages.dashboard.class-user.dashboard-class-user', [
             // 'categories' => $categories,
             // 'classes' => $classes,
             'joins' => $joins

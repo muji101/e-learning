@@ -7,23 +7,26 @@
 
 @section('content')
     <div class="main-content container-fluid">
-        <div class="page-title">
-            <h3>{{ $classes->name }}</h3>
-            <h4>{{ $classes->title }}</h4>
-            <p class="text-subtitle text-muted">{{ $classes->category->name }}</p>
-        </div>
-        <div class="py-4">
-            @if ($link)
-                <iframe class="w-100 vh-100" src="{{ $link ? $classes->video->first()->url: '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            @else
-                <h1>Belum Ada Video</h1>
-            @endif
-        </div>
-        <div class="py-2">
-            <span class="fs-3 border-4 border-bottom">Description</span>
-            <p class="fs-5">
-                {{ $classes->description }}
-            </p>
+        <div class="row border-4 border-bottom pb-4" style="height: 400px">
+            <div class="col-6 page-title">
+                <h1>{{ $classes->name }}</h1>
+                <h5>{{ $classes->title }}</h5>
+                <p class="text-subtitle fst-italic text-muted">{{ $classes->category->name }}</p>
+                <div class="py-2">
+                    <span class="fs-5 border-4 border-bottom">Description</span>
+                    <p class="">
+                        {{ $classes->description }}
+                    </p>
+                </div>
+            </div>
+            <div class="col-6">
+                @if ($link)
+                    <iframe class="w-100 h-100" src="{{ $link ? $classes->video->first()->url: '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                @else
+                    <h1>Belum Ada Video</h1>
+                @endif
+            </div>
+            
         </div>
 
 
@@ -31,55 +34,7 @@
             <div class="row">
                 <div class="col-6">
                     <div class="">
-                        {{-- <a class="fs-5 btn btn-primary" href="#">Buat Chapter Video<i data-feather="plus" width="20"></i></a> --}}
-                        <!-- Button trigger for login form modal -->
-                        {{-- <button type="button" class="fs-5 btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#inlineForm">
-                        Buat Chapter<i data-feather="plus" width="20"></i>
-                        </button> --}}
                         <a class="bg-primary px-4 py-2 text-white rounded" href="{{ route('chapter-create', $classes->id) }}">Create Chapter <i data-feather="plus" width="20"></i></a>
-
-                        <!--create chapter Modal -->
-                        {{-- <div class="modal fade text-left" id="inlineForm" tabindex="-1"
-                            role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                                role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title" id="myModalLabel33">Create Chapter</h4>
-                                        <button type="button" class="close" data-bs-dismiss="modal"
-                                            aria-label="Close">
-                                            <i data-feather="x"></i>
-                                        </button>
-                                        
-                                    </div>
-                                    <form action="{{ route('chapter-store') }}" method="POST">
-                                        @csrf
-                                        @method('POST')
-                                        <input type="hidden" name="class_id" value="{{ $classes->id }}">
-                                        <div class="modal-body">
-                                            <label>Name: </label>
-                                            <div class="form-group">
-                                                <input type="text" name="name" placeholder="Name Chapter"
-                                                    class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light-secondary"
-                                                data-bs-dismiss="modal">
-                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Close</span>
-                                            </button>
-                                            <button class="btn btn-primary ml-1"
-                                                data-bs-dismiss="modal">
-                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                Submit
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div> --}}
                     </div>
 
                     @php
@@ -87,7 +42,7 @@
                     @endphp
                     {{-- chapter --}}
                     @foreach ($classes->chapter as $chapter)
-                    <div class="p-2 card mt-2">
+                    <div class="p-2 card mt-4">
                         <div class="d-flex justify-content-between border-bottom border-2">
                                 
                                 <a class="w-50 fs-5 text-black-50" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -102,20 +57,7 @@
                                 </button>
                                 <div class="dropdown-menu bg-transparent border-0" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item badge bg-success" href="{{ route('video-create', [$chapter->id, $classes->id]) }}">Video <i data-feather="plus" width="20"></i></a>
-                                    {{-- <button type="button" class="dropdown-item badge bg-success" data-bs-toggle="modal"
-                                    data-bs-target="#inlineForm1">
-                                    video<i data-feather="plus" width="20"></i>
-                                    </button> --}}
-            
-                                    
                                     <a class="dropdown-item badge bg-primary" href="{{ route('chapter-edit', $chapter->id) }}">Edit <i data-feather="edit" width="20"></i></a>
-                                    {{-- <button type="button" class="dropdown-item badge bg-primary" data-bs-toggle="modal"
-                                    data-bs-target="#inlineForm2">
-                                    Edit<i data-feather="edit" width="20"></i>
-                                    </button> --}}
-            
-                                    
-                                    {{-- <a class="dropdown-item badge bg-danger" href="#">Delete<i data-feather="trash"></i></a> --}}
                                     <form action="{{ route('chapter-delete', $chapter->id) }}" method="POST">
                                         @csrf
                                         @method('DElETE')
@@ -145,13 +87,6 @@
                                         </button>
                                         <div class="dropdown-menu bg-transparent border-0" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item badge bg-primary" href="{{ route('video-edit', $video->id) }}">Edit <i data-feather="edit" width="20"></i></a>
-                                            {{-- <button type="button" class="dropdown-item badge bg-primary" data-bs-toggle="modal"
-                                            data-bs-target="#inlineForm3">
-                                            Edit<i data-feather="edit" width="20"></i>
-                                            </button> --}}
-                    
-                                            
-                                            {{-- <a class="dropdown-item badge bg-danger" href="#">Delete<i data-feather="trash"></i></a> --}}
                                             <form action="{{ route('video-delete', $video->id) }}" method="POST">
                                                 @csrf
                                                 @method('DElETE')
@@ -168,16 +103,16 @@
                 </div>
 
                 <div class="col-6">
-                    <div class="fs-5">
-                        <p>Daftar reviews terbaru</p>
+                    <div class="fs-4 fw-bold">
+                        <p>Daftar 5 reviews terbaru</p>
                     </div>
                     <div class="py-2">
                         @forelse ($reviews as $review)
                             <div class="card card-body">
                                 <h5 class="fw-bold">{{ $review->user->name }}</h5>
                                 <p>{{ $review->content }}</p>
-                                <div class="">
-                                    <p class="flex">
+                                <div class="d-flex justify-content-between">
+                                    <p class="d-flex">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                                         </svg>
@@ -194,142 +129,16 @@
                                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                                         </svg>
                                     </p>
+                                    <h5>{{ $review->created_at }}</h5>
                                 </div>
                             </div>
                         @empty
-                            
+                            <h3>Tidak ada Komentar!</h3>
                         @endforelse
                     </div>
                 </div>
             </div>
         </div>
-
-        
     </div>
-
-{{-- 
-<!--create Video form Modal -->
-<div class="modal fade text-left" id="inlineForm1" tabindex="-1"
-    role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-        role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel33">Create Video</h4>
-                <button type="button" class="close" data-bs-dismiss="modal"
-                    aria-label="Close">
-                    <i data-feather="x"></i>
-                </button>
-            </div>
-            <form action="#">
-                <div class="modal-body">
-                    <label>Name: </label>
-                    <div class="form-group">
-                        <input type="text" placeholder="Name Video"
-                            class="form-control">
-                    </div>
-                    <label>URL Video: </label>
-                    <div class="form-group">
-                        <input type="text" placeholder="URL Video"
-                            class="form-control">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light-secondary"
-                        data-bs-dismiss="modal">
-                        <i class="bx bx-x d-block d-sm-none"></i>
-                        <span class="d-none d-sm-block">Close</span>
-                    </button>
-                    <button type="button" class="btn btn-primary ml-1"
-                        data-bs-dismiss="modal">
-                        <i class="bx bx-check d-block d-sm-none"></i>
-                        <span class="d-none d-sm-block">Submit</span>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!--Edit Chapter form Modal -->
-<div class="modal fade text-left" id="inlineForm2" tabindex="-1"
-    role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-        role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel33">Edit Chapter</h4>
-                <button type="button" class="close" data-bs-dismiss="modal"
-                    aria-label="Close">
-                    <i data-feather="x"></i>
-                </button>
-            </div>
-            <form action="#">
-                <div class="modal-body">
-                    <label>Name: </label>
-                    <div class="form-group">
-                        <input type="text" placeholder="Name Video"
-                            class="form-control">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light-secondary"
-                        data-bs-dismiss="modal">
-                        <i class="bx bx-x d-block d-sm-none"></i>
-                        <span class="d-none d-sm-block">Close</span>
-                    </button>
-                    <button type="button" class="btn btn-primary ml-1"
-                        data-bs-dismiss="modal">
-                        <i class="bx bx-check d-block d-sm-none"></i>
-                        <span class="d-none d-sm-block">Submit</span>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!--Edit video form Modal -->
-<div class="modal fade text-left" id="inlineForm3" tabindex="-1"
-role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-        role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel33">Edit Video</h4>
-                <button type="button" class="close" data-bs-dismiss="modal"
-                    aria-label="Close">
-                    <i data-feather="x"></i>
-                </button>
-            </div>
-            <form action="#">
-                <div class="modal-body">
-                    <label>Name: </label>
-                    <div class="form-group">
-                        <input type="text" placeholder="Name Chapter"
-                            class="form-control">
-                    </div>
-                    <label>URL Video: </label>
-                    <div class="form-group">
-                        <input type="text" placeholder="URL Video"
-                            class="form-control">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light-secondary"
-                        data-bs-dismiss="modal">
-                        <i class="bx bx-x d-block d-sm-none"></i>
-                        <span class="d-none d-sm-block">Close</span>
-                    </button>
-                    <button type="button" class="btn btn-primary ml-1"
-                        data-bs-dismiss="modal">
-                        <i class="bx bx-check d-block d-sm-none"></i>
-                        <span class="d-none d-sm-block">Submit</span>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div> --}}
 @endsection
 

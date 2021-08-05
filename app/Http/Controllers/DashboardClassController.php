@@ -22,7 +22,7 @@ class DashboardClassController extends Controller
     public function detail($id)
     {
         $classes = Course::findOrFail($id);
-        $reviews = Review::where('class_id', $id);
+        $reviews = Review::where('class_id', $id)->orderBy('id', 'desc')->paginate(5);
         // $chapters = Chapter::findOrFail($id);
         // $videos = Video::get();
 
