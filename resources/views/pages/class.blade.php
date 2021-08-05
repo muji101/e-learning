@@ -148,7 +148,7 @@
                                         <p class="text-sm">{{ $review->user->title }}</p>
                                     </div>
                                     <div class="inline-flex items-center">
-                                        4.5
+                                        5
                                         <img class="w-4" src="{{ asset('images/star.png') }}" alt="">
                                     </div>
                                 </div>

@@ -19,9 +19,13 @@ class DashboardController extends Controller
         $categories = Category::get();
         $users = User::get();
         $videos = Video::get();
+
+        // $class = Course::get();
+        $classPop = Join::get();
+        // dd($classPop);
+
         $joins = Join::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
         $joinses = Join::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(2);
-
         $joinall = Join::get();
 
         
@@ -32,7 +36,10 @@ class DashboardController extends Controller
             'videos' => $videos,
             'joins' => $joins,
             'joinses' => $joinses,
-            'joinall' => $joinall
+            'joinall' => $joinall,
+            'classPop' => $classPop
         ]);
     }
+
+    
 }

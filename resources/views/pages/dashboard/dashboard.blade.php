@@ -206,15 +206,17 @@
                                 </div>
                             @else
                                 @forelse ($joinses as $join)
-                                    <div class="d-flex my-2 p-4">
-                                        <div class="">
-                                            <img src="{{ asset('storage/'. $join->course->photo) }}" style="width : 200px" alt="">
+                                    <a href="{{ route('class_detail', $join->course->id) }}">
+                                        <div class="d-flex my-2 p-4">
+                                            <div class="">
+                                                <img src="{{ asset('storage/'. $join->course->photo) }}" style="width : 200px" alt="">
+                                            </div>
+                                            <div class="ps-4">
+                                                <h1>{{ $join->course->name }}</h1>
+                                                <p class="fst-italic">{{ $join->course->category->name }}</p>
+                                            </div>
                                         </div>
-                                        <div class="ps-4">
-                                            <h1>{{ $join->course->name }}</h1>
-                                            <p class="fst-italic">{{ $join->course->category->name }}</p>
-                                        </div>
-                                    </div>
+                                    </a>
                                 @empty
                                     <h1 class=" text-gray-800 text-2xl p-4 mt-24">Kelas Tidak Ditemukan!</h1>
                                 @endforelse
@@ -250,17 +252,21 @@
                             </div>
                             <div class="card-body px-0 py-1">
                                 <table class='table table-borderless'>
-                                    <tr>
-                                        <td class='col-3'>UI Design</td>
-                                        <td class='col-6'>
-                                            <div class="progress progress-info">
-                                                <div class="progress-bar" role="progressbar" style="width: 60%"
-                                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </td>
-                                        <td class='col-3 text-center'>60%</td>
-                                    </tr>
-                                    <tr>
+                                    @foreach ($classPop as $pop)
+                                        @if ($pop->class_id > 0)
+                                            <tr>
+                                                <td class='col-8'>{{ $pop->course->name }}</td>
+                                                {{-- <td class='col-4'>
+                                                    <div class="progress progress-info">
+                                                        <div class="progress-bar" role="progressbar" style="width: 60%"
+                                                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </td> --}}
+                                                <td class='col-4 text-center'>{{ $pop->count() }}</td>
+                                            </tr>
+                                            @endif
+                                        @endforeach
+                                    {{-- <tr>
                                         <td class='col-3'>VueJS</td>
                                         <td class='col-6'>
                                             <div class="progress progress-success">
@@ -299,7 +305,7 @@
                                             </div>
                                         </td>
                                         <td class='col-3 text-center'>65%</td>
-                                    </tr>
+                                    </tr> --}}
                                 </table>
                             </div>
                         @else

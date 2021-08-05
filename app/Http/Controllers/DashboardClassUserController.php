@@ -14,12 +14,12 @@ class DashboardClassUserController extends Controller
     {
         $classes = Course::get();
         $categories = Category::get();
-        $joins = Join::where('user_id', Auth::user()->id)->get();
+        $joins = Join::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
 
         return view('pages.dashboard.class-user.dashboard-class-user', [
             'classes' => $classes,
             'categories'=> $categories,
-            'joins' => $joins
+            'joins' => $joins,
         ]);
     }
 

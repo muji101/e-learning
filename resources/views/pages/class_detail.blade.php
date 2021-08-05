@@ -219,7 +219,7 @@
                     </h1>
                 </div>
                 @forelse ($classes->chapter as $chapter)
-                    <div class="py-4 px-8 bg-gray-200 rounded-2xl w-3/4 shadow-lg my-4">
+                    <div class="py-4 px-8 bg-gray-200 rounded-2xl w-1/2 shadow-lg my-4">
                         <h1 class="font-bold text-xl py-4">
                             # {{ $chapter->name }}
                         </h1>
@@ -234,7 +234,7 @@
                                     <p>{{ $video->title }}</p>
                                 </div>
                                 <div class="">
-                                    <p>1 mins </p>
+                                    {{-- <p>1 mins </p> --}}
                                 </div>
                             </div>
                         @endforeach

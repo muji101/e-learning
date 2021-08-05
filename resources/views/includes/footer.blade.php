@@ -5,7 +5,7 @@
     </div>
 </div> --}}
 
-<div class="top-0 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5  text-gray-100 py-12 px-12 md:py-24 md:px-20 bg-gradient-to-t from-gray-700 to-blue-900">
+<div id="footer" class="top-0 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5  text-gray-100 py-12 px-12 md:py-24 md:px-20 bg-gradient-to-t from-gray-700 to-blue-900">
     <div class="col-span-2 text-lg" data-aos="fade-up" data-aos-delay="100">
         <div class="">
             <img src="{{ asset('/images/logo.png') }}" alt="" class="w-40">
