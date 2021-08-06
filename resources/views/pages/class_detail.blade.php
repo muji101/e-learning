@@ -1,5 +1,6 @@
 @php
-    $link= isset($classes->video->first()->url)
+    $link= isset($classes->video->first()->url);
+    $increment = 100;
 @endphp
 @extends('layouts.app')
 
@@ -10,56 +11,6 @@
 @section('content')
     <div class="container mx-auto px-24">
             
-        {{-- <div class="shadow-2xl rounded-3xl">
-            <div class="py-8">
-                <div class="text-center text-gray-800">
-                    <h1 class="font-bold text-4xl py-4">
-                        {{ $classes->name }}
-                    </h1>
-                    <p>{{ $classes->title }}</p>
-                </div>
-                <div class="py-4 mx-28">
-                    @if ($link)
-                        <iframe width="1120" height="630" src="{{ $link ? $classes->video->first()->url : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    @else
-                        <h1 class="text-center text-white px-4 py-2 bg-blue-900 rounded-full">Belum Ada Video</h1>
-                    @endif
-                </div>
-            </div>
-
-            <div class="flex justify-evenly py-4 text-gray-800">
-                <div class="text-center">
-                    <h1 class="font-bold text-xl border-b-2 my-2">
-                        Pengguna
-                    </h1>
-                    <p class="count text-lg">5121</p>
-                </div>
-                <div class="text-center">
-                    <h1 class="font-bold text-xl border-b-2 my-2">
-                        Materi
-                    </h1>
-                    <p class="count text-lg">{{ $classes->video->count() }}</p>
-                </div>
-                <div class="text-center">
-                    <h1 class="font-bold text-xl border-b-2 my-2">
-                        Durasi
-                    </h1>
-                    <span class="count text-lg">3</span> Jam
-                    <span class="count text-lg">32</span> Menit
-                </div>
-            </div>
-
-            <div class="text-center text-gray-800 py-14">
-
-                <form method="POST" action="{{ route('class_join',[$classes->id, $classes->user->id]) }}">
-                    @csrf
-                    @method("POST")
-                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <input type="hidden" name="class_id" value="{{ $classes->id }}">
-                    <button class="bg-blue-900 text-lg font-bold px-14 py-4 rounded-full">Gabung Kelas</button>
-                </form>
-            </div>
-        </div> --}}
         <div class="flex justify-between mt-16">
             {{-- <div class=""> --}}
                 <div class=" text-gray-800">
@@ -116,7 +67,7 @@
 
         <div class="flex gap-4 text-gray-800 pt-14">
             <button onclick="des()" class="shadow text-lg font-bold px-6 py-2 hover:bg-blue-900 rounded-full border-2 border-blue-900">Deskripsi kelas</button>
-            <button onclick="rat()" class="shadow text-lg font-bold px-6 py-2 hover:bg-blue-900 rounded-full border-2 border-blue-900">Review / Rating</button>
+            <button onclick="rat()" class="shadow text-lg font-bold px-6 py-2 hover:bg-blue-900 rounded-full border-2 border-blue-900">Reviews</button>
             <button onclick="mat()" class="shadow text-lg font-bold px-6 py-2 hover:bg-blue-900 rounded-full border-2 border-blue-900">Materi kelas</button>
         </div>
 
@@ -129,7 +80,7 @@
                         {{ $classes->name }}
                     </h1>
                     <p class="text-lg">
-                        {{ $classes->description }}
+                        {!! $classes->description !!}
                     </p>
                 </div>
             </div>
@@ -170,7 +121,7 @@
                 </div>
                 <div class="flex flex-wrap justify-start">
                     @forelse ($reviews as $review)
-                        <div data-aos="fade-right" data-aos-delay="100" class="bg-gray-200 rounded-2xl shadow-lg p-4 my-6 mr-4 w-96">
+                        <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="bg-gray-200 rounded-2xl shadow-lg p-4 my-6 mr-4 w-96">
                             <div class="grid grid-cols-3">
                                 <div class="col-span-1">
                                     <img class="rounded-full w-24 h-24" src="{{ asset('storage/'.$review->user->image) }}" alt="">

@@ -16,26 +16,15 @@ class DashboardController extends Controller
     public function index()
     {
         $classes = Course::where('user_id', Auth::user()->id)->limit(3)->orderBy('id','desc')->get();
-        $categories = Category::get();
-        $users = User::get();
-        $videos = Video::get();
-
-        //belum terpecahkan masalah kelas popular
-        $classPop = Join::with('course')->get();
+        $classesCount = Course::where('user_id', Auth::user()->id)->get();
+        // kelas populer
+        $classesPop = Course::limit(5)->get();
         
-        // $classJoin = Join::get();
-        // $classPop = Course::with('join')->get();
-
-        // dd($classPop->first()->join);
-
-
-        // foreach ($semua as $kelas) {
-        //     $kelas->id;
-        // }
-
-        // dd($semua);
-
-        // $classPop = Join::where('class_id', $semua->id)->get();
+        $categories = Category::get();
+        
+        $users = User::get();
+        
+        $videos = Video::get();
 
         $joins = Join::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
         $joinses = Join::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(2);
@@ -43,17 +32,15 @@ class DashboardController extends Controller
 
         
         return view('pages.dashboard.dashboard', [
-            'classes' => $classes, 
+            'classes' => $classes,
+            'classesCount' => $classesCount,
+            'classesPop' => $classesPop,
             'categories' => $categories, 
             'users' => $users,
             'videos' => $videos,
             'joins' => $joins,
             'joinses' => $joinses,
             'joinall' => $joinall,
-            'classPop' => $classPop,
-            // 'classJoin' => $classJoin
         ]);
-    }
-
-    
+    }    
 }

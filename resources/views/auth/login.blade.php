@@ -56,7 +56,7 @@
     <title>Sign in - Sinau</title>
     <link rel="stylesheet" href="{{ asset('/dist/assets/css/bootstrap.css') }}">
 
-    <link rel="shortcut icon" href="{{ asset('/dist/assets/images/favicon.svg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('/images/logo.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('/dist/assets/css/app.css') }}">
 </head>
 
@@ -69,8 +69,9 @@
                     <div class="card pt-4">
                         <div class="card-body">
                             <div class="text-center mb-5">
-                                <img src="{{ asset('/images/undraw_working_late_pukg.svg') }}" height="48" class='mb-4'>
-                                <h3>Sign In</h3>
+                                <img src="{{ asset('/images/logo.png') }}" height="60" class=''>
+                                <h2 class="fw-bold">Go Sinau</h2>
+                                <h5 class="mb-0">Sign In</h5>
                                 <p>Please sign in to continue to Sinau.</p>
                             </div>
                             @if (session('status'))
@@ -92,11 +93,11 @@
                                 <div class="form-group position-relative has-icon-left">
                                     <div class="clearfix">
                                         <label for="password">Password</label>
-                                        @if (Route::has('password.request'))
+                                        {{-- @if (Route::has('password.request'))
                                             <a href="{{ route('password.request') }}" class='float-end'>
                                                 <small>Forgot password?</small>
                                             </a>
-                                        @endif
+                                        @endif --}}
                                     </div>
                                     <div class="position-relative">
                                         <input type="password" class="form-control" id="password" name="password" value="{{ old('password') }}" required>

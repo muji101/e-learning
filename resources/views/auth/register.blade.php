@@ -69,7 +69,7 @@
     <title>Sign up - Sinau</title>
     <link rel="stylesheet" href="{{ asset('dist/assets/css/bootstrap.css') }}">
 
-    <link rel="shortcut icon" href="{{ asset('dist/assets/images/favicon.svg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('/images/logo.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('dist/assets/css/app.css') }}">
 </head>
 
@@ -100,8 +100,9 @@
                                 <div class="card pt-4">
                                     <div class="card-body">
                                         <div class="text-center mb-5">
-                                            <img src="{{ asset('/images/undraw_working_late_pukg.svg') }}" height="48" class='mb-4'>
-                                            <h3>Sign Up Teacher</h3>
+                                            <img src="{{ asset('/images/logo.png') }}" height="60" class=''>
+                                            <h2 class="fw-bold">Go Sinau</h2>
+                                            <h5 class="mb-0">Sign Up Teacher</h5>
                                             <p>Please fill the form to register.</p>
                                         </div>
                                         <form method="POST" action="{{ route('register') }}">
@@ -170,8 +171,9 @@
                                 <div class="card pt-4">
                                     <div class="card-body">
                                         <div class="text-center mb-5">
-                                            <img src="{{ asset('/images/undraw_working_late_pukg.svg') }}" height="48" class='mb-4'>
-                                            <h3>Sign Up User</h3>
+                                            <img src="{{ asset('/images/logo.png') }}" height="60" class=''>
+                                            <h2 class="fw-bold">Go Sinau</h2>
+                                            <h5 class="mb-0">Sign Up User</h5>
                                             <p>Please fill the form to register.</p>
                                         </div>
                                         <form method="POST" action="{{ route('register') }}">

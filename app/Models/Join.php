@@ -19,6 +19,12 @@ class Join extends Model
         return $this->hasOne(Course::class, 'id', 'class_id');
     }
 
+    // pengmbangan
+    public function coursePop()
+    {
+        return $this->belongsTo(Course::class, 'class_id', 'id');
+    }
+    
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');

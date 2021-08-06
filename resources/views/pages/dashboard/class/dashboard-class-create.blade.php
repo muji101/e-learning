@@ -84,7 +84,7 @@
                                         <div class="col-12">
                                             <div class="form-group mb-3">
                                                 <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                                                <textarea class="form-control" name="description" id="exampleFormControlTextarea1"
+                                                <textarea class="form-control" name="description" id="editor"
                                                     rows="3">{{ $isEdit ? $classes->description : '' }}</textarea>
                                             </div>
                                         </div>

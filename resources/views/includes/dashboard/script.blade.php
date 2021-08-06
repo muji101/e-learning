@@ -10,3 +10,9 @@
 <script src="{{ asset('/dist/assets/js/vendors.js') }}"></script>
 
 <script src="{{ asset('/dist/assets/js/main.js') }}"></script>
+
+{{-- ckeditor --}}
+<script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'editor' );
+</script>

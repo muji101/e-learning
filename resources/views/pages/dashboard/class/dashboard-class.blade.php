@@ -35,6 +35,7 @@
                             <th>Category</th>
                             <th>Chapters</th>
                             <th>Videos</th>
+                            <th>Users</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -49,6 +50,8 @@
                             <td>{{ $class->category->name }}</td>
                             <td>{{ $class->chapter->count() }}</td>
                             <td>{{ $class->video->count() }}</td>
+                            {{-- menampilkan jumlah user kelas --}}
+                            <td>{{ $class->joinPop->count() }}</td>
                             <td>
                                 <div class="dropend">
                                     <button class="btn btn-primary dropdown-toggle me-1" type="button"
@@ -57,12 +60,12 @@
                                         Info
                                     </button>
                                     <div class="dropdown-menu bg-transparent border-0" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item badge bg-success" href="{{ route('class-detail', $class->id) }}">Detail</a>
-                                        <a class="dropdown-item badge bg-primary" href="{{ route('class-edit', $class->id) }}">Edit</a>
+                                        <a class="dropdown-item text-white rounded bg-success" href="{{ route('class-detail', $class->id) }}"><i data-feather="eye" width="20"></i> Detail</a>
+                                        <a class="dropdown-item text-white rounded bg-primary" href="{{ route('class-edit', $class->id) }}"><i data-feather="edit" width="20"></i> Edit</a>
                                         <form action="{{ route('class-delete', $class->id) }}" method="POST">
                                             @csrf
                                             @method('DElETE')
-                                            <button class="dropdown-item badge bg-danger">Delete</button>
+                                            <button class="dropdown-item text-white rounded bg-danger"><i data-feather="trash" width="20"></i> Delete</button>
                                         </form>
                                     </div>
                                 </div>

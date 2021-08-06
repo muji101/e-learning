@@ -1,5 +1,6 @@
 @php
-    $link= isset($classes->video->first()->url)
+    $link= isset($classes->video->first()->url);
+    $increment = 100;
 @endphp
 @extends('layouts.app')
 
@@ -93,7 +94,7 @@
 
                 <div class="flex flex-wrap justify-start">
                     @forelse ($reviews as $review)
-                        <div data-aos="fade-right" data-aos-delay="100" class="bg-gray-200 rounded-2xl shadow-lg p-4 my-6 mr-4 w-96">
+                        <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="bg-gray-200 rounded-2xl shadow-lg p-4 my-6 mr-4 w-96">
                             <div class="grid grid-cols-3">
                                 <div class="col-span-1">
                                     <img class="rounded-full w-24 h-24" src="{{ asset('storage/'.$review->user->image) }}" alt="">

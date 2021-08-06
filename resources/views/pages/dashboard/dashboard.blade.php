@@ -18,7 +18,7 @@
                                     <div class='px-3 py-3 d-flex justify-content-between'>
                                         <h3 class='card-title'>CLASSES</h3>
                                         <div class="card-right d-flex align-items-center">
-                                            <p>{{ $classes->count() }}</p>
+                                            <p>{{ $classesCount->count() }}</p>
                                         </div>
                                     </div>
                                     <div class="chart-wrapper">
@@ -252,17 +252,24 @@
                             </div>
                             <div class="card-body px-0 py-1">
                                 <table class='table table-borderless'>
-                                    @foreach ($classPop as $pop)
-                                        @if ($pop->class_id > 0)
+                                    {{-- kelas Populer --}}
+                                        <tr>
+                                            <th>Kelas</th>
+                                            <th>Pengguna</th>
+                                        </tr>
+                                    @foreach ($classesPop as $pop)
+                                        @if ($pop->joinPop->count() > 0)
                                             <tr>
-                                                <td class='col-8'>{{ $pop->course->name }}</td>
+                                                <td class='col-8'>{{ $pop->name }}</td>
                                                 {{-- <td class='col-4'>
                                                     <div class="progress progress-info">
                                                         <div class="progress-bar" role="progressbar" style="width: 60%"
                                                             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                                     </div>
                                                 </td> --}}
-                                                <td class='col-4 text-center'>{{ $pop->count() }}</td>
+                                                <td class='col-4 text-center'>
+                                                    <p class="badge bg-success mb-0">{{ $pop->joinPop->count() }}</p>
+                                                </td>
                                             </tr>
                                             @endif
                                         @endforeach

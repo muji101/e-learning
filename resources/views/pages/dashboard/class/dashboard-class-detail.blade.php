@@ -15,7 +15,7 @@
                 <div class="py-2">
                     <span class="fs-5 border-4 border-bottom">Description</span>
                     <p class="">
-                        {{ $classes->description }}
+                        {!! $classes->description !!}
                     </p>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="row">
                 <div class="col-6">
                     <div class="">
-                        <a class="bg-primary px-4 py-2 text-white rounded" href="{{ route('chapter-create', $classes->id) }}">Create Chapter <i data-feather="plus" width="20"></i></a>
+                        <a class="bg-primary px-4 py-2 text-white rounded" href="{{ route('chapter-create', $classes->id) }}"><i data-feather="plus" width="20"></i> Create Chapter</a>
                     </div>
 
                     @php
@@ -56,12 +56,12 @@
                                     Info
                                 </button>
                                 <div class="dropdown-menu bg-transparent border-0" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item badge bg-success" href="{{ route('video-create', [$chapter->id, $classes->id]) }}">Video <i data-feather="plus" width="20"></i></a>
-                                    <a class="dropdown-item badge bg-primary" href="{{ route('chapter-edit', $chapter->id) }}">Edit <i data-feather="edit" width="20"></i></a>
+                                    <a class="dropdown-item rounded text-white bg-success" href="{{ route('video-create', [$chapter->id, $classes->id]) }}"><i data-feather="plus" width="20"></i> Video</a>
+                                    <a class="dropdown-item rounded text-white bg-primary" href="{{ route('chapter-edit', $chapter->id) }}"><i data-feather="edit" width="20"></i> Edit</a>
                                     <form action="{{ route('chapter-delete', $chapter->id) }}" method="POST">
                                         @csrf
-                                        @method('DElETE')
-                                        <button class="dropdown-item badge bg-danger">Delete <i data-feather="trash"></i></button>
+                                        @method('DELETE')
+                                        <button class="dropdown-item rounded text-white bg-danger"><i data-feather="trash" width="20"></i> Delete</button>
                                     </form>
                                 </div>
                             </div>
@@ -86,11 +86,11 @@
                                             Info
                                         </button>
                                         <div class="dropdown-menu bg-transparent border-0" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item badge bg-primary" href="{{ route('video-edit', $video->id) }}">Edit <i data-feather="edit" width="20"></i></a>
+                                            <a class="dropdown-item rounded text-white bg-primary" href="{{ route('video-edit', $video->id) }}"><i data-feather="edit" width="20"></i> Edit</a>
                                             <form action="{{ route('video-delete', $video->id) }}" method="POST">
                                                 @csrf
                                                 @method('DElETE')
-                                                <button class="dropdown-item badge bg-danger">Delete <i data-feather="trash"></i></button>
+                                                <button class="dropdown-item rounded text-white bg-danger"><i data-feather="trash" width="20"></i> Delete</button>
                                             </form>
                                         </div>
                                     </div> 

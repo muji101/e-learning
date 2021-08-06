@@ -40,8 +40,16 @@ class Course extends Model
     {
         return $this->hasMany(Review::class, 'class_id', 'id');
     }
+    
+    
     public function join()
     {
         return $this->hasOne(Join::class, 'class_id', 'id');
+    }
+
+    // pengembangan
+    public function joinPop()
+    {
+        return $this->hasMany(Join::class, 'class_id', 'id');
     }
 }

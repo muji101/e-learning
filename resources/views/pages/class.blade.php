@@ -18,8 +18,8 @@
         data-aos-offset="100"
         data-aos-easing="ease-in-sine"
         class="font-bold my-5 relative text-gray-800 text-2xl">
-            <div class="bg-blue-900 rounded-bl-full rounded-br-full w-3/12" style="height:7px"></div>
-            <div class="absolute" style="bottom: -5px">Semua Kategori</div>
+            <div class="bg-blue-900 rounded-bl-full rounded-br-full w-2/12" style="height:7px"></div>
+            <div class="absolute" style="bottom: -5px">Kategori</div>
         </div>
         {{-- <div class="flex flex-wrap justify-evenly py-14 text-gray-100">
             @foreach ($categories as $category)

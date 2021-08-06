@@ -51,11 +51,11 @@
                                             Info
                                         </button>
                                         <div class="dropdown-menu bg-transparent border-0" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item badge bg-primary" href="{{ route('category-edit', $category->id) }}">Edit</a>
+                                            <a class="dropdown-item text-white rounded bg-primary" href="{{ route('category-edit', $category->id) }}"><i data-feather="edit" width="20"></i> Edit</a>
                                             <form action="{{ route('category-delete', $category->id) }}" method="POST">
                                                 @csrf
                                                 @method('DElETE')
-                                                <button class="dropdown-item badge bg-danger">Delete</button>
+                                                <button class="dropdown-item text-white rounded bg-danger"><i data-feather="trash" width="20"></i> Delete</button>
                                             </form>
                                         </div>
                                     </div>
