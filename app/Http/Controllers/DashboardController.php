@@ -20,9 +20,22 @@ class DashboardController extends Controller
         $users = User::get();
         $videos = Video::get();
 
-        // $class = Course::get();
-        $classPop = Join::get();
-        // dd($classPop);
+        //belum terpecahkan masalah kelas popular
+        $classPop = Join::with('course')->get();
+        
+        // $classJoin = Join::get();
+        // $classPop = Course::with('join')->get();
+
+        // dd($classPop->first()->join);
+
+
+        // foreach ($semua as $kelas) {
+        //     $kelas->id;
+        // }
+
+        // dd($semua);
+
+        // $classPop = Join::where('class_id', $semua->id)->get();
 
         $joins = Join::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
         $joinses = Join::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(2);
@@ -37,7 +50,8 @@ class DashboardController extends Controller
             'joins' => $joins,
             'joinses' => $joinses,
             'joinall' => $joinall,
-            'classPop' => $classPop
+            'classPop' => $classPop,
+            // 'classJoin' => $classJoin
         ]);
     }
 
