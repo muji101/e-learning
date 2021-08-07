@@ -7,14 +7,14 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Class</h3>
+                <h3>Users</h3>
                 <p class="text-subtitle text-muted">Daftar user anda silahkan click detail untuk info selanjutnya!.</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class='breadcrumb-header'>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Class</li>
+                        <li class="breadcrumb-item active" aria-current="page">User List</li>
                     </ol>
                 </nav>
             </div>
@@ -23,7 +23,7 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                Daftar kelas anda
+                Daftar Users anda
             </div>
             <div class="card-body">
                 <table class='table table-striped' id="table1">

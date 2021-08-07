@@ -81,6 +81,9 @@
 
                 <div class="col-md-12">
                     <div class="">
+                        <marquee behavior="alternate" direction="up" style="height: 50px">
+                            <h1 class="fw-bold text-center text-white">Daftarkan Diri Anda Sebagai !</h1>
+                        </marquee>
                         <ul class="nav nav-tabs flex justify-content-center fw-bold fs-4" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active text-dark" id="home-tab" data-bs-toggle="tab" href="#home"
