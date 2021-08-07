@@ -18,8 +18,8 @@
         </p>
     </div>
     <div class="col-span-1 pt-8 md:ml-10 md:pt-0 " data-aos="fade-up" data-aos-delay="200">
-        <h1 class="text-base font-bold">Media Social</h1>
-        <div class="flex flex-col md:space-y-2 mt-2 md:mt-6 text-sm">
+        <h1 class="text-lg font-bold">Media Social</h1>
+        <div class="flex flex-col md:space-y-2 mt-2 md:mt-6 text-base">
             <a href="#">Telegram</a>
             <a href="#">Instagram</a>
             <a href="#">Facebook</a>
@@ -28,7 +28,7 @@
     </div>
     <div class="col-span-1 pt-8 md:pt-0" data-aos="fade-up" data-aos-delay="400">
         <h1 class="text-base font-bold">Mentor</h1>
-        <div class="flex flex-col md:space-y-2 mt-2 md:mt-6 text-sm">
+        <div class="flex flex-col md:space-y-2 mt-2 md:mt-6 text-base">
             <a href="#">Coding</a>
             <a href="#">Design</a>
             <a href="#">Marketing</a>
@@ -36,7 +36,7 @@
     </div>
     <div class="col-span-1 pt-8 md:pt-0" data-aos="fade-up" data-aos-delay="500">
         <h1 class="text-base font-bold">Help</h1>
-        <div class="flex flex-col md:space-y-2 mt-2 md:mt-6 text-sm">
+        <div class="flex flex-col md:space-y-2 mt-2 md:mt-6 text-base">
             <a href="#">Help center</a>
             <a href="#">Contact support</a>
             <a href="#">Instructions</a>

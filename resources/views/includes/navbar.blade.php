@@ -64,12 +64,12 @@
 </div> --}}
 
 <div id="navbar" class="w-full sticky top-0 text-black bg-gray-600 dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
-    <div class="container mx-auto px-6 md:px-16 lg:px-24">
-        <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl md:items-center md:justify-between md:flex-row ">
+    <div class="container mx-auto px-2 md:px-16 lg:px-24">
+        <div x-data="{ open: false }" class="flex flex-col md:items-center md:flex-row ">
             <div class="py-2 md:py-6 flex flex-row items-center justify-between space-x-6">
                 <a href="#" class="flex space-x-2 items-center">
-                    <img src="{{ asset('/images/logo.png') }}" alt="" class="w-12">
-                    <p class="font-bold text-base md:text-xl">Go Sinau</p>
+                    <img src="{{ asset('/images/logo.png') }}" alt="" class="w-10">
+                    <p class="font-bold text-sm md:text-xl">Go Sinau</p>
                 </a>
                 <form action="{{ route('search') }}" method="GET">
                     @csrf
@@ -86,7 +86,7 @@
                     </svg>
                 </button>
             </div>
-            <div :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex items-center md:justify-end md:flex-row md:space-x-6 space-y-2">
+            <div :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex items-center md:flex-row md:justify-end md:space-x-6 space-y-2 md:space-y-0">
                 <a class="font-bold {{ request()->path() === '/' ? 'text-white' : 'text-blue-900' }}" href="{{ route('home') }}">Home</a>
                 <a href="{{ url('categories') }}" class="font-bold 
                     {{ (request()->is('categories')) ? 'text-white' : 'text-blue-900' }} 

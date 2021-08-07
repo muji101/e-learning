@@ -103,17 +103,17 @@
 
     {{-- reviews --}}
     <div class="py-4 md:py-14">
-        <div class="text-center">
+        <div data-aos="zoom-in-right" data-aos-delay="100" class="text-center">
             <h1 class="text-lg md:text-2xl font-bold">Trusted by Thousands of Happy Customer</h1>
-            <p class="text-xs md:text-base md:py-2">These are the stories of our customers who have joined us with great pleasure when using this crazy feature.</p>
+            <p class="text-base md:text-lg md:py-2">These are the stories of our customers who have joined us with great pleasure when using this crazy feature.</p>
         </div>
         <div class="splide">
             <div class="splide__track">
                 <ul class="splide__list">
                     @foreach ($reviews as $review)
                     <li class="splide__slide">
-                        <div class="flex py-1 md:py-14">
-                            <div class="mx-auto p-2 md:p-8 border-2 bg-gray-50 border-blue-900 w-96 h-56 rounded-xl">
+                        <div class="flex py-1 mt-2 md:py-14">
+                            <div data-aos="zoom-in" data-aos-delay="00" class="mx-auto p-2 md:p-8 border-2 bg-gray-50 border-blue-900 w-96 h-56 rounded-xl">
                                 <div class="flex items-center justify-between">
                                     <img src="{{ asset('/storage/'.$review->user->image) }}" alt="" class="w-14 h-14 rounded-lg">
                                     <div class="px-4">
@@ -197,7 +197,7 @@
                 <div class="absolute" style="bottom: -5px">Mengapa Harus Bersama Kami?</div>
             </div>
         </div>
-        <div class="flex flex-col md:flex-row md:flex-wrap md:justify-evenly space-x-2 pt-1 md:pt-14">
+        <div class="flex flex-col md:flex-row md:flex-wrap md:justify-evenly pt-1 md:pt-14">
             <div data-aos="fade-up" data-aos-delay="100" class="p-1 md:p-4 rounded-2xl w-full md:w-1/4 border-2 hover:border-blue-900 my-1 md:my-8">
                 <div class="">
                     <img style="width: 140px; height: 200px;" src="{{ asset('/images/undraw_teaching_f1cm.svg') }}" alt="">
