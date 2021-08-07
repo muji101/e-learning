@@ -16,7 +16,7 @@
                             <div class="card-body p-0">
                                 <div class="d-flex flex-column">
                                     <div class='px-3 py-3 d-flex justify-content-between'>
-                                        <h3 class='card-title'>CLASSES</h3>
+                                        <h3 class='card-title'>KELAS</h3>
                                         <div class="card-right d-flex align-items-center">
                                             <p>{{ $classesCount->count() }}</p>
                                         </div>
@@ -33,7 +33,7 @@
                             <div class="card-body p-0">
                                 <div class="d-flex flex-column">
                                     <div class='px-3 py-3 d-flex justify-content-between'>
-                                        <h3 class='card-title'>CATEGORIES</h3>
+                                        <h3 class='card-title'>KATEGORI</h3>
                                         <div class="card-right d-flex align-items-center">
                                             <p>{{ $categories->count() }}</p>
                                         </div>
@@ -67,7 +67,7 @@
                             <div class="card-body p-0">
                                 <div class="d-flex flex-column">
                                     <div class='px-3 py-3 d-flex justify-content-between'>
-                                        <h3 class='card-title'>VIDEOS</h3>
+                                        <h3 class='card-title'>VIDEO</h3>
                                         <div class="card-right d-flex align-items-center">
                                             <p>{{ $videos->count() }}</p>
                                         </div>
@@ -84,7 +84,7 @@
                             <div class="card-body p-0">
                                 <div class="d-flex flex-column">
                                     <div class='px-3 py-3 d-flex justify-content-between'>
-                                        <h3 class='card-title'>MEMBERS</h3>
+                                        <h3 class='card-title'>PENGGUNA</h3>
                                         <div class="card-right d-flex align-items-center">
                                             <p>{{ $joinall->count() }}</p>
                                         </div>

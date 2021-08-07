@@ -13,8 +13,11 @@ class HomeController extends Controller
     public function index()
     {
         $classes = Course::get();
-        $classesRecomend = Course::paginate(3);
-        $categories = Category::paginate(2);
+        $classesRecomend = Course::limit(3)->get();
+        $categories = Category::limit(2)->get();
+
+        // $categoriess = Category::with('course')->orderBy($categories->course->count()->max())->get();
+
         $users = User::get();
         $reviews = Review::get();
 
@@ -23,7 +26,7 @@ class HomeController extends Controller
             'categories' => $categories, 
             'users' => $users, 
             'classesRecomend' => $classesRecomend,
-            'reviews' => $reviews
+            'reviews' => $reviews,
         ]);
     }
 }

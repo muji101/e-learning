@@ -38,18 +38,20 @@
         </div>
         <div class="flex flex-wrap justify-evenly py-14">
             @forelse ($categories as $category)
-                <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class=" border-2 hover:border-blue-900 flex rounded-2xl p-4 my-6 w-5/12">
-                    <div class="">
-                        <img class="" src="{{ asset('/storage/'.$category->photo) }}" alt="" style="width: 280px;">
-                    </div>
-                    <div class="pl-4 w-5/12 text-gray-800">
-                        <h1 class="font-bold text-lg">{{ $category->name }}</h1>
-                        <p class="py-4">{{ $category->description }}</p>
-                        <div class="pt-24">
-                            <a class="text-blue-900" href="{{ route('categories-detail', $category->name) }}">pelajari lebih lanjut</a>
+                @if ($category->course->count() > 0)
+                    <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class=" border-2 hover:border-blue-900 flex rounded-2xl p-4 my-6 w-5/12">
+                        <div class="">
+                            <img class="" src="{{ asset('/storage/'.$category->photo) }}" alt="" style="width: 280px;">
+                        </div>
+                        <div class="pl-4 w-5/12 text-gray-800">
+                            <h1 class="font-bold text-lg">{{ $category->name }}</h1>
+                            <p class="py-4">{{ $category->description }}</p>
+                            <div class="pt-24">
+                                <a class="text-blue-900" href="{{ route('categories-detail', $category->name) }}">pelajari lebih lanjut</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
             @empty
                 <h1 class="text-white text-center text-2xl py-2 px-4 bg-blue-900 rounded-full">Belum ada kategori tersedia!</h1>
             @endforelse
@@ -97,47 +99,7 @@
         </div>
     </div>
 
-    <!-- apa kata alumni -->
-    {{-- <div class="bg-blue-900 rounded-3xl text-gray-100 py-16 mb-24">
-        <div class="text-center py-8">
-            <div class="text-4xl font-semibold">
-                <h1>Apa Kata Para Alumni</h1>
-            </div>
-            <!-- <div class="bg-white w-20 h-1 rounded-lg m-auto my-4 animate-ping"></div> -->
-        </div>
-        <div class="splide" data-aos="fade-up">
-            <div class="splide__track">
-                <ul class="splide__list">
-                    @foreach ($reviews as $review)
-                        <li class="splide__slide">
-                            <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 px-4 md:px-32 text-center items-center">
-                                <div class=" col-span-1 md:col-span-2 md:flex md:items-center md:ml-0">
-                                    <div class="text-lg  text-center lg:text-left">
-                                        <div class="text-xl">
-                                            "{{ $review->content }}"
-                                        </div>
-                                        <div class="py-4 md:text-left">
-                                            <h1 class="font-bold text-2xl">{{ $review->user->name }}</h1>
-                                            <h4 class="text-lg">{{ $review->user->title }}</h4>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                <div class="col-span-1 m-auto mr-0">
-                                    <img src="https://picsum.photos/200/200" alt="" class="w-36 md:m-0 md:w-52 rounded-2xl">
-                                </div>
-                                
-                                
-                            </div>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-
-
-    </div> --}}
-
+    {{-- reviews --}}
     <div class="py-4 sm:py-14">
         <div class="text-center">
             <h1 class="text-2xl font-bold">Trusted by Thousands of Happy Customer</h1>
@@ -194,18 +156,20 @@
         </div>
         <div class="flex flex-wrap justify-around pt-14">
             @forelse ($classesRecomend as $class)
-                <a href="{{ route('class_detail', $class->id) }}" class="transform hover:scale-105">
-                    <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="w-96 p-4 bg-white rounded-2xl shadow-lg">
-                        <div class="">
-                            <img class="w-full rounded-2xl shadow-md" src="{{ asset('/storage/'.$class->photo) }}" alt="">
+                @if ($class->joinPop->count() > 0)
+                    <a href="{{ route('class_detail', $class->id) }}" class="transform hover:scale-105">
+                        <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="w-96 p-4 bg-white rounded-2xl shadow-lg">
+                            <div class="">
+                                <img class="w-full rounded-2xl shadow-md" src="{{ asset('/storage/'.$class->photo) }}" alt="">
+                            </div>
+                            <div class="py-2 text-gray-700 border-b-2">
+                                <h1 class="text-xl font-bold pb-3">{{ $class->name }}</h1>
+                                <p>{{ $class->title }}</p>
+                            </div>
+                            <p class="italic text-blue-900">{{ $class->category->name }}</p>
                         </div>
-                        <div class="py-2 text-gray-700 border-b-2">
-                            <h1 class="text-xl font-bold pb-3">{{ $class->name }}</h1>
-                            <p>{{ $class->title }}</p>
-                        </div>
-                        <p class="italic text-blue-900">{{ $class->category->name }}</p>
-                    </div>
-                </a>
+                    </a>
+                @endif
             @empty
                 <h1 class="text-white text-center text-2xl py-2 px-4 bg-blue-900 rounded-full">Belum ada kelas tersedia!</h1>
             @endforelse

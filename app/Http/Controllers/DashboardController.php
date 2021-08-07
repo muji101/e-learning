@@ -28,6 +28,7 @@ class DashboardController extends Controller
 
         $joins = Join::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
         $joinses = Join::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(2);
+
         $joinall = Join::get();
 
         
