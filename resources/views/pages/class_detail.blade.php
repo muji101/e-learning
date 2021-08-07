@@ -9,101 +9,101 @@
 @endsection
 
 @section('content')
-    <div class="container mx-auto px-24">
+    <div class="container mx-auto px-2 md:px-24">
             
-        <div class="flex justify-between mt-16">
+        <div class="flex flex-col-reverse md:flex-row md:justify-between pt-2 md:mt-16">
             {{-- <div class=""> --}}
                 <div class=" text-gray-800">
-                    <h1 class="font-bold text-4xl">
+                    <h1 class="font-bold text-lg md:text-4xl">
                         {{ $classes->name }}
                     </h1>
-                    <p>{{ $classes->title }}</p>
-                    <div class="flex flex-col py-4 text-gray-800">
-                        <div class="mt-2">
-                            <h1 class="font-bold text-xl border-b-2">
+                    <p class="text-base md:text-lg">{{ $classes->title }}</p>
+                    <div class="flex flex-col py-1 md:py-4 text-gray-800">
+                        <div class="md:mt-2">
+                            <h1 class="font-bold text-md md:text-xl border-b-2">
                                 Pengguna
                             </h1>
                             <p class="count text-lg">{{ $joins->count() }}</p>
                         </div>
-                        <div class="mt-2">
-                            <h1 class="font-bold text-xl border-b-2">
+                        <div class="md:mt-2">
+                            <h1 class="font-bold text-md md:text-xl border-b-2">
                                 Materi
                             </h1>
                             <p class="count text-lg">{{ $classes->video->count() }}</p>
                         </div>
-                        <div class="mt-2">
-                            <h1 class="font-bold text-xl border-b-2">
+                        <div class="md:mt-2">
+                            <h1 class="font-bold text-md md:text-xl border-b-2">
                                 Durasi
                             </h1>
                             <span class="count text-lg">3</span> Jam
                             <span class="count text-lg">32</span> Menit
                         </div>
                     </div>
-                    <div class="text-gray-800">
+                    <div class="text-gray-800 mt-2 mx-0">
                         @if (count($joinsButton) > 0)
-                            <a href="{{ route('class_video', [$classes->id, $classes->video->first()->id]) }}" class="bg-blue-900 text-lg font-bold px-6 py-3 rounded-full shadow-xl text-white">Lanjut Belajar</a>
+                            <a href="{{ route('class_video', [$classes->id, $classes->video->first()->id]) }}" class="bg-blue-900 text-md md:text-lg font-bold px-3 py-2 md:px-6 md:py-3 rounded-full shadow-xl text-white">Lanjut Belajar</a>
                         @else
                             <form method="POST" action="{{ route('class_join',[$classes->id, isset($classes->video->first()->id) ? $classes->video->first()->id : $classes->user->id]) }}">
                                 @csrf
                                 @method("POST")
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                 <input type="hidden" name="class_id" value="{{ $classes->id }}">
-                                <button class="bg-blue-900 text-lg font-bold px-6 py-2 rounded-full shadow-xl text-white">Gabung Kelas</button>
+                                <button class="bg-blue-900 text-md md:text-lg font-bold px-3 py-2 md:px-6 md:py-3 rounded-full shadow-xl text-white">Gabung Kelas</button>
                             </form>
                         @endif
                     </div>
                 </div>
             {{-- </div> --}}
             {{-- <div class="col-span-1"> --}}
-                <div class="">
+                <div style="width: 600px">
                     @if ($link)
-                        <iframe width="600" height="340" src="{{ $link ? $classes->video->first()->url : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="w-screen h-60 md:w-full md:h-96" src="{{ $link ? $classes->video->first()->url : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     @else
-                        <h1 class="text-center text-white px-4 py-2 bg-blue-900 rounded-full">Belum Ada Video</h1>
+                        <h1 class="text-base md:text-lg text-center text-white px-2 py-1 md:px-4 md:py-2 bg-blue-900 rounded-full">Belum Ada Video</h1>
                     @endif
                 </div>
             {{-- </div> --}}
         </div>
 
-        <div class="flex gap-4 text-gray-800 pt-14">
-            <button onclick="des()" class="shadow text-lg font-bold px-6 py-2 hover:bg-blue-900 rounded-full border-2 border-blue-900">Deskripsi kelas</button>
-            <button onclick="rat()" class="shadow text-lg font-bold px-6 py-2 hover:bg-blue-900 rounded-full border-2 border-blue-900">Reviews</button>
-            <button onclick="mat()" class="shadow text-lg font-bold px-6 py-2 hover:bg-blue-900 rounded-full border-2 border-blue-900">Materi kelas</button>
+        <div class="flex space-x-2 text-gray-800 pt-14">
+            <button onclick="des()" class="shadow text-sm md:text-lg font-bold px-3 py-1 md:px-6 md:py-2 hover:bg-blue-900 rounded-full border-2 border-blue-900">Deskripsi kelas</button>
+            <button onclick="rat()" class="shadow text-sm md:text-lg font-bold px-3 py-1 md:px-6 md:py-2 hover:bg-blue-900 rounded-full border-2 border-blue-900">Reviews</button>
+            <button onclick="mat()" class="shadow text-sm md:text-lg font-bold px-3 py-1 md:px-6 md:py-2 hover:bg-blue-900 rounded-full border-2 border-blue-900">Materi kelas</button>
         </div>
 
         
         {{-- deskripsi --}}
         <div id="des">
-            <div class="py-4">
+            <div class="md:py-4">
                 <div class="py-4 text-gray-800">
-                    <h1 class="font-bold text-4xl py-4">
+                    <h1 class="font-bold text-lg md:text-4xl py-1 md:py-4">
                         {{ $classes->name }}
                     </h1>
-                    <p class="text-lg">
+                    <p class="text-sm md:text-lg">
                         {!! $classes->description !!}
                     </p>
                 </div>
             </div>
     
-            <div class="py-4">
-                <div class="py-4 text-gray-800">
-                    <h1 class="font-bold text-4xl py-4">
+            <div class="md:py-4">
+                <div class="md:py-4 text-gray-800">
+                    <h1 class="font-bold text-lg md:text-4xl py-1 md:py-4">
                         Profile Pengajar
                     </h1>
                 </div>
-                <div data-aos="fade-right" data-aos-delay="200" class="grid grid-cols-2 bg-gray-300 rounded-2xl py-4 my-6 w-1/3">
+                <div data-aos="fade-right" data-aos-delay="200" class="grid grid-cols-2 bg-gray-300 rounded-2xl p-2 my-2 md:py-4 md:my-6 w-full md:w-1/2">
                     <div class="row-span-1">
                         <div class="">
-                            <img class="mx-auto rounded-full shadow-lg" src="{{ asset('/storage/'. $classes->user->image) }}" alt="Profile" style="width: 200px;">
+                            <img class="mx-auto rounded-full shadow-lg w-20 md:w-52 h-auto object-cover" src="{{ asset('/storage/'. $classes->user->image) }}" alt="Profile">
                         </div>
                         <div class="text-center">
-                            <h1 class="font-bold text-xl">{{ $classes->user->name }}</h1>
-                            <p class="text-gray-500">{{ $classes->user->title }}</p>
+                            <h1 class="font-bold text-md md:text-xl">{{ $classes->user->name }}</h1>
+                            <p class="text-sm md:text-lg text-gray-500">{{ $classes->user->title }}</p>
                         </div>
                     </div>
-                    <div class="row-span-1 text-base w-full">
+                    <div class="row-span-1 text-md md:text-base w-full">
                         <h1>{{ $classes->user->description }}</h1>
-                        <div class="text-base py-4 text-blue-900">
+                        <div class="text-md md:text-base py-4 text-blue-900">
                             <a href="{{ route('class_mentor', $classes->user->id) }}">Lihat Detail Mentor</a>
                         </div>
                     </div>
@@ -113,22 +113,22 @@
 
         {{-- rating --}}
         <div id="rat" style="display: none">
-            <div class="py-4">
+            <div class="md:py-4">
                 <div class="py-4 text-gray-800">
-                    <h1 class="font-bold text-4xl py-4">
+                    <h1 class="font-bold text-lg md:text-4xl md:py-4">
                         Reviews
                     </h1>
                 </div>
                 <div class="flex flex-wrap justify-start">
                     @forelse ($reviews as $review)
-                        <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="bg-gray-200 rounded-2xl shadow-lg p-4 my-6 mr-4 w-96">
+                        <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="bg-gray-200 rounded-2xl shadow-lg p-4 my-2 md:my-6 md:mr-4 w-full md:w-96">
                             <div class="grid grid-cols-3">
                                 <div class="col-span-1">
                                     <img class="rounded-full w-24 h-24" src="{{ asset('storage/'.$review->user->image) }}" alt="">
                                 </div>
                                 <div class="col-span-2">
-                                    <h1 class="font-bold text-xl">{{ $review->user->name }}</h1>
-                                    <p class="text-gray-500">{{ $review->user->title }}</p>
+                                    <h1 class="font-bold text-lg md:text-xl">{{ $review->user->name }}</h1>
+                                    <p class="text-gray-500 text-sm md:text-lg">{{ $review->user->title }}</p>
                                 </div>
                             </div>
                             <div class="text-base pt-4">
@@ -155,7 +155,7 @@
                             </div>
                         </div>
                     @empty
-                        <h1 class="text-center text-white px-4 py-2 bg-blue-900 rounded-full">Belum Ada Komentar!</h1>
+                        <h1 class="text-center text-white px-2 py-1 text-base md:text-lg md:px-4 md:py-2 bg-blue-900 rounded-full">Belum Ada Komentar!</h1>
                     @endforelse
                 </div>
             </div>
@@ -163,19 +163,19 @@
 
         {{-- materi --}}
         <div id="mat" style="display: none">
-            <div class="py-4">
+            <div class="md:py-4">
                 <div class="py-4 text-gray-800">
-                    <h1 class="font-bold text-4xl py-4">
+                    <h1 class="font-bold text-lg md:text-4xl mg:py-4">
                         Apa yang akan kamu pelajari?
                     </h1>
                 </div>
                 @forelse ($classes->chapter as $chapter)
-                    <div class="py-4 px-8 bg-gray-200 rounded-2xl w-1/2 shadow-lg my-4">
-                        <h1 class="font-bold text-xl py-4">
+                    <div class="py-2 px-4 md:py-4 md:px-8 bg-gray-200 rounded-2xl w-full md:w-1/2 shadow-lg my-1 md:my-4">
+                        <h1 class="font-bold text-md md:text-xl py-4">
                             # {{ $chapter->name }}
                         </h1>
                         @foreach ($chapter->video as $video)
-                            <div class="pl-4 flex justify-between py-2 text-blue-900">
+                            <div class="md:pl-4 flex justify-between py-2 text-blue-900">
                                 <div class="flex items-center">
                                     <span class="pr-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -192,7 +192,7 @@
                     </div>
                 @empty
                     {{-- <h1 class="text-white text-center text-2xl py-2 px-4 bg-blue-900 rounded-full">Belum ada materi tersedia!</h1> --}}
-                    <h1 class="text-center text-white px-4 py-2 bg-blue-900 rounded-full">Belum Ada Materi tersedia!</h1>
+                    <h1 class="text-center text-white px-4 py-2 bg-blue-900 rounded-full text-base md:text-lg">Belum Ada Materi tersedia!</h1>
 
                 @endforelse
 

@@ -66,17 +66,17 @@
 <div id="navbar" class="w-full sticky top-0 text-black bg-gray-600 dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
     <div class="container mx-auto px-2 md:px-16 lg:px-24">
         <div x-data="{ open: false }" class="flex flex-col md:items-center md:flex-row ">
-            <div class="py-2 md:py-6 flex flex-row items-center justify-between space-x-6">
+            <div class="py-2 md:py-4 flex flex-row items-center justify-between space-x-6">
                 <a href="#" class="flex space-x-2 items-center">
                     <img src="{{ asset('/images/logo.png') }}" alt="" class="w-10">
-                    <p class="font-bold text-sm md:text-xl">Go Sinau</p>
+                    <p class="font-bold text-sm md:text-xl text-white">Go Sinau</p>
                 </a>
                 <form action="{{ route('search') }}" method="GET">
                     @csrf
                     @method("GET")
                     <div class="bg-blue-900 rounded-full">
-                        <input type="search" name="search" class="w-24 md:w-40 rounded-tl-full rounded-bl-full py-1 px-2 md:py-2 md:px-4 text-black">
-                        <button type="submit" class="pl-0 pr-1 md:pl-2 md:pr-3"><i class="fas fa-search"></i></button>
+                        <input type="search" name="search" placeholder="search" class="w-24 md:w-40 rounded-tl-full rounded-bl-full py-1 px-2 md:py-2 md:px-4 text-black">
+                        <button type="submit" class="pl-0 pr-1 md:pl-2 md:pr-3 text-white"><i class="fas fa-search"></i></button>
                     </div>
                 </form>
                 <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
@@ -95,13 +95,13 @@
                     " >Class</a>
                 <a class="font-bold text-blue-900" href="#footer">About</a>
                 @guest
-                    <a href="{{ route('login') }}" class="animate-pulse py-1 px-4 md:py-2 md:px-8 border-2 border-blue-900 rounded-full hover:border-white hover:bg-blue-900 font-bold">Sign In</a>
-                    <a href="{{ route('register') }}" class="animate-pulse py-1 px-4 md:py-2 md:px-8 border-2 border-blue-900 rounded-full hover:border-white hover:bg-blue-900 font-bold">Sign Up</a>
+                    <a href="{{ route('login') }}" class="animate-pulse py-1 px-4 md:py-2 md:px-8 border-2 border-blue-900 rounded-full hover:border-white hover:bg-blue-900 font-bold text-white">Sign In</a>
+                    <a href="{{ route('register') }}" class="animate-pulse py-1 px-4 md:py-2 md:px-8 border-2 border-blue-900 rounded-full hover:border-white hover:bg-blue-900 font-bold text-white">Sign Up</a>
                 @endguest
                 @auth
                     <div @click.away="open = false" class="relative flex" x-data="{ open: false }">
                         <button @click="open = !open" class="flex flex-row items-center w-full px-1 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                            <div class="flex items-center space-x-4">
+                            <div class="text-white flex items-center space-x-4">
                                     <img src="{{ asset($image ? '/storage/'. Auth::user()->image : '/images/avatar.png' ) }}" alt="" class="border-2 rounded-full" style="width: 40px ; height: 40px">
                                     <p>Hi, {{ Auth::user()->name }}</p>
                                 <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>

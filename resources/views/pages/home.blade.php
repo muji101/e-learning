@@ -39,7 +39,7 @@
         <div class="flex flex-wrap justify-between md:justify-evenly py-2 md:py-14">
             @forelse ($categories as $category)
                 @if ($category->course->count() > 0)
-                    <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class=" border-2 hover:border-blue-900 md:flex rounded-2xl p-1 my-2 w-2/5  md:p-4 md:my-6 md:w-5/12">
+                    <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class=" border-2 hover:border-blue-900 md:flex rounded-2xl p-1 my-2 mx-2 w-5/12 md:p-4 md:my-6 md:w-5/12">
                         <div class="h-24">
                             <img class="" src="{{ asset('/storage/'.$category->photo) }}" alt="" style="width: 280px;">
                         </div>
@@ -137,7 +137,7 @@
 </div>
 
     {{-- jarallax --}}
-    <div data-jarallax data-speed="-0.2" class="jarallax my-6 md:my-16" style="height: 400px; background-image: url('https://source.unsplash.com/1920x1080/?design');">
+    <div data-jarallax data-speed="-0.2" class="jarallax my-6 md:my-16 hidden sm:block" style="height: 400px; background-image: url('https://source.unsplash.com/1920x1080/?design');">
     </div>
     
     
@@ -180,7 +180,7 @@
 </div>
 
 {{-- jarallax --}}
-<div data-jarallax data-speed="-0.2" class="jarallax my-16" style="height: 400px ;background-image: url('https://source.unsplash.com/1920x1080/?coding');">
+<div data-jarallax data-speed="-0.2" class="jarallax my-16 hidden sm:block" style="height: 400px ;background-image: url('https://source.unsplash.com/1920x1080/?coding');">
 </div>
 
 <div class="container mx-auto px-2 md:px-24">
@@ -197,7 +197,7 @@
                 <div class="absolute" style="bottom: -5px">Mengapa Harus Bersama Kami?</div>
             </div>
         </div>
-        <div class="flex flex-col md:flex-row md:flex-wrap md:justify-evenly pt-1 md:pt-14">
+        <div class="flex flex-col md:flex-row md:flex-wrap md:justify-evenly pt-1 md:pt-14 md:space-x-8">
             <div data-aos="fade-up" data-aos-delay="100" class="p-1 md:p-4 rounded-2xl w-full md:w-1/4 border-2 hover:border-blue-900 my-1 md:my-8">
                 <div class="">
                     <img style="width: 140px; height: 200px;" src="{{ asset('/images/undraw_teaching_f1cm.svg') }}" alt="">
@@ -225,6 +225,8 @@
                     <p class="text-sm">Pembelajaran di GO-Sinau selalu memberikan yang terbaru berdasarkan kurikulum yang dibutuhkan industri saat ini sehingga pembelajaran mampu diterapkan secara langsung untuk peningkatan karir anda</p>
                 </div>
             </div>
+        </div>
+        <div class="flex flex-col md:flex-row md:flex-wrap md:justify-evenly pt-1 md:pt-14 md:space-x-8">
             <div data-aos="fade-up" data-aos-delay="400" class="p-1 md:p-4 rounded-2xl w-full md:w-1/4 border-2 hover:border-blue-900 my-1 md:my-8">
                 <div class="">
                     <img style="width: 140px; height: 200px;" src="{{ asset('/images/undraw_team_spirit_hrr4.svg') }}" alt="">
