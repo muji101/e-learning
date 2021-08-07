@@ -26,7 +26,6 @@ use Illuminate\Support\Facades\Route;
 
 // route home
 Route::get('/', [HomeController::class, 'index'])->name('home');
-// Route::get('/admin')
 
 // route category
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
@@ -60,6 +59,7 @@ Route::prefix('/dashboard')->middleware(['auth'])->group(function () {
     
     Route::get('/', [DashboardController::class, 'index'])->name('profile');
 
+    Route::get('/settings/listUser', [DashboardSettingController::class, 'index'])->name('list-user');
     // route edit update profile
     Route::get('/settings/edit/{id}', [DashboardSettingController::class, 'edit'])->name('password-edit');
     Route::post('/settings/update/{id}', [DashboardSettingController::class, 'update'])->name('password-update');
@@ -99,5 +99,9 @@ Route::prefix('/dashboard')->middleware(['auth'])->group(function () {
     Route::get('/category/edit/{id}', [DashboardCategoryController::class, 'edit'])->name('category-edit');
     Route::post('/category/update/{id}', [DashboardCategoryController::class, 'update'])->name('category-update');
     Route::delete('/category/delete/{id}', [DashboardCategoryController::class, 'destroy'])->name('category-delete');
+
+
+    // upcomming soon Admin
+
 
 });

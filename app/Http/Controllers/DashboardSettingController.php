@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\Hash;
 
 class DashboardSettingController extends Controller
 {
+    public function index()
+    {
+        $users = User::get();
+        return view('pages.dashboard.setting.dashboard-list-user', compact('users'));
+        
+    }
+
     public function edit($id)
     {
         User::find($id);
