@@ -109,24 +109,24 @@
                         </div>
         
                         @foreach ($chapter->video as $video)
+                        <a 
+                            href="{{ route('class_video', [$classes->id, $video->id]) }}"
+                            class="block"
+                        >
                         <div class="pl-4 flex py-2 my-2 text-white {{ request()->path() == 'class/video/'.$classes->id.'/'.$video->id ? 'text-white font-semibold bg-blue-900 py-2 px-6 rounded-full' : 'text-white bg-gray-700 py-2 px-6 rounded-full' }}">
                             <div class="flex items-center ">
-                                <a 
-                                    href="{{ route('class_video', [$classes->id, $video->id]) }}"
-                                    class="flex items-center"
-                                >
                                     <span class="pr-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
                                         </svg>
                                     </span>
                                     {{ $video->title }}
-                                </a>
-                            </div>
+                                </div>
                                 {{-- <div class="">
                                     <p>1 mins </p>
                                 </div> --}}
-                        </div>
+                            </div>
+                        </a>
                         @endforeach
                     </div>
                 @empty

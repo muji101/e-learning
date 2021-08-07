@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 
 // route home
 Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/admin')
 
 // route category
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
