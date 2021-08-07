@@ -18,10 +18,24 @@
 
 <script>
     new Splide( '.splide', {
-        type    : 'loop',
-        perPage : 3,
-        autoplay: true,
-    } ).mount();
+    type    : 'loop',
+    perPage : 3,
+    perMove : 1,
+    autoplay: true,
+    focus  : 'left',
+    breakpoints: {
+        '768': {
+            perPage: 2,
+            gap    : '1rem',
+        },
+        '375': {
+            perPage: 1,
+            gap    : '1rem',
+        },
+    },
+    arrows     : false,
+} ).mount();
+
 </script>
 
 {{-- particle --}}

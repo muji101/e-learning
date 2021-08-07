@@ -12,9 +12,9 @@
 
 
 <style>
-    .jarallax {
+    /* .jarallax {
         height: 600px;
-    }
+    } */
     body {
         font-family: 'Montserrat', sans-serif;
     }

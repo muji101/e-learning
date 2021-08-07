@@ -3,7 +3,7 @@
         $image = Auth::user()->image;
     @endphp
 @endauth
-<div id="navbar"  class="bg-gray-600 sticky top-0 z-10">
+{{-- <div id="navbar"  class="bg-gray-600 sticky top-0 z-10">
     <div class="flex justify-between items-center py-2 px-12 text-white">
         <div class="flex py-2 space-x-6 items-center">
             <a href="{{ route('home') }}" class="flex space-x-2 items-center">
@@ -24,8 +24,6 @@
             <a class="font-bold {{ request()->path() === '/' ? 'text-white' : 'text-blue-900' }}" href="{{ route('home') }}">Home</a>
             <a href="{{ url('categories') }}" class="font-bold 
                 {{ (request()->is('categories')) ? 'text-white' : 'text-blue-900' }} 
-                {{-- {{ (request()->is('search')) ? 'text-white' : 'text-blue-900' }}  --}}
-                {{-- {{ (request()->is('class/{id}')) ? 'text-white' : 'text-blue-900' }}  --}}
                 " >Class</a>
             <a class="font-bold text-blue-900" href="#footer">About</a>
             @guest
@@ -63,22 +61,22 @@
             
         </div>
     </div>
-</div>
+</div> --}}
 
-{{-- <div id="navbar" class="w-full sticky top-0 text-black bg-gray-600 dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
+<div id="navbar" class="w-full sticky top-0 text-black bg-gray-600 dark-mode:text-gray-200 dark-mode:bg-gray-800 z-10">
     <div class="container mx-auto px-6 md:px-16 lg:px-24">
         <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl md:items-center md:justify-between md:flex-row ">
-            <div class="py-6 flex flex-row items-center space-x-6">
+            <div class="py-2 md:py-6 flex flex-row items-center justify-between space-x-6">
                 <a href="#" class="flex space-x-2 items-center">
                     <img src="{{ asset('/images/logo.png') }}" alt="" class="w-12">
-                    <p class="font-bold text-xl">Go Sinau</p>
+                    <p class="font-bold text-base md:text-xl">Go Sinau</p>
                 </a>
                 <form action="{{ route('search') }}" method="GET">
                     @csrf
                     @method("GET")
                     <div class="bg-blue-900 rounded-full">
-                        <input type="search" name="search" class="w-40 rounded-tl-full rounded-bl-full py-2 px-4 text-black">
-                        <button type="submit" class="px-4">Search</button>
+                        <input type="search" name="search" class="w-24 md:w-40 rounded-tl-full rounded-bl-full py-1 px-2 md:py-2 md:px-4 text-black">
+                        <button type="submit" class="pl-0 pr-1 md:pl-2 md:pr-3"><i class="fas fa-search"></i></button>
                     </div>
                 </form>
                 <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
@@ -88,17 +86,17 @@
                     </svg>
                 </button>
             </div>
-            <div :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:items-center md:justify-end md:flex-row md:space-x-6">
+            <div :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex items-center md:justify-end md:flex-row md:space-x-6 space-y-2">
                 <a class="font-bold {{ request()->path() === '/' ? 'text-white' : 'text-blue-900' }}" href="{{ route('home') }}">Home</a>
                 <a href="{{ url('categories') }}" class="font-bold 
                     {{ (request()->is('categories')) ? 'text-white' : 'text-blue-900' }} 
-                    {{ (request()->is('search')) ? 'text-white' : 'text-blue-900' }} 
-                    {{ (request()->is('class/{id}')) ? 'text-white' : 'text-blue-900' }} 
+                    {{-- {{ (request()->is('search')) ? 'text-white' : 'text-blue-900' }}  --}}
+                    {{-- {{ (request()->is('class/{id}')) ? 'text-white' : 'text-blue-900' }}  --}}
                     " >Class</a>
-                <a class="font-bold text-blue-900" href="#">About</a>
+                <a class="font-bold text-blue-900" href="#footer">About</a>
                 @guest
-                    <a href="{{ route('login') }}" class="animate-pulse py-2 px-8 border-2 border-blue-900 rounded-full hover:border-white hover:bg-blue-900 font-bold">Sign In</a>
-                    <a href="{{ route('register') }}" class="animate-pulse border-2 border-blue-900 px-8 py-2 rounded-full hover:border-white hover:bg-blue-900 font-bold">Sign Up</a>
+                    <a href="{{ route('login') }}" class="animate-pulse py-1 px-4 md:py-2 md:px-8 border-2 border-blue-900 rounded-full hover:border-white hover:bg-blue-900 font-bold">Sign In</a>
+                    <a href="{{ route('register') }}" class="animate-pulse py-1 px-4 md:py-2 md:px-8 border-2 border-blue-900 rounded-full hover:border-white hover:bg-blue-900 font-bold">Sign Up</a>
                 @endguest
                 @auth
                     <div @click.away="open = false" class="relative flex" x-data="{ open: false }">
@@ -131,4 +129,4 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div>
