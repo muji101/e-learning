@@ -11,58 +11,54 @@
 @section('content')
     <div class="container mx-auto px-2 md:px-24">
             
-        <div class="flex flex-col-reverse md:flex-row md:justify-between pt-2 md:mt-16">
-            {{-- <div class=""> --}}
-                <div class=" text-gray-800">
-                    <h1 class="font-bold text-lg md:text-4xl">
-                        {{ $classes->name }}
-                    </h1>
-                    <p class="text-base md:text-lg">{{ $classes->title }}</p>
-                    <div class="flex flex-col py-1 md:py-4 text-gray-800">
-                        <div class="md:mt-2">
-                            <h1 class="font-bold text-md md:text-xl border-b-2">
-                                Pengguna
-                            </h1>
-                            <p class="count text-lg">{{ $joins->count() }}</p>
-                        </div>
-                        <div class="md:mt-2">
-                            <h1 class="font-bold text-md md:text-xl border-b-2">
-                                Materi
-                            </h1>
-                            <p class="count text-lg">{{ $classes->video->count() }}</p>
-                        </div>
-                        <div class="md:mt-2">
-                            <h1 class="font-bold text-md md:text-xl border-b-2">
-                                Durasi
-                            </h1>
-                            <span class="count text-lg">3</span> Jam
-                            <span class="count text-lg">32</span> Menit
-                        </div>
+        <div class="flex flex-col-reverse md:grid md:grid-cols-2 pt-2 md:mt-16">
+            <div class="md:col-span-1 text-gray-800">
+                <h1 class="font-bold text-lg md:text-4xl">
+                    {{ $classes->name }}
+                </h1>
+                <p class="text-base md:text-lg">{{ $classes->title }}</p>
+                <div class="flex flex-col py-1 md:py-4 text-gray-800">
+                    <div class="md:mt-2">
+                        <h1 class="font-bold text-md md:text-xl border-b-2">
+                            Pengguna
+                        </h1>
+                        <p class="count text-lg">{{ $joins->count() }}</p>
                     </div>
-                    <div class="text-gray-800 mt-2">
-                        @if (count($joinsButton) > 0)
-                            <a href="{{ route('class_video', [$classes->id, $classes->video->first()->id]) }}" class="bg-blue-900 text-md md:text-lg font-bold px-3 py-2 md:px-6 md:py-3 rounded-full shadow-xl text-white">Lanjut Belajar</a>
-                        @else
-                            <form method="POST" action="{{ route('class_join',[$classes->id, isset($classes->video->first()->id) ? $classes->video->first()->id : $classes->user->id]) }}">
-                                @csrf
-                                @method("POST")
-                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                <input type="hidden" name="class_id" value="{{ $classes->id }}">
-                                <button class="bg-blue-900 text-md md:text-lg font-bold px-3 py-2 md:px-6 md:py-3 rounded-full shadow-xl text-white">Gabung Kelas</button>
-                            </form>
-                        @endif
+                    <div class="md:mt-2">
+                        <h1 class="font-bold text-md md:text-xl border-b-2">
+                            Materi
+                        </h1>
+                        <p class="count text-lg">{{ $classes->video->count() }}</p>
+                    </div>
+                    <div class="md:mt-2">
+                        <h1 class="font-bold text-md md:text-xl border-b-2">
+                            Durasi
+                        </h1>
+                        <span class="count text-lg">3</span> Jam
+                        <span class="count text-lg">32</span> Menit
                     </div>
                 </div>
-            {{-- </div> --}}
-            {{-- <div class="col-span-1"> --}}
-                <div class="">
-                    @if ($link)
-                        <iframe width="600" height="340" class="w-full h-60" src="{{ $link ? $classes->video->first()->url : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="text-gray-800 mt-2 mx-0">
+                    @if (count($joinsButton) > 0)
+                        <a href="{{ route('class_video', [$classes->id, $classes->video->first()->id]) }}" class="bg-blue-900 text-md md:text-lg font-bold px-3 py-2 md:px-6 md:py-3 rounded-full shadow-xl text-white">Lanjut Belajar</a>
                     @else
-                        <h1 class="text-base md:text-lg text-center text-white px-2 py-1 md:px-4 md:py-2 bg-blue-900 rounded-full">Belum Ada Video</h1>
+                        <form method="POST" action="{{ route('class_join',[$classes->id, isset($classes->video->first()->id) ? $classes->video->first()->id : $classes->user->id]) }}">
+                            @csrf
+                            @method("POST")
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                            <input type="hidden" name="class_id" value="{{ $classes->id }}">
+                            <button class="bg-blue-900 text-md md:text-lg font-bold px-3 py-2 md:px-6 md:py-3 rounded-full shadow-xl text-white">Gabung Kelas</button>
+                        </form>
                     @endif
                 </div>
-            {{-- </div> --}}
+            </div>
+            <div style="w-screen md:col-span-1">
+                @if ($link)
+                    <iframe class="w-full h-52 md:w-full md:h-96" src="{{ $link ? $classes->video->first()->url : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                @else
+                    <h1 class="text-base md:text-lg text-center text-white px-2 py-1 md:px-4 md:py-2 bg-blue-900 rounded-full">Belum Ada Video</h1>
+                @endif
+            </div>
         </div>
 
         <div>
@@ -97,7 +93,7 @@
                         <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="bg-gray-200 rounded-2xl shadow-lg p-4 my-2 md:my-6 md:mr-4 w-full md:w-96">
                             <div class="grid grid-cols-3">
                                 <div class="col-span-1">
-                                    <img class="rounded-full w-24 h-24" src="{{ asset('storage/'.$review->user->image) }}" alt="">
+                                    <img class="rounded-full w-24 h-24 object-cover" src="{{ asset('storage/'.$review->user->image) }}" alt="">
                                 </div>
                                 <div class="col-span-2">
                                     <h1 class="font-bold text-lg md:text-xl">{{ $review->user->name }}</h1>

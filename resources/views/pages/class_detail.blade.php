@@ -11,9 +11,8 @@
 @section('content')
     <div class="container mx-auto px-2 md:px-24">
             
-        <div class="flex flex-col-reverse md:flex-row md:justify-between pt-2 md:mt-16">
-            {{-- <div class=""> --}}
-                <div class=" text-gray-800">
+            <div class="flex flex-col-reverse md:grid md:grid-cols-2 pt-2 md:mt-16">
+                <div class="md:col-span-1 text-gray-800">
                     <h1 class="font-bold text-lg md:text-4xl">
                         {{ $classes->name }}
                     </h1>
@@ -53,17 +52,14 @@
                         @endif
                     </div>
                 </div>
-            {{-- </div> --}}
-            {{-- <div class="col-span-1"> --}}
-                <div style="width: 600px">
+                <div style="w-screen md:col-span-1">
                     @if ($link)
-                        <iframe class="w-screen h-60 md:w-full md:h-96" src="{{ $link ? $classes->video->first()->url : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="w-full h-52 md:w-full md:h-96" src="{{ $link ? $classes->video->first()->url : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     @else
                         <h1 class="text-base md:text-lg text-center text-white px-2 py-1 md:px-4 md:py-2 bg-blue-900 rounded-full">Belum Ada Video</h1>
                     @endif
                 </div>
-            {{-- </div> --}}
-        </div>
+            </div>
 
         <div class="flex space-x-2 text-gray-800 pt-14">
             <button onclick="des()" class="shadow text-sm md:text-lg font-bold px-3 py-1 md:px-6 md:py-2 hover:bg-blue-900 rounded-full border-2 border-blue-900">Deskripsi kelas</button>
@@ -101,9 +97,9 @@
                             <p class="text-sm md:text-lg text-gray-500">{{ $classes->user->title }}</p>
                         </div>
                     </div>
-                    <div class="row-span-1 text-md md:text-base w-full">
-                        <h1>{{ $classes->user->description }}</h1>
-                        <div class="text-md md:text-base py-4 text-blue-900">
+                    <div class="row-span-1 w-full">
+                        <h1 class="text-sm md:text-base">{{ $classes->user->description }}</h1>
+                        <div class="text-sm md:text-base py-4 text-blue-900">
                             <a href="{{ route('class_mentor', $classes->user->id) }}">Lihat Detail Mentor</a>
                         </div>
                     </div>
@@ -124,7 +120,7 @@
                         <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="bg-gray-200 rounded-2xl shadow-lg p-4 my-2 md:my-6 md:mr-4 w-full md:w-96">
                             <div class="grid grid-cols-3">
                                 <div class="col-span-1">
-                                    <img class="rounded-full w-24 h-24" src="{{ asset('storage/'.$review->user->image) }}" alt="">
+                                    <img class="rounded-full w-24 h-24 object-cover" src="{{ asset('storage/'.$review->user->image) }}" alt="">
                                 </div>
                                 <div class="col-span-2">
                                     <h1 class="font-bold text-lg md:text-xl">{{ $review->user->name }}</h1>

@@ -36,7 +36,7 @@
                         @forelse ($classes as $class)
                             <a href="{{ route('class_detail', $class->id) }}" class="transform md:hover:scale-105">
                                 <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="md:w-96 p-2 md:p-4 m-1 bg-white rounded-2xl shadow-lg md:mt-14">
-                                    <img class="w-full h-auto md:h-52 rounded-2xl" src="{{ asset('/storage/'.$class->photo) }}" alt="">
+                                    <img class="w-full h-auto md:h-52 rounded-2xl object-cover" src="{{ asset('/storage/'.$class->photo) }}" alt="">
                                     <div class="py-2 text-gray-700 border-b-2 h-32">
                                         <h1 class="text-base md:text-xl font-bold pb-3">{{ $class->name }}</h1>
                                         <p class="text-sm md:text-lg">{{ $class->title }}</p>

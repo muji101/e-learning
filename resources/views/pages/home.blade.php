@@ -55,7 +55,7 @@
                     </div>
                 @endif
             @empty
-                <h1 class="text-white text-center text-2xl py-2 px-4 bg-blue-900 rounded-full">Belum ada kategori tersedia!</h1>
+                <h1 class="text-white text-center text-base md:text-2xl py-2 px-4 bg-blue-900 rounded-full">Belum ada kategori tersedia!</h1>
             @endforelse
         </div>
     </div>
@@ -162,7 +162,7 @@
                     <a href="{{ route('class_detail', $class->id) }}" class="transform hover:scale-105">
                         <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="w-80 md:w-96 p-4 bg-white rounded-2xl shadow-lg">
                             <div class="">
-                                <img class="w-full rounded-2xl shadow-md" src="{{ asset('/storage/'.$class->photo) }}" alt="">
+                                <img class="w-full rounded-2xl shadow-md object-cover" src="{{ asset('/storage/'.$class->photo) }}" alt="">
                             </div>
                             <div class="py-2 text-gray-700 border-b-2">
                                 <h1 class="text-xl font-bold pb-3">{{ $class->name }}</h1>
@@ -173,7 +173,7 @@
                     </a>
                 @endif
             @empty
-                <h1 class="text-white text-center text-2xl py-2 px-4 bg-blue-900 rounded-full">Belum ada kelas tersedia!</h1>
+                <h1 class="text-white text-center text-base md:text-2xl py-2 px-4 bg-blue-900 rounded-full">Belum ada kelas tersedia!</h1>
             @endforelse
         </div>
     </div>

@@ -100,7 +100,7 @@
                 @endguest
                 @auth
                     <div @click.away="open = false" class="relative flex" x-data="{ open: false }">
-                        <button @click="open = !open" class="flex flex-row items-center w-full px-1 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                        <button @click="open = !open" class="flex flex-row items-center w-full px-1 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:shadow-outline">
                             <div class="text-white flex items-center space-x-4">
                                     <img src="{{ asset($image ? '/storage/'. Auth::user()->image : '/images/avatar.png' ) }}" alt="" class="border-2 rounded-full" style="width: 40px ; height: 40px">
                                     <p>Hi, {{ Auth::user()->name }}</p>
@@ -108,9 +108,9 @@
                             </div>
                         </button>
                         <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-12 origin-top-right rounded-md shadow-lg md:w-48">
-                            <div class="px-2 py-2 bg-blue-900 rounded-md shadow dark-mode:bg-gray-800">
+                            <div class="p-2 bg-blue-900 text-white rounded-md shadow dark-mode:bg-gray-800">
                             <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg hover:text-black" href="{{ route('profile') }}">
-                                <i data-feather="home" width="20"></i>
+                                <i class="fas fa-home"></i>
                                 <span>Dashboard</span>
                             </a>
                             <form method="POST" action="{{ route('logout') }}">
@@ -118,7 +118,7 @@
                                 <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg hover:text-black" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                <i data-feather="log-out" width="20"></i>
+                                <i class="fas fa-sign-out-alt"></i>
                                     <span>Logout</span>
                                 </a>
                             </form>
