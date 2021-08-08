@@ -20,10 +20,10 @@ class SearchController extends Controller
 
         return view('pages.search', ['classes' => $classes, 'categories' => $categories, 'videos' => $videos]);
     }
-    public function searchCategory(Request $request, $id)
+    public function searchCategory(Request $request, $slug)
     {
         $categories = Category::all();
-        $category = Category::where('id', $id)->firstOrFail();
+        $category = Category::where('slug', $slug)->firstOrFail();
         $classes = Course::where('category_id', $category->id)->paginate(32);
         
         return view('pages.search', [

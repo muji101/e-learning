@@ -27,10 +27,10 @@ class CategoryController extends Controller
             ]);
     }
 
-    public function detail(Request $request, $name)
+    public function detail(Request $request, $slug)
     {
         $categories = Category::get();
-        $category = Category::where('name', $name)->firstOrFail();
+        $category = Category::where('slug', $slug)->firstOrFail();
         $classes = Course::where('category_id', $category->id)->paginate(32);
         $reviews = Review::get();
 

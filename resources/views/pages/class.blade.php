@@ -42,7 +42,7 @@
             </div>   
             @foreach ($categories as $category)
                 <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="border-2 border-blue-900 bg-gray-50 rounded-lg shadow-lg md:w-60 p-2 md:mt-2">
-                    <a href="{{ route('categories-detail', $category->name) }}">
+                    <a href="{{ route('categories-detail', $category->slug) }}">
                         <div class="">
                             <img class="" src="{{ asset('/storage/'.$category->photo) }}" alt="" style="width: 280px; height: 180px">
                         </div>

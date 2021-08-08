@@ -17,7 +17,8 @@ class Course extends Model
         'description',
         'photo',
         'category_id',
-        'user_id'
+        'user_id',
+        'slug'
     ];
 
     public function category()

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\Category;
 use App\Http\Requests\CategoryRequest;
 
@@ -22,6 +23,7 @@ class DashboardCategoryController extends Controller
         $data = $request->all();
 
         $data['photo'] = $request->file('photo')->store('assets/category','public');
+        $data['slug'] = Str::slug($request->name);
         
         Category::create($data);
         return redirect('/dashboard/category');
@@ -36,6 +38,7 @@ class DashboardCategoryController extends Controller
         $data = $request->all();
 
         $data['photo'] = $request->file('photo')->store('assets/category','public');
+        $data['slug'] = Str::slug($request->name);
 
         Category::find($id)->update($data);
         return redirect('/dashboard/category');

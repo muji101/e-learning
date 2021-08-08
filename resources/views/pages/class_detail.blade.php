@@ -116,7 +116,7 @@
                     </h1>
                 </div>
                 <div class="flex flex-wrap justify-start">
-                    @forelse ($reviews as $review)
+                    @forelse ($classes->review as $review)
                         <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="bg-gray-200 rounded-2xl shadow-lg p-4 my-2 md:my-6 md:mr-4 w-full md:w-96">
                             <div class="grid grid-cols-3">
                                 <div class="col-span-1">

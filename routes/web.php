@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardSettingController;
 use App\Http\Controllers\DashboardCategoryController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,13 +28,18 @@ use Illuminate\Support\Facades\Route;
 // route home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+//Admin regis
+Route::get('/register/admin', function () {
+    return view('pages.dashboard.admin.register');
+});
+
 // route category
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
 Route::get('/categories/{name}', [CategoryController::class, 'detail'])->name('categories-detail');
 
 // route search
 Route::get('/search', [SearchController::class, 'search'])->name('search');
-Route::get('/search/{id}', [SearchController::class, 'searchCategory'])->name('search-category');
+Route::get('/search/{slug}', [SearchController::class, 'searchCategory'])->name('search-category');
 
 // Route class front
 // Route::get('/class', [ClassController::class, 'index'])->name('class_list');
@@ -102,6 +108,7 @@ Route::prefix('/dashboard')->middleware(['auth'])->group(function () {
 
 
     // upcomming soon Admin
-
+    Route::get('/admin/class', [DashboardAdminController::class, 'adminClass'])->name('admin-class');
+    Route::get('/admin/category', [DashboardAdminController::class, 'adminCategory'])->name('admin-category');
 
 });

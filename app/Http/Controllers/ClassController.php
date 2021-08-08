@@ -15,39 +15,39 @@ use PHPUnit\Framework\Constraint\Count;
 
 class ClassController extends Controller
 {
-    public function index()
-    {
-        $classes = Course::get();
-        $categories = Category::get();
-        $users = User::get();
+    // public function index()
+    // {
+    //     $classes = Course::get();
+    //     $categories = Category::get();
+    //     $users = User::get();
 
-        return view('pages.class',[
-            'classes'=> $classes, 
-            'categories' => $categories, 
-            'users' => $users
-        ]);
-    }
+    //     return view('pages.class',[
+    //         'classes'=> $classes, 
+    //         'categories' => $categories, 
+    //         'users' => $users
+    //     ]);
+    // }
     public function detail($id)
     {
         $classes = Course::findOrFail($id);
-
-        $chapters = Chapter::where('class_id', $id)->get();
         $categories = Category::get();
-        $users = User::get();
-        $reviews = Review::where('class_id', $id)->get();
-
         $joins = Join::where('class_id', $id)->get();
+        
+        // $chapters = Chapter::where('class_id', $id)->get();
+        // $users = User::get();
+        // $reviews = Review::where('class_id', $id)->get();
+
 
         $joinsButton = Join::where([['class_id', $id], ['user_id', Auth::user()->id]])->get();
 
         return view('pages.class_detail',[
             'classes'=> $classes, 
             'categories' => $categories, 
-            'users' => $users, 
-            'chapters' => $chapters,
-            'reviews' => $reviews,
             'joins' => $joins,
             'joinsButton' => $joinsButton
+            // 'users' => $users, 
+            // 'chapters' => $chapters,
+            // 'reviews' => $reviews,
         ]);
     }
     public function mentor($id)

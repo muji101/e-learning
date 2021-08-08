@@ -14,6 +14,7 @@ class HomeController extends Controller
     {
         $classes = Course::get();
         $classesRecomend = Course::limit(3)->get();
+        // $classesRecomend = Course::paginate(1);
         $categories = Category::limit(2)->get();
 
         // $categoriess = Category::with('course')->orderBy($categories->course->count()->max())->get();

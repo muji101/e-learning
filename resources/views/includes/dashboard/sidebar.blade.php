@@ -63,13 +63,35 @@
                             </li>
                         </ul>
                     </li>
-                @else
+                @elseif (Auth::user()->role === "USER")
                     <li class="sidebar-item {{ (request()->is('dashboard/myclass')) ? 'active' : '' }}">
                         <a href="{{ route('myclass') }}" class='sidebar-link'>
                             <i data-feather="book-open" width="20"></i>
                             <span>My Class</span>
                         </a>
 
+                    </li>
+                @else
+                    <li class="sidebar-item  has-sub {{ (request()->is('dashboard/admin*')) ? 'active' : '' }}">
+                        <a href="#" class='sidebar-link'>
+                            <i data-feather="book-open" width="20"></i>
+                            <span>Admin Menu</span>
+                        </a>
+
+                        <ul class="submenu ">
+
+                            <li>
+                                <a href="{{ route('admin-class') }}" class="d-flex align-items-center">
+                                    <i data-feather="list" width="20"></i><span>List Class</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('admin-category') }}">
+                                    <i data-feather="plus-square" width="20"></i><span>List Category</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 @endif
             

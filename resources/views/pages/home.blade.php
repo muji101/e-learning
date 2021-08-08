@@ -176,6 +176,7 @@
                 <h1 class="text-white text-center text-base md:text-2xl py-2 px-4 bg-blue-900 rounded-full">Belum ada kelas tersedia!</h1>
             @endforelse
         </div>
+        {{-- {{ $classesRecomend->links() }} --}}
     </div>
 </div>
 

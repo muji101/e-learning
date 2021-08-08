@@ -44,7 +44,7 @@
                 <span class="border-b-2 border-white pb-1 text-white text-xs md:text-md">Materi : {{ $video ? $videos->title : '' }}</span>
             </div>
             <div class="text-gray-100 text-xs md:text-lg md:font-bold">
-                <a href="{{ route('class_detail_review', $classes->id) }}" class="px-2 py-1 md:px-8 md:py-3 bg-blue-900 rounded-full animate-pulse">Komenter</a>
+                <a href="{{ route('class_detail_review', $classes->id) }}" class="px-2 py-1 md:px-8 md:py-3 bg-blue-900 rounded-full animate-pulse">Beri Komentar</a>
                 {{-- <button onclick="rating()" href="#" class="px-8 py-3 bg-blue-900 rounded-full">Beri Review Kelas</button> --}}
             </div>
     </div>
