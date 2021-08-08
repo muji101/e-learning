@@ -24,7 +24,7 @@
                         <a 
                         data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" 
                         href="{{ route('search-category', $category->slug) }}"
-                        class="text-sm md:text-lg bg-gray-500 p-1 md:py-2 md:px-4 rounded-lg {{ (request()->is('search/'.$category->id)) ? 'bg-gradient-to-r from-blue-900 to to-blue-400' : '' }}"
+                        class="text-sm md:text-lg bg-gray-500 p-1 md:py-2 md:px-4 rounded-lg {{ (request()->is('search/'.$category->slug)) ? 'bg-gradient-to-r from-blue-900 to to-blue-400' : '' }}"
                         >{{ $category->name }}</a>
                     @endforeach
                 </div>

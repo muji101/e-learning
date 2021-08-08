@@ -17,7 +17,7 @@
             ©Go Sinau 2021. All rights reserved
         </p>
     </div>
-    <div class="col-span-1 pt-8 md:ml-10 md:pt-0 " data-aos="fade-up" data-aos-delay="200">
+    <div class="col-span-1 pt-8 md:ml-4 md:pt-0 " data-aos="fade-up" data-aos-delay="200">
         <h1 class="text-lg font-bold">Media Social</h1>
         <div class="flex flex-col md:space-y-2 mt-2 md:mt-6 text-base">
             <a href="#">Telegram</a>
