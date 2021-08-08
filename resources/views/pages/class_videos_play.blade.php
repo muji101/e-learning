@@ -60,14 +60,14 @@
         
 
         <div class="flex-grow bg-gray-600">
-            <div class="sticky top-0 h-60  md:mx-8 md:py-4 md:h-screen">
+            <div class="sticky top-0 h-60  md:mx-8 md:pt-4 pb-14 md:h-screen">
                 @if ($link)
                     <iframe class="w-full h-full" src="{{ $link ? $videos->url : '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 @else
                     <h1 class="text-center text-white px-4 py-2 bg-blue-900 rounded-full">Belum Ada Video!</h1>
                 @endif
             </div>
-            <div class="sticky bottom-0 mt-8 px-12 text-gray-100 hidden md:block">
+            <div class="sticky bottom-0 mt-10 px-12 text-gray-100 hidden md:block">
                 <div class="flex justify-center">
                     @if ($prev)
                         
