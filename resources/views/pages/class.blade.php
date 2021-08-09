@@ -21,8 +21,8 @@
             <div class="bg-blue-900 rounded-bl-full rounded-br-full w-1/3 md:w-2/12" style="height:4px"></div>
             <div class="absolute" style="bottom: -5px">Kategori</div>
         </div>
-        <div class="flex flex-wrap space-y-2 md:space-x-2 justify-center py-4 md:py-14 text-gray-800">
-            <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="border-2 border-blue-900 bg-gray-50 rounded-lg shadow-lg md:w-60 p-2 md:mt-2">
+        <div class="flex flex-wrap space-y-2 md:justify-start justify-center py-4 md:py-14 text-gray-800">
+            <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="md:mr-2 border-2 border-blue-900 bg-gray-50 rounded-lg shadow-lg md:w-60 p-2 md:mt-2">
                 <a href="{{ route('categories') }}">
                     <div class="">
                         <img class="" src="{{ asset('/images/undraw_All.svg') }}" alt="" style="width: 280px; height: 180px">
@@ -41,7 +41,7 @@
                 </a>
             </div>   
             @foreach ($categories as $category)
-                <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="border-2 border-blue-900 bg-gray-50 rounded-lg shadow-lg md:w-60 p-2 md:mt-2">
+                <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="md:mr-2 border-2 border-blue-900 bg-gray-50 rounded-lg shadow-lg md:w-60 p-2 md:mt-2">
                     <a href="{{ route('categories-detail', $category->slug) }}">
                         <div class="">
                             <img class="" src="{{ asset('/storage/'.$category->photo) }}" alt="" style="width: 280px; height: 180px">
@@ -87,7 +87,7 @@
     <div class="md:pb-32">
         <div class="flex flex-wrap justify-around space-y-2 px-2 md:p-4 text-gray-100">
             @forelse ($classes as $class)
-                <a href="{{ route('class_detail', $class->id) }}" class=" transform hover:scale-105">
+                <a href="{{ route('class_detail', [$class->slug, $class->id]) }}" class=" transform hover:scale-105">
                     <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="md:w-96 p-4 bg-white rounded-2xl shadow-lg md:mt-14">
                         <img class="w-full h-52 rounded-2xl object-cover" src="{{ asset('/storage/'.$class->photo) }}" alt="">
                         <div class="py-2 text-gray-700 border-b-2 h-32">

@@ -15,18 +15,39 @@ use PHPUnit\Framework\Constraint\Count;
 
 class ClassController extends Controller
 {
-    // public function index()
-    // {
-    //     $classes = Course::get();
-    //     $categories = Category::get();
-    //     $users = User::get();
+    public function success($id)
+    {
+        $classes = Course::FindOrFail($id);
+        // $categories = Category::get();
+        // $users = User::get();
 
-    //     return view('pages.class',[
-    //         'classes'=> $classes, 
-    //         'categories' => $categories, 
-    //         'users' => $users
-    //     ]);
-    // }
+        return view('pages.class_join',[
+            'classes'=> $classes 
+            // 'categories' => $categories, 
+            // 'users' => $users
+        ]);
+    }
+
+    public function detailClass($slug, $id)
+    {
+        $classes = Course::where('slug', $slug)->firstOrFail();
+        $joins = Join::where('class_id', $id)->get();
+
+        $joinsButton = Join::where([['class_id', $id], ['user_id', isset(Auth::user()->id) ? Auth::user()->id : '']])->get();
+        // $joinsButton = Join::where('class_id', $id)->get();
+
+
+
+        return view('pages.class_detail',[
+            'classes'=> $classes, 
+            'joins' => $joins,
+            'joinsButton' => $joinsButton
+        ]);
+
+        
+    }
+    
+
     public function detail($id)
     {
         $classes = Course::findOrFail($id);
@@ -117,9 +138,9 @@ class ClassController extends Controller
         return back();
     }
     
-    public function review($id)
+    public function review($slug, $id)
     {
-        $classes = Course::findOrFail($id);
+        $classes = Course::where('slug', $slug)->firstOrFail();
 
         $chapters = Chapter::where('class_id', $id)->get();
         $categories = Category::get();

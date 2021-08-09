@@ -159,7 +159,7 @@
         <div class="flex flex-wrap space-y-4 justify-around pt-2 md:pt-14">
             @forelse ($classesRecomend as $class)
                 @if ($class->joinPop->count() > 0)
-                    <a href="{{ route('class_detail', $class->id) }}" class="transform hover:scale-105">
+                    <a href="{{ route('class_detail', [$class->slug, $class->id]) }}" class="transform hover:scale-105">
                         <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="w-80 md:w-96 p-4 bg-white rounded-2xl shadow-lg">
                             <div class="">
                                 <img class="w-full rounded-2xl shadow-md object-cover" src="{{ asset('/storage/'.$class->photo) }}" alt="">

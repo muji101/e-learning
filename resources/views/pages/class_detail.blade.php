@@ -39,17 +39,16 @@
                         </div>
                     </div>
                     <div class="text-gray-800 mt-2 mx-0">
-                        @if (count($joinsButton) > 0)
-                            <a href="{{ route('class_video', [$classes->id, $classes->video->first()->id]) }}" class="bg-blue-900 text-md md:text-lg font-bold px-3 py-2 md:px-6 md:py-3 rounded-full shadow-xl text-white">Lanjut Belajar</a>
-                        @else
-                            <form method="POST" action="{{ route('class_join',[$classes->id, isset($classes->video->first()->id) ? $classes->video->first()->id : $classes->user->id]) }}">
-                                @csrf
-                                @method("POST")
-                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                <input type="hidden" name="class_id" value="{{ $classes->id }}">
-                                <button class="bg-blue-900 text-md md:text-lg font-bold px-3 py-2 md:px-6 md:py-3 rounded-full shadow-xl text-white">Gabung Kelas</button>
-                            </form>
-                        @endif
+                        @auth
+                            @if (count($joinsButton) > 0)
+                                <a href="{{ route('class_video', [$classes->id, $classes->video->first()->id]) }}" class="bg-blue-900 text-md md:text-lg font-bold px-3 py-2 md:px-6 md:py-3 rounded-full shadow-xl text-white">Lanjut Belajar</a>
+                            @else
+                                <a href="{{ route('class_join_success', $classes->id) }}" class="bg-blue-900 text-md md:text-lg font-bold px-3 py-2 md:px-6 md:py-3 rounded-full shadow-xl text-white">Gabung Kelas</a>
+                            @endif
+                        @endauth
+                        @guest
+                            <a href="{{ route('class_join_success', $classes->id) }}" class="bg-blue-900 text-md md:text-lg font-bold px-3 py-2 md:px-6 md:py-3 rounded-full shadow-xl text-white">Gabung Kelas</a>
+                        @endguest
                     </div>
                 </div>
                 <div style="w-screen md:col-span-1">
@@ -115,9 +114,9 @@
                         Reviews
                     </h1>
                 </div>
-                <div class="flex flex-wrap justify-start">
+                <div class="flex flex-wrap justify-start my-4">
                     @forelse ($classes->review as $review)
-                        <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="bg-gray-200 rounded-2xl shadow-lg p-4 my-2 md:my-6 md:mr-4 w-full md:w-96">
+                        <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="bg-gray-200 rounded-2xl shadow-lg p-4 md:my-6 md:mr-4 w-full md:w-96">
                             <div class="grid grid-cols-3">
                                 <div class="col-span-1">
                                     <img class="rounded-full w-24 h-24 object-cover" src="{{ asset('storage/'.$review->user->image) }}" alt="">

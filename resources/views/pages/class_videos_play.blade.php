@@ -44,7 +44,7 @@
                 <span class="border-b-2 border-white pb-1 text-white text-xs md:text-md">Materi : {{ $video ? $videos->title : '' }}</span>
             </div>
             <div class="text-gray-100 text-xs md:text-lg md:font-bold">
-                <a href="{{ route('class_detail_review', $classes->id) }}" class="px-2 py-1 md:px-8 md:py-3 bg-blue-900 rounded-full animate-pulse">Beri Komentar</a>
+                <a href="{{ route('class_detail_review', [$classes->slug, $classes->id]) }}" class="px-2 py-1 md:px-8 md:py-3 bg-blue-900 rounded-full animate-pulse">Beri Komentar</a>
                 {{-- <button onclick="rating()" href="#" class="px-8 py-3 bg-blue-900 rounded-full">Beri Review Kelas</button> --}}
             </div>
     </div>
@@ -79,7 +79,7 @@
                     @endif
                     
                     @if ($next)
-                        <a href="{{ route('class_detail_review', $classes->id) }}" class="py-2 px-6 mx-2 rounded-full bg-blue-900 bg-opacity-50 hover:bg-blue-900 animate-pulse">
+                        <a href="{{ route('class_detail_review', [$classes->slug, $classes->id]) }}" class="py-2 px-6 mx-2 rounded-full bg-blue-900 bg-opacity-50 hover:bg-blue-900 animate-pulse">
                             Finish
                             <i class="fas fa-arrow-right"></i>
                         </a>

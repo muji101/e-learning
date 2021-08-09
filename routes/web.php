@@ -43,14 +43,16 @@ Route::get('/search/{slug}', [SearchController::class, 'searchCategory'])->name(
 
 // Route class front
 // Route::get('/class', [ClassController::class, 'index'])->name('class_list');
+Route::get('/class/{slug}/{id}', [ClassController::class, 'detailClass'])->name('class_detail');
+Route::get('/class/mentor/{id}', [ClassController::class, 'mentor'])->name('class_mentor');
+
 Route::middleware(['auth'])->group(function () {
-    Route::get('/class/{id}', [ClassController::class, 'detail'])->name('class_detail');
-    Route::get('/class/mentor/{id}', [ClassController::class, 'mentor'])->name('class_mentor');
+    Route::get('/class/{id}', [ClassController::class, 'success'])->name('class_join_success');
     Route::get('/class/video/{classid}/{videoid}', [ClassController::class, 'video'])->name('class_video');
     Route::post('/class/video/{classid}/{videoid}', [ClassController::class, 'join'])->name('class_join');
     
     Route::post('/class/reviews', [ClassController::class, 'store'])->name('class_review');
-    Route::get('/class/{id}/reviews', [ClassController::class, 'review'])->name('class_detail_review');
+    Route::get('/class/{slug}/{id}/reviews', [ClassController::class, 'review'])->name('class_detail_review');
 });
 
 

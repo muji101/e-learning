@@ -8,6 +8,7 @@ use App\Models\Chapter;
 use App\Models\Course;
 use App\Models\Review;
 use App\Models\Video;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,6 +44,8 @@ class DashboardClassController extends Controller
         $data = $request->all();
 
         $data['photo'] = $request->file('photo')->store('assets/class','public');
+        $data['slug'] = Str::slug($request->name);
+
         
         Course::create($data);
         return redirect()->route('class');
@@ -61,6 +64,8 @@ class DashboardClassController extends Controller
         $data = $request->all();
 
         $data['photo'] = $request->file('photo')->store('assets/class','public');
+        $data['slug'] = Str::slug($request->name);
+
         
         Course::find($id)->update($data);
         return redirect()->route('class');

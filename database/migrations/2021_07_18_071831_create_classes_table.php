@@ -18,10 +18,11 @@ class CreateClassesTable extends Migration
 
             $table->string('name');
             $table->string('title');
-            $table->string('description');
+            $table->text('description');
             $table->string('photo');
             $table->integer('category_id');
             $table->integer('user_id');
+            $table->string('slug');
             
             $table->timestamps();
         });
