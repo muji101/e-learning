@@ -23,7 +23,7 @@
     <section class="section">
         <div class="d-flex flex-wrap">
             @forelse ($joins as $join)
-            <a href="{{ route('class_detail', $join->course->id) }}">
+            <a href="{{ route('class_detail', [$join->course->slug, $join->course->id]) }}">
                 <div class="card mx-2" style="width: 400px">
                     <div class="bg-primary">
                         <img src="{{ asset('storage/'.$join->course->photo) }}" style="width: 400px; height: 260px" alt="Ini gambar">

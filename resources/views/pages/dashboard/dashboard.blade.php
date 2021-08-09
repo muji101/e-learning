@@ -206,7 +206,7 @@
                                 </div>
                             @else
                                 @forelse ($joinses as $join)
-                                    <a href="{{ route('class_detail', $join->course->id) }}">
+                                    <a href="{{ route('class_detail', [$join->course->slug, $join->course->id]) }}">
                                         <div class="d-flex my-2 p-4">
                                             <div class="">
                                                 <img src="{{ asset('storage/'. $join->course->photo) }}" style="width : 200px" alt="">
