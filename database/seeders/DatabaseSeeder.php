@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             ChapterSeeder::class,
             ClassSeeder::class,
-            VideoSeeder::class
+            VideoSeeder::class,
+            UserSeeder::class
         ]);
     }
 }
