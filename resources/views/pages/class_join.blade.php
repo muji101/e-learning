@@ -13,7 +13,7 @@
     <!-- start learning -->
     <div class="py-4 md:py-16 text-gray-800">
         <div data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-delay="200" class="text-center pt-4 px-2 md:pt-8 md:px-4">
-            <img src="{{ asset('/images/success_join.svg') }}" alt="" class="w-96 mx-auto">
+            <img src="{{ asset('/images/success_join.svg') }}" alt="" class="w- w-1/2 mx-auto">
             <div class="text-lg md:text-4xl font-semibold py-1 md:py-6">
                 <h1>Happy Learning </h1>
             </div>

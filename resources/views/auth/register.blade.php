@@ -80,7 +80,7 @@
             <div class="row">
 
                 <div class="col-md-12">
-                    <div class="">
+                    {{-- <div class="">
                         <marquee behavior="alternate" direction="up" style="height: 50px">
                             <h1 class="fw-bold text-center text-white">Daftarkan Diri Anda Sebagai !</h1>
                         </marquee>
@@ -94,9 +94,9 @@
                                     role="tab" aria-controls="contact" aria-selected="false">User</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel"
+                        <div class="tab-pane fade" id="home" role="tabpanel"
                             aria-labelledby="home-tab">
 
                             <div class="col-md-7 col-sm-12 mx-auto">
@@ -167,7 +167,7 @@
                             </div>
                             
                         </div>
-                        <div class="tab-pane fade" id="contact" role="tabpanel"
+                        <div class="tab-pane fade show active" id="contact" role="tabpanel"
                             aria-labelledby="contact-tab">
 
                             <div class="col-md-7 col-sm-12 mx-auto">
