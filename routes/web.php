@@ -46,11 +46,11 @@ Route::get('/search/{slug}', [SearchController::class, 'searchCategory'])->name(
 Route::get('/class/{slug}/{id}', [ClassController::class, 'detailClass'])->name('class_detail');
 Route::get('/class/mentor/{id}', [ClassController::class, 'mentor'])->name('class_mentor');
 
-//Route join Kelas
-// Route::middleware([])->group(function () {
-// });
+//Route join
 Route::middleware(['auth','guest'])->group(function () {
     Route::get('/class/{id}', [ClassController::class, 'success'])->name('class_join_success');
+});
+Route::middleware(['auth'])->group(function () {
     Route::get('/class/video/{classid}/{videoid}', [ClassController::class, 'video'])->name('class_video');
     Route::post('/class/video/{classid}/{videoid}', [ClassController::class, 'join'])->name('class_join');
     
