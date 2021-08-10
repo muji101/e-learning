@@ -316,7 +316,7 @@
                                 </table>
                             </div>
                         @else
-                            <div
+                            {{-- <div
                                 class="card-header border-bottom d-flex justify-content-between align-items-center">
                                 <h4 class="card-title d-flex">
                                     <i class='bx bx-check font-medium-5 pl-25 pr-75'></i>Proggres Kelas
@@ -376,7 +376,7 @@
                                         <td class='col-3 text-center'>65%</td>
                                     </tr>
                                 </table>
-                            </div>
+                            </div> --}}
                         @endif
                     </div>
                 </div>

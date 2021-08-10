@@ -156,13 +156,13 @@
                 <div class="absolute" style="bottom: -5px">Rekomendasi Kelas Khusus Untuk Anda</div>
             </div>
         </div>
-        <div class="flex flex-wrap space-y-4 justify-around pt-2 md:pt-14">
+        <div class="flex flex-wrap justify-around pt-2 md:pt-14">
             @forelse ($classesRecomend as $class)
                 @if ($class->joinPop->count() > 0)
                     <a href="{{ route('class_detail', [$class->slug, $class->id]) }}" class="transform hover:scale-105">
-                        <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="w-80 md:w-96 p-4 bg-white rounded-2xl shadow-lg">
+                        <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="w-80 md:w-96 p-4 mt-4 bg-white rounded-2xl shadow-lg">
                             <div class="">
-                                <img class="w-full rounded-2xl shadow-md object-cover" src="{{ asset('/storage/'.$class->photo) }}" alt="">
+                                <img class="w-full rounded-2xl shadow-md" src="{{ asset('/storage/'.$class->photo) }}" alt="">
                             </div>
                             <div class="py-2 text-gray-700 border-b-2">
                                 <h1 class="text-xl font-bold pb-3">{{ $class->name }}</h1>

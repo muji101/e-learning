@@ -85,7 +85,7 @@
 
     <!-- rekomendasi kelas -->
     <div class="md:pb-32">
-        <div class="flex flex-wrap justify-around space-y-2 px-2 md:p-4 text-gray-100">
+        <div class="flex flex-wrap justify-around pt-2 md:p-4 text-gray-100">
             @forelse ($classes as $class)
                 <a href="{{ route('class_detail', [$class->slug, $class->id]) }}" class=" transform hover:scale-105">
                     <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="md:w-96 p-4 bg-white rounded-2xl shadow-lg md:mt-14">
