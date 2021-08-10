@@ -22,7 +22,7 @@
             <div class="absolute" style="bottom: -5px">Kategori</div>
         </div>
         <div class="flex flex-wrap space-y-2 md:justify-start justify-center py-4 md:py-14 text-gray-800">
-            <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="md:mr-2 border-2 border-blue-900 bg-gray-50 rounded-lg shadow-lg md:w-60 p-2 md:mt-2">
+            <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="md:mr-7 border-2 border-blue-900 bg-gray-50 rounded-lg shadow-lg md:w-60 p-2 md:mt-2">
                 <a href="{{ route('categories') }}">
                     <div class="">
                         <img class="" src="{{ asset('/images/undraw_All.svg') }}" alt="" style="width: 280px; height: 180px">
@@ -41,7 +41,7 @@
                 </a>
             </div>   
             @foreach ($categories as $category)
-                <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="md:mr-2 border-2 border-blue-900 bg-gray-50 rounded-lg shadow-lg md:w-60 p-2 md:mt-2">
+                <div data-aos="fade-right" data-aos-delay="{{ $increment += 100 }}" class="md:mr-7 border-2 border-blue-900 bg-gray-50 rounded-lg shadow-lg md:w-60 p-2 md:mt-2">
                     <a href="{{ route('categories-detail', $category->slug) }}">
                         <div class="">
                             <img class="" src="{{ asset('/storage/'.$category->photo) }}" alt="" style="width: 280px; height: 180px">
