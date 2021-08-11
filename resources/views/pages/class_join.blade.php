@@ -24,14 +24,19 @@
                 </p>
             </div>
             <div class="py-6 md:py-14">
-                <form method="POST" action="{{ route('class_join',[$classes->id, isset($classes->video->first()->id) ? $classes->video->first()->id : $classes->user->id]) }}">
-                {{-- <form method="POST" action="{{ route('class_join',[$classes->id, $classes->video->first()->id]) }}"> --}}
-                    @csrf
-                    @method("POST")
-                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <input type="hidden" name="class_id" value="{{ $classes->id }}">
-                    <button class="bg-blue-900 text-md md:text-lg font-bold px-3 py-2 md:px-6 md:py-3 rounded-full shadow-xl text-white">Mulai Belajar</button>
-                </form>
+                
+                @if (count($joinsButton) > 0)
+                    <a href="{{ route('class_video', [$classes->id, $classes->video->first()->id]) }}" class="bg-blue-900 text-md md:text-lg font-bold px-3 py-2 md:px-6 md:py-3 rounded-full shadow-xl text-white">Lanjut Belajar</a>
+                @else
+                    <form method="POST" action="{{ route('class_join',[$classes->id, isset($classes->video->first()->id) ? $classes->video->first()->id : $classes->user->id]) }}">
+                        {{-- <form method="POST" action="{{ route('class_join',[$classes->id, $classes->video->first()->id]) }}"> --}}
+                        @csrf
+                        @method("POST")
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="class_id" value="{{ $classes->id }}">
+                        <button class="bg-blue-900 text-md md:text-lg font-bold px-3 py-2 md:px-6 md:py-3 rounded-full shadow-xl text-white">Mulai Belajar</button>
+                    </form>
+                @endif
             </div>
         </div>
     </div>

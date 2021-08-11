@@ -18,11 +18,15 @@ class ClassController extends Controller
     public function success($id)
     {
         $classes = Course::FindOrFail($id);
+        $joinsButton = Join::where([['class_id', $id], ['user_id', Auth::user()->id]])->get();
+
         // $categories = Category::get();
         // $users = User::get();
 
         return view('pages.class_join',[
-            'classes'=> $classes 
+            'classes'=> $classes,
+            'joinsButton' => $joinsButton
+
             // 'categories' => $categories, 
             // 'users' => $users
         ]);
@@ -102,6 +106,7 @@ class ClassController extends Controller
     public function join(Request $request, $classId, $videoId)
     {
         $data = $request->all();
+        
 
         $videos = Video::where('class_id', $classId)->find($videoId);
         $videosPrev = Video::where('class_id', $classId)->get();

@@ -47,10 +47,10 @@ Route::get('/class/{slug}/{id}', [ClassController::class, 'detailClass'])->name(
 Route::get('/class/mentor/{id}', [ClassController::class, 'mentor'])->name('class_mentor');
 
 //Route join
-Route::middleware(['auth','guest'])->group(function () {
-    Route::get('/class/{id}', [ClassController::class, 'success'])->name('class_join_success');
-});
+// Route::middleware(['auth','guest'])->group(function () {
+// });
 Route::middleware(['auth'])->group(function () {
+    Route::get('/class_join/{id}', [ClassController::class, 'success'])->name('class_join_success');
     Route::get('/class/video/{classid}/{videoid}', [ClassController::class, 'video'])->name('class_video');
     Route::post('/class/video/{classid}/{videoid}', [ClassController::class, 'join'])->name('class_join');
     
