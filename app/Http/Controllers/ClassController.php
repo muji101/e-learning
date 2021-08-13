@@ -75,7 +75,7 @@ class ClassController extends Controller
             // 'reviews' => $reviews,
         ]);
     }
-    public function mentor($id)
+    public function mentor($slug, $id)
     {
         $users = User::findOrFail($id);
         $classes = Course::where('user_id', $id)->get();

@@ -89,9 +89,9 @@
                 <div data-aos="fade-right" data-aos-delay="200" class="grid grid-cols-2 bg-gray-300 rounded-2xl p-2 my-2 md:py-4 md:my-6 w-full md:w-1/2">
                     <div class="row-span-1">
                         <div class="">
-                            <img class="mx-auto rounded-full shadow-lg w-20 md:w-52 h-auto object-cover" src="{{ asset('/storage/'. $classes->user->image) }}" alt="Profile">
+                            <img class="mx-auto rounded-full shadow-lg w-20 md:h-52 md:w-52 h-auto object-cover" src="{{ asset('/storage/'. $classes->user->image) }}" alt="Profile">
                         </div>
-                        <div class="text-center">
+                        <div class="text-center mt-2">
                             <h1 class="font-bold text-md md:text-xl">{{ $classes->user->name }}</h1>
                             <p class="text-sm md:text-lg text-gray-500">{{ $classes->user->title }}</p>
                         </div>
@@ -99,7 +99,7 @@
                     <div class="row-span-1 w-full">
                         <h1 class="text-sm md:text-base">{{ $classes->user->description }}</h1>
                         <div class="text-sm md:text-base py-4 text-blue-900">
-                            <a href="{{ route('class_mentor', $classes->user->id) }}">Lihat Detail Mentor</a>
+                            <a href="{{ route('class_mentor', [$classes->slug, $classes->user->id]) }}">Lihat Detail Mentor</a>
                         </div>
                     </div>
                 </div>

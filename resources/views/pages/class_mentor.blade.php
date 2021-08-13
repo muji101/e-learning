@@ -20,7 +20,7 @@
             </div>
             <div data-aos="fade-right" data-aos-delay="200" class="md:grid md:grid-cols-2 bg-gray-100 rounded-2xl p-4 md:my-6 w-full md:w-8/12">
                 <div class="md:col-span-1 pb-4">
-                    <img class="rounded-full mx-auto w-32 md:w-52" src="{{ asset('/storage/'. $users->image) }}" alt="Gambar Profile">
+                    <img class="rounded-full mx-auto w-32 md:h-52 md:w-52 object-cover" src="{{ asset('/storage/'. $users->image) }}" alt="Gambar Profile">
                 </div>
                 <div class="md:col-span-1 text-base md:text-lg">
                     <h1>{{ $users->description }}</h1>
@@ -44,7 +44,7 @@
         <div class=" pb-8 md:pb-32">
             <div class="flex flex-wrap space-y-4 md:space-y-0 justify-around md:p-4 text-gray-100">
                 @forelse ($classes as $class)
-                    <a href="{{ route('class_detail', $class->id) }}" class="transform hover:scale-105">
+                    <a href="{{ route('class_detail', [$class->slug, $class->id]) }}" class="transform hover:scale-105">
                         <div data-aos="fade-up" data-aos-delay="{{ $increment += 100 }}" class="w-full md:w-96 p-2 md:p-4 bg-white rounded-2xl shadow-lg md:mt-14">
                             <img class="w-full h-52 rounded-2xl object-cover" src="{{ asset('/storage/'.$class->photo) }}" alt="">
                             <div class="py-2 text-gray-700 border-b-2 md:h-32">
